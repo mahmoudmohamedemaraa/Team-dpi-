@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -39,6 +38,7 @@ class AuthRepoImplementation extends AuthRepo {
         email: email,
         password: password,
       );
+
       var userEntity = UserEntity(
         firstName: firstName,
         lastName: lastName,
@@ -51,7 +51,7 @@ class AuthRepoImplementation extends AuthRepo {
       await saveUserData(user: userEntity);
       await addUserData(user: userEntity);
 
-      var storedUser = await getUserData(uId: user.uid);
+      var storedUser = await getUserData(nationalId: nationalId);
       return right(storedUser);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -78,38 +78,31 @@ class AuthRepoImplementation extends AuthRepo {
     await databaseService.addData(
       path: BackendEndpoint.addUserData,
       data: UserModel.fromEntity(user).toMap(),
-      documentId: user.uId,
+      documentId: user.nationalId,
     );
   }
 
   @override
-  Future<UserEntity> getUserData({required String uId}) async {
+  Future<UserEntity> getUserData({required String nationalId}) async {
     var userData = await databaseService.getData(
       path: BackendEndpoint.getUserData,
-      documentId: uId,
+      documentId: nationalId,
     );
+
+    if (userData == null) {
+      throw CustomException(message: 'لم يتم العثور على بيانات المستخدم.');
+    }
+
     return UserModel.fromJson(userData);
   }
 
   @override
   Future<bool> isNationalIdRegistered(String nationalId) async {
-    var users = await databaseService.getData(
+    var exists = await databaseService.checksIfDataExists(
       path: BackendEndpoint.getUserData,
+      documentId: nationalId,
     );
-    if (users is List) {
-      for (var u in users) {
-        try {
-          if (u is Map<String, dynamic>) {
-            final nid = u['nationalId'];
-            if (nid != null) {
-              if (nid is num && nid == nationalId) return true;
-              if (nid is String && nid == nationalId.toString()) return true;
-            }
-          }
-        } catch (_) {}
-      }
-    }
-    return false;
+    return exists;
   }
 
   @override
@@ -120,30 +113,25 @@ class AuthRepoImplementation extends AuthRepo {
 
   Future<String> getEmailByNationalId(String nationalId) async {
     try {
-      var users = await databaseService.getData(
+      var userData = await databaseService.getData(
         path: BackendEndpoint.getUserData,
+        documentId: nationalId,
       );
 
-      if (users is List) {
-        for (var userData in users) {
-          if (userData is Map<String, dynamic>) {
-            final nid = userData['nationalId'];
-
-            if (nid != null && nid is String) {
-              if (nid == nationalId) {
-                final email = userData['email'];
-                if (email != null && email is String) {
-                  return email;
-                }
-              }
-            }
-          }
-        }
+      if (userData == null) {
+        throw CustomException(
+          message: 'الرقم القومي غير مسجل. الرجاء التحقق من البيانات.',
+        );
       }
 
-      throw CustomException(
-        message: 'الرقم القومي غير مسجل. الرجاء التحقق من البيانات.',
-      );
+      final email = userData['email'];
+      if (email != null && email is String) {
+        return email;
+      } else {
+        throw CustomException(
+          message: 'لا يوجد بريد إلكتروني مرتبط بهذا الرقم القومي.',
+        );
+      }
     } catch (e) {
       if (e is CustomException) rethrow;
       throw CustomException(
@@ -159,11 +147,12 @@ class AuthRepoImplementation extends AuthRepo {
   ) async {
     try {
       String email;
+      String nationalId = emailOrNationalId;
 
       if (RegExp(r'^\d+$').hasMatch(emailOrNationalId)) {
         final emailFromNID = await getEmailByNationalId(emailOrNationalId);
 
-        if (emailFromNID == null) {
+        if (emailFromNID.isEmpty) {
           return left(
             ServerFailure('الرقم القومي غير مسجل. الرجاء التحقق من البيانات.'),
           );
@@ -179,7 +168,7 @@ class AuthRepoImplementation extends AuthRepo {
         password: password,
       );
 
-      final userEntity = await getUserData(uId: user.uid);
+      final userEntity = await getUserData(nationalId: nationalId);
       await saveUserData(user: userEntity);
 
       return right(userEntity);
