@@ -34,12 +34,21 @@ class AuthRepoImplementation extends AuthRepo {
   ) async {
     User? user;
     try {
+      final exists = await databaseService.checksIfDataExists(
+        path: BackendEndpoint.addUserData,
+        documentId: nationalId,
+      );
+
+      if (exists) {
+        return left(ServerFailure('الرقم القومي مسجل بالفعل.'));
+      }
+
       user = await firebaseAuthService.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      var userEntity = UserEntity(
+      final userEntity = UserEntity(
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -51,14 +60,14 @@ class AuthRepoImplementation extends AuthRepo {
       await saveUserData(user: userEntity);
       await addUserData(user: userEntity);
 
-      var storedUser = await getUserData(nationalId: nationalId);
+      final storedUser = await getUserData(nationalId: nationalId);
       return right(storedUser);
     } on CustomException catch (e) {
       await deleteUser(user);
       return left(ServerFailure(e.message));
     } catch (e) {
       await deleteUser(user);
-      log('Exception in AuthRepoimpl createUserWithEmailAndPassword: $e');
+      log('Exception in createUserWithEmailAndPassword: $e');
       return left(
         ServerFailure(
           'حدث خطأ غير معروف أثناء إنشاء الحساب. الرجاء المحاولة مرة أخرى.',
@@ -84,7 +93,7 @@ class AuthRepoImplementation extends AuthRepo {
 
   @override
   Future<UserEntity> getUserData({required String nationalId}) async {
-    var userData = await databaseService.getData(
+    final userData = await databaseService.getData(
       path: BackendEndpoint.getUserData,
       documentId: nationalId,
     );
@@ -93,43 +102,34 @@ class AuthRepoImplementation extends AuthRepo {
 
   @override
   Future<bool> isNationalIdRegistered(String nationalId) async {
-    var users = await databaseService.getData(
-      path: BackendEndpoint.getUserData,
-    );
-    if (users is List) {
-      for (var u in users) {
-        try {
-          if (u is Map<String, dynamic>) {
-            final nid = u['nationalId'];
-            if (nid != null) {
-              if (nid is num && nid == nationalId) return true;
-              if (nid is String && nid == nationalId.toString()) return true;
-            }
-          }
-        } catch (_) {}
-      }
+    try {
+      return await databaseService.checksIfDataExists(
+        path: BackendEndpoint.getUserData,
+        documentId: nationalId,
+      );
+    } catch (e) {
+      log('Error checking National ID: $e');
+      return false;
     }
-    return false;
   }
 
   @override
   Future saveUserData({required UserEntity user}) async {
-    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    final jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
     await SharedPreferencesSingleton.setString(kUserData, jsonData);
   }
 
   Future<String> getEmailByNationalId(String nationalId) async {
     try {
-      var users = await databaseService.getData(
+      final users = await databaseService.getData(
         path: BackendEndpoint.getUserData,
       );
 
       if (users is List) {
-        for (var userData in users) {
+        for (final userData in users) {
           if (userData is Map<String, dynamic>) {
             final nid = userData['nationalId'];
-
-            if (nid != null && nid is String && nid == nationalId) {
+            if (nid != null && nid.toString() == nationalId) {
               final email = userData['email'];
               if (email != null && email is String) {
                 return email;
@@ -152,12 +152,12 @@ class AuthRepoImplementation extends AuthRepo {
 
   Future<String> getNationalIdByEmail(String email) async {
     try {
-      var users = await databaseService.getData(
+      final users = await databaseService.getData(
         path: BackendEndpoint.getUserData,
       );
 
       if (users is List) {
-        for (var userData in users) {
+        for (final userData in users) {
           if (userData is Map<String, dynamic>) {
             final mail = userData['email'];
             if (mail != null && mail == email) {
@@ -196,8 +196,8 @@ class AuthRepoImplementation extends AuthRepo {
       );
 
       final nationalId = await getNationalIdByEmail(email);
-
       final userEntity = await getUserData(nationalId: nationalId);
+
       await saveUserData(user: userEntity);
 
       return right(userEntity);
