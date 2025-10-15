@@ -88,21 +88,28 @@ class AuthRepoImplementation extends AuthRepo {
       path: BackendEndpoint.getUserData,
       documentId: nationalId,
     );
-
-    if (userData == null) {
-      throw CustomException(message: 'لم يتم العثور على بيانات المستخدم.');
-    }
-
     return UserModel.fromJson(userData);
   }
 
   @override
   Future<bool> isNationalIdRegistered(String nationalId) async {
-    var exists = await databaseService.checksIfDataExists(
+    var users = await databaseService.getData(
       path: BackendEndpoint.getUserData,
-      documentId: nationalId,
     );
-    return exists;
+    if (users is List) {
+      for (var u in users) {
+        try {
+          if (u is Map<String, dynamic>) {
+            final nid = u['nationalId'];
+            if (nid != null) {
+              if (nid is num && nid == nationalId) return true;
+              if (nid is String && nid == nationalId.toString()) return true;
+            }
+          }
+        } catch (_) {}
+      }
+    }
+    return false;
   }
 
   @override
@@ -113,30 +120,59 @@ class AuthRepoImplementation extends AuthRepo {
 
   Future<String> getEmailByNationalId(String nationalId) async {
     try {
-      var userData = await databaseService.getData(
+      var users = await databaseService.getData(
         path: BackendEndpoint.getUserData,
-        documentId: nationalId,
       );
 
-      if (userData == null) {
-        throw CustomException(
-          message: 'الرقم القومي غير مسجل. الرجاء التحقق من البيانات.',
-        );
+      if (users is List) {
+        for (var userData in users) {
+          if (userData is Map<String, dynamic>) {
+            final nid = userData['nationalId'];
+
+            if (nid != null && nid is String && nid == nationalId) {
+              final email = userData['email'];
+              if (email != null && email is String) {
+                return email;
+              }
+            }
+          }
+        }
       }
 
-      final email = userData['email'];
-      if (email != null && email is String) {
-        return email;
-      } else {
-        throw CustomException(
-          message: 'لا يوجد بريد إلكتروني مرتبط بهذا الرقم القومي.',
-        );
-      }
+      throw CustomException(
+        message: 'الرقم القومي غير مسجل. الرجاء التحقق من البيانات.',
+      );
     } catch (e) {
       if (e is CustomException) rethrow;
       throw CustomException(
         message: 'حدث خطأ أثناء البحث عن البيانات. الرجاء المحاولة مرة أخرى.',
       );
+    }
+  }
+
+  Future<String> getNationalIdByEmail(String email) async {
+    try {
+      var users = await databaseService.getData(
+        path: BackendEndpoint.getUserData,
+      );
+
+      if (users is List) {
+        for (var userData in users) {
+          if (userData is Map<String, dynamic>) {
+            final mail = userData['email'];
+            if (mail != null && mail == email) {
+              return userData['nationalId'];
+            }
+          }
+        }
+      }
+
+      throw CustomException(
+        message: 'لم يتم العثور على الرقم القومي لهذا الإيميل.',
+      );
+    } catch (e) {
+      if (e is CustomException) rethrow;
+      throw CustomException(message: 'حدث خطأ أثناء استرجاع الرقم القومي.');
     }
   }
 
@@ -147,18 +183,9 @@ class AuthRepoImplementation extends AuthRepo {
   ) async {
     try {
       String email;
-      String nationalId = emailOrNationalId;
 
       if (RegExp(r'^\d+$').hasMatch(emailOrNationalId)) {
-        final emailFromNID = await getEmailByNationalId(emailOrNationalId);
-
-        if (emailFromNID.isEmpty) {
-          return left(
-            ServerFailure('الرقم القومي غير مسجل. الرجاء التحقق من البيانات.'),
-          );
-        }
-
-        email = emailFromNID;
+        email = await getEmailByNationalId(emailOrNationalId);
       } else {
         email = emailOrNationalId;
       }
@@ -167,6 +194,8 @@ class AuthRepoImplementation extends AuthRepo {
         email: email,
         password: password,
       );
+
+      final nationalId = await getNationalIdByEmail(email);
 
       final userEntity = await getUserData(nationalId: nationalId);
       await saveUserData(user: userEntity);
