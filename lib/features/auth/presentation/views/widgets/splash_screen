@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 // import 'dart:ui';
 
 class SplashScreen extends StatefulWidget {
+  static const String routeName = '/splash';
   const SplashScreen({super.key});
+
+ 
+  
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -26,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     // ⏱ الانتقال بعد 20 ثانية
     Future.delayed(const Duration(seconds: 20), () {
-      Navigator.pushReplacementNamed(context, '/SigninView');
+      Navigator.pushReplacementNamed(context, SigninView);
     });
   }
 

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:depi_project/core/services/custom_bloc_observer.dart';
 import 'package:depi_project/features/auth/presentation/views/signin_view.dart';
+import 'package:depi_project/features/auth/presentation/views/widgets/splash_screen';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,7 +53,7 @@ class DEPI extends StatelessWidget {
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SigninView.routeName,
+      initialRoute: SplashScreen.routeName,
 
 
     );
