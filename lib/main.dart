@@ -39,7 +39,7 @@ class DEPI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.green,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 245, 247, 245),
         fontFamily: 'Cairo',
       ),
       localizationsDelegates: [
