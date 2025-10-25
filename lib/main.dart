@@ -54,7 +54,7 @@ class DEPI extends StatelessWidget {
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashScreen.routeName,
+      initialRoute:  SplashScreen.routeName,
 
 
     );
