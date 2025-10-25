@@ -36,9 +36,9 @@ class CustomTextField extends StatelessWidget {
                 child: Container(
                   height: 55,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: const Color.fromARGB(255, 172, 170, 170).withOpacity(0.15),
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.white.withOpacity(0.12)),
+                    border: Border.all(color: const Color.fromARGB(255, 13, 13, 13).withOpacity(0.12)),
                   ),
                 ),
               ),
@@ -54,11 +54,11 @@ class CustomTextField extends StatelessWidget {
                 onSaved: onSaved,
                 keyboardType: keyboardType,
                 obscureText: obscureText,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Color.fromARGB(255, 3, 3, 3)),
                 decoration: InputDecoration(
                   suffixIcon: suffixIcon,
                   hintText: hintText,
-                  hintStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+                  hintStyle: TextStyle(color: const Color.fromARGB(255, 13, 13, 13).withOpacity(0.7)),
                   border: InputBorder.none,
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 16,
