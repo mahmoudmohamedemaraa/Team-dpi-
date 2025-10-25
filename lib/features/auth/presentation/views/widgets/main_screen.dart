@@ -64,36 +64,26 @@ class _MainScreenState extends State<MainScreen> {
       
         // 🔸 الشريط السفلي
      bottomNavigationBar: Container(
-      padding: EdgeInsets.only(top: 5,),
-  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
-  decoration: BoxDecoration(
-    color: Color.fromARGB(255, 235, 234, 234) , 
-    borderRadius: BorderRadius.circular(40),
-    
-    
-  ),
-  child: Container(
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(30),
-      child: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-        elevation: 0,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        selectedItemColor: const Color(0xFFFF6B5E),
-        unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
-        iconSize: 24,
-        onTap: (index) => setState(() => currentIndex = index),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "الرئيسية"),
-          BottomNavigationBarItem(icon: Icon(Icons.receipt_long), label: "بلاغاتي"),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "الاشعارات"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "الملف الشخصي"),
-        ],
-      ),
-    ),
-  ),
-),
+       child: ClipRRect(
+         borderRadius: BorderRadius.circular(30),
+         child: BottomNavigationBar(
+           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+           elevation: 0,
+           type: BottomNavigationBarType.fixed,
+           currentIndex: currentIndex,
+           selectedItemColor: const Color(0xFFFF6B5E),
+           unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
+           iconSize: 24,
+           onTap: (index) => setState(() => currentIndex = index),
+           items: const [
+             BottomNavigationBarItem(icon: Icon(Icons.home), label: "الرئيسية"),
+             BottomNavigationBarItem(icon: Icon(Icons.receipt_long), label: "بلاغاتي"),
+             BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "الاشعارات"),
+             BottomNavigationBarItem(icon: Icon(Icons.person), label: "الملف الشخصي"),
+           ],
+         ),
+       ),
+     ),
       
       
       ),
