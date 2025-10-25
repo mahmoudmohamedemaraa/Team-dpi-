@@ -1,97 +1,102 @@
-import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/home_layout.dart';
 import 'package:depi_project/features/auth/presentation/views/widgets/notifications_body.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/repports_body.dart';
 import 'package:depi_project/features/auth/presentation/views/widgets/profile_body.dart';
+import 'package:depi_project/features/auth/presentation/views/widgets/repports_body.dart';
 import 'package:depi_project/features/auth/presentation/views/widgets/submit_report_body.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List <Widget> screens =[
-    HomeLayout(),
-    RepportsBody(),
-   // SubmitReportBody(),
-    NotificationsBody(),
-    ProfileBody(),
+  int currentIndex = 0;
+
+  final List<Widget> screens = [
+    const HomeLayout(),
+    const RepportsBody(),
+    const NotificationsBody(),
+    const ProfileBody(),
   ];
-  int currentIndex =0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppTheme.white,
-      extendBodyBehindAppBar: true,
-      bottomNavigationBar: ClipRRect(
-          borderRadius: BorderRadiusGeometry.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20)
+    return SafeArea(
+      bottom: false,
+      top: false,
+
+      child: Scaffold(
+        extendBody: true,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255), // خلفية غامقة أنيقة
+        body: screens[currentIndex],
+      
+        // 🔸 الزر العائم في المنتصف (أحمر متوهج)
+        floatingActionButton: Container(
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFFFF6B5E), // توهج أحمر
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
           ),
-          child: BottomAppBar(
-            shape: CircularNotchedRectangle(),
-            notchMargin: 10,
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            color: Colors.transparent,
-            padding: EdgeInsets.zero,
-            elevation: 0,
-            child: SizedBox(
-              height: 60,
-              child: BottomNavigationBar(
+          child: FloatingActionButton(
+            backgroundColor: const Color(0xFFFF6B5E),
+            elevation: 6,
+            shape: const CircleBorder(),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
                 backgroundColor: Colors.transparent,
-                elevation: 0,
-                type: BottomNavigationBarType.fixed,
-                currentIndex: currentIndex,
-                selectedItemColor: AppTheme.primaryColor,
-                unselectedItemColor: AppTheme.black,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: "الرئيسية",
-                    ),
-                    BottomNavigationBarItem(
-                    icon: Icon(Icons.receipt_long),
-                    label: "بلاغاتي",
-                    ),
-                    BottomNavigationBarItem(
-                    icon: Icon(Icons.notifications),
-                    label: "الاشعارات",
-                    ),
-                    BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: "الملف الشخصي",            
-                    ),
-                ],
-                onTap: (value) => setState(() {
-                  currentIndex= value;
-                }),
-                ),
-            ),
+                builder: (context) => const SubmitReportBody(),
+              );
+            },
+            child: const Icon(Icons.add, size: 32, color: Colors.white),
           ),
         ),
-
-        floatingActionButton: FloatingActionButton(
-          shape: CircleBorder(),
-          backgroundColor: AppTheme.primaryColor,
-          focusColor: AppTheme.primaryColor,
-          onPressed: () => showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-             builder: (context) => SubmitReportBody(),
-             ),
-             child:Icon(Icons.add,
-             size: 32,
-             color: AppTheme.white,
-             ) , 
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          extendBody: true,
-       body: screens[currentIndex],
-
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      
+        // 🔸 الشريط السفلي
+     bottomNavigationBar: Container(
+      padding: EdgeInsets.only(top: 5,),
+  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+  decoration: BoxDecoration(
+    color: Color.fromARGB(255, 235, 234, 234) , 
+    borderRadius: BorderRadius.circular(40),
+    
+    
+  ),
+  child: Container(
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(30),
+      child: BottomNavigationBar(
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        elevation: 0,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        selectedItemColor: const Color(0xFFFF6B5E),
+        unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
+        iconSize: 24,
+        onTap: (index) => setState(() => currentIndex = index),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "الرئيسية"),
+          BottomNavigationBarItem(icon: Icon(Icons.receipt_long), label: "بلاغاتي"),
+          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "الاشعارات"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "الملف الشخصي"),
+        ],
+      ),
+    ),
+  ),
+),
+      
+      
+      ),
     );
   }
 }
