@@ -1,9 +1,9 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class SubmitReportBody extends StatelessWidget {
-  const SubmitReportBody({super.key});
-
+class AddReportView extends StatelessWidget {
+  const AddReportView({super.key});
+  static const routeName = 'add_report';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

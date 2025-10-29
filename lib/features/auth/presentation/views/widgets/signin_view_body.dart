@@ -25,7 +25,7 @@ class SigninViewBody extends StatelessWidget {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(height: 247),
+              SizedBox(height:290),
               CustomTextField(
                 onSaved: (value) {
                   emailOrNationalId = value!;
@@ -50,12 +50,12 @@ class SigninViewBody extends StatelessWidget {
                   password = value!;
                 },
               ),
-              SizedBox(height: 24),
+              SizedBox(height:30),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [Text('نسيت كلمة المرور؟')],
               ),
-              SizedBox(height: 28),
+              SizedBox(height: 20),
               CustomButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
@@ -76,7 +76,7 @@ class SigninViewBody extends StatelessWidget {
                 ],
                 shadowColor: const Color(0xFFFF7F37).withOpacity(0.4),
               ),
-              SizedBox(height: 152),
+              SizedBox(height: 180),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, SignupView.routeName);
@@ -84,14 +84,19 @@ class SigninViewBody extends StatelessWidget {
                 child: Column(
                   children: [
                     Text('ليس لديك حساب؟'),
-                    SizedBox(height: 20),
+                    SizedBox(height: 15),
                     CustomButton(
                       text: 'انشاء حساب',
-                      backgroundColor: Colors.white.withValues(alpha: 0.10),
+                      gradientColors: [
+                  const Color.fromARGB(130, 228, 222, 222),
+                  const Color.fromARGB(130, 239, 191, 191),
+                  const Color.fromARGB(130, 228, 222, 222),
+                ],
+                shadowColor: const Color.fromARGB(255, 231, 124, 124).withOpacity(0.5),
 
                       borderWidth: 1.5,
                       hasShadow: false,
-                      textColor: Colors.white,
+                      textColor: const Color.fromARGB(255, 0, 0, 0),
                     ),
                   ],
                 ),

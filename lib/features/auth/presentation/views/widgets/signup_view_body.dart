@@ -137,14 +137,15 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   }
                 },
                 text: ' انشاء حساب',
+                textColor: const Color.fromARGB(255, 11, 11, 11),
                 gradientColors: [
                   const Color(0xffDB3022),
                   Color(0xFFFF9A8B),
                   const Color(0xffDB3022),
                 ],
-                shadowColor: const Color(0xFFFF7F37).withOpacity(0.4),
+                shadowColor: const Color.fromARGB(255, 190, 122, 122).withOpacity(0.2),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
@@ -155,16 +156,21 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     SizedBox(height: 20),
                     CustomButton(
                       text: 'تسجيل الدخول',
-                      backgroundColor: Colors.white.withValues(alpha: 0.10),
+                      gradientColors: [
+                  const Color.fromARGB(130, 228, 222, 222),
+                  const Color.fromARGB(130, 239, 191, 191),
+                  const Color.fromARGB(130, 228, 222, 222),
+                ],
+                shadowColor: const Color.fromARGB(255, 231, 124, 124).withOpacity(0.5),
 
                       borderWidth: 1.5,
                       hasShadow: false,
-                      textColor: Colors.white,
+                      textColor: const Color.fromARGB(255, 11, 11, 11),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 40),
             ],
           ),
         ),
