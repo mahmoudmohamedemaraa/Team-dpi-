@@ -117,6 +117,7 @@ class AuthRepoImplementation extends AuthRepo {
   Future saveUserData({required UserEntity user}) async {
     final jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
     await SharedPreferencesSingleton.setString(kUserData, jsonData);
+    SharedPreferencesSingleton.setBool(isLoggedIn, true);
   }
 
   Future<String> getEmailByNationalId(String nationalId) async {

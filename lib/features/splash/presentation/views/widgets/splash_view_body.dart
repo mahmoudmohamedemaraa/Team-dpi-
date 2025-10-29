@@ -1,4 +1,7 @@
 import 'package:depi_project/features/auth/presentation/views/signin_view.dart';
+import 'package:depi_project/features/auth/presentation/views/widgets/main_screen.dart';
+import 'package:depi_project/core/utils/shared_preferences_singleton.dart';
+import 'package:depi_project/contants.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -46,32 +49,33 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
 
     //  دوران بسيط في البداية
-    _rotationAnimation =
-        Tween<double>(begin: 0, end: 2 * pi).animate(CurvedAnimation(
-      parent: _mainController,
-      curve: const Interval(0.0, 0.7, curve: Curves.easeInOutCubic),
-    ));
+    _rotationAnimation = Tween<double>(begin: 0, end: 2 * pi).animate(
+      CurvedAnimation(
+        parent: _mainController,
+        curve: const Interval(0.0, 0.7, curve: Curves.easeInOutCubic),
+      ),
+    );
 
     //  تكبير تدريجي من الحجم الصغير للحجم الطبيعي
-    _scaleAnimation =
-        Tween<double>(begin: 0.3, end: 1.0).animate(CurvedAnimation(
-      parent: _mainController,
-      curve: const Interval(0.0, 0.8, curve: Curves.easeOutBack),
-    ));
+    _scaleAnimation = Tween<double>(begin: 0.3, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _mainController,
+        curve: const Interval(0.0, 0.8, curve: Curves.easeOutBack),
+      ),
+    );
 
     //  توهّج ناعم بيزيد تدريجيًا
-    _glowAnimation =
-        Tween<double>(begin: 0, end: 25).animate(CurvedAnimation(
-      parent: _mainController,
-      curve: Curves.easeInOutSine,
-    ));
+    _glowAnimation = Tween<double>(begin: 0, end: 25).animate(
+      CurvedAnimation(parent: _mainController, curve: Curves.easeInOutSine),
+    );
 
     //  أنيميشن الظهور (fade in)
-    _fadeAnimation =
-        Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
-      parent: _mainController,
-      curve: const Interval(0.0, 0.6, curve: Curves.easeIn),
-    ));
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _mainController,
+        curve: const Interval(0.0, 0.6, curve: Curves.easeIn),
+      ),
+    );
 
     // لما الأنيميشن الأساسي يخلص → نبدأ النبض
     _mainController.addStatusListener((status) {
@@ -80,9 +84,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
       }
     });
 
-    // ⏱ الانتقال بعد 15 ثواني
-    Future.delayed(const Duration(seconds: 20), () {
-      Navigator.pushReplacementNamed(context, SigninView.routeName);
+    // ⏱ الانتقال بعد الانيميشن: تحقق من حالة تسجيل الدخول
+    Future.delayed(const Duration(seconds: 2), () async {
+      final loggedIn = SharedPreferencesSingleton.getBool(isLoggedIn);
+      if (loggedIn) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const MainScreen()),
+        );
+      } else {
+        Navigator.pushReplacementNamed(context, SigninView.routeName);
+      }
     });
   }
 
@@ -124,7 +136,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.4),
+                          color: const Color.fromARGB(
+                            255,
+                            253,
+                            253,
+                            253,
+                          ).withOpacity(0.4),
                           blurRadius: _glowAnimation.value,
                           spreadRadius: _glowAnimation.value * 0.3,
                         ),
@@ -133,7 +150,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
                     child: Image.asset(
                       'assets/images/logo.png',
                       width: 400,
-                      height:400,
+                      height: 400,
                       fit: BoxFit.contain,
                     ),
                   ),

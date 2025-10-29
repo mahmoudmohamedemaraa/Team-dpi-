@@ -2,7 +2,7 @@ import 'package:depi_project/features/auth/presentation/views/widgets/home_widge
 import 'package:depi_project/features/auth/presentation/views/widgets/notifications_body.dart';
 import 'package:depi_project/features/auth/presentation/views/widgets/profile_body.dart';
 import 'package:depi_project/features/auth/presentation/views/widgets/repports_body.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/submit_report_body.dart';
+import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -30,9 +30,14 @@ class _MainScreenState extends State<MainScreen> {
 
       child: Scaffold(
         extendBody: true,
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255), // خلفية غامقة أنيقة
+        backgroundColor: const Color.fromARGB(
+          255,
+          255,
+          255,
+          255,
+        ), // خلفية غامقة أنيقة
         body: screens[currentIndex],
-      
+
         // 🔸 الزر العائم في المنتصف (أحمر متوهج)
         floatingActionButton: Container(
           decoration: const BoxDecoration(
@@ -54,38 +59,48 @@ class _MainScreenState extends State<MainScreen> {
                 context: context,
                 isScrollControlled: true,
                 backgroundColor: Colors.transparent,
-                builder: (context) => const SubmitReportBody(),
+                builder: (context) => const AddReportView(),
               );
             },
             child: const Icon(Icons.add, size: 32, color: Colors.white),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      
+
         // 🔸 الشريط السفلي
-     bottomNavigationBar: Container(
-       child: ClipRRect(
-         borderRadius: BorderRadius.circular(30),
-         child: BottomNavigationBar(
-           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-           elevation: 0,
-           type: BottomNavigationBarType.fixed,
-           currentIndex: currentIndex,
-           selectedItemColor: const Color(0xFFFF6B5E),
-           unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
-           iconSize: 24,
-           onTap: (index) => setState(() => currentIndex = index),
-           items: const [
-             BottomNavigationBarItem(icon: Icon(Icons.home), label: "الرئيسية"),
-             BottomNavigationBarItem(icon: Icon(Icons.receipt_long), label: "بلاغاتي"),
-             BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "الاشعارات"),
-             BottomNavigationBarItem(icon: Icon(Icons.person), label: "الملف الشخصي"),
-           ],
-         ),
-       ),
-     ),
-      
-      
+        bottomNavigationBar: Container(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: BottomNavigationBar(
+              backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+              elevation: 0,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: currentIndex,
+              selectedItemColor: const Color(0xFFFF6B5E),
+              unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
+              iconSize: 24,
+              onTap: (index) => setState(() => currentIndex = index),
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "الرئيسية",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.receipt_long),
+                  label: "بلاغاتي",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.notifications),
+                  label: "الاشعارات",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "الملف الشخصي",
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
