@@ -1,5 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/main_screen.dart';
+import 'package:depi_project/features/home/presentation/views/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -22,11 +22,9 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
             message: 'تم تسجيل الدخول بنجاح',
             contentType: ContentType.success,
           );
-           Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) =>  MainScreen(),
-            ),
-          );
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (context) => MainScreen()));
         }
         if (state is SigninFailure) {
           buildSnackBar(

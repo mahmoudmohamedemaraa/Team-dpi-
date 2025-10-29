@@ -1,6 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:depi_project/core/helpers/build_snackbar.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/main_screen.dart';
+import 'package:depi_project/features/home/presentation/views/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -22,11 +22,9 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
             message: 'تم التسجيل بنجاح',
             contentType: ContentType.success,
           );
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) =>  MainScreen(),
-            ),
-          );
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (context) => MainScreen()));
         }
         if (state is SignupFailure) {
           buildSnackBar(

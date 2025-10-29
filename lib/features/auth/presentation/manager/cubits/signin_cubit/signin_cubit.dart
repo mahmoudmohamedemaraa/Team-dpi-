@@ -16,6 +16,7 @@ class SigninCubit extends Cubit<SigninState> {
       emailOrNationalId,
       password,
     );
+
     result.fold(
       (failure) => emit(SigninFailure(errorMessage: failure.message)),
       (userEntity) => emit(SigninSuccess(userEntity: userEntity)),

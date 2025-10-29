@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.depi_project"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = "27.0.12077973"
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -24,7 +24,11 @@ android {
         applicationId = "com.example.depi_project"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
+<<<<<<< HEAD
         minSdkVersion(23)
+=======
+        minSdk = 23
+>>>>>>> fd5aa54030cf6506d7b9107548e007e51b5bbf61
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
