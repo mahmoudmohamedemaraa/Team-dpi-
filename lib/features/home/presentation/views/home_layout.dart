@@ -1,7 +1,7 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/widget_awareness_card.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/widget_quick_options.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_awareness_card.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
 import 'package:flutter/material.dart';
 
 class HomeLayout extends StatelessWidget {

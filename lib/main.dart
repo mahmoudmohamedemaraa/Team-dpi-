@@ -11,7 +11,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/helpers/on_generate_routes.dart';
 import 'core/services/get_it_service.dart';
 import 'core/utils/shared_preferences_singleton.dart';
-import 'features/auth/presentation/views/splash_view.dart';
+import 'features/splash/presentation/views/splash_view.dart';
 import 'firebase_options.dart';
 import 'generated/l10n.dart';
 
@@ -54,9 +54,7 @@ class DEPI extends StatelessWidget {
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute:  SplashScreen.routeName,
-
-
+      initialRoute: SplashScreen.routeName,
     );
   }
 }
