@@ -1,5 +1,6 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/features/emergency_numbers/presentation/views/emergency_numbers_body.dart';
+import 'package:depi_project/features/from_home_to_page/security_tips_page/presentation/security_tips_page.dart';
 import 'package:flutter/material.dart';
 
 class WidgetQuickOptions extends StatelessWidget {
@@ -24,9 +25,14 @@ class WidgetQuickOptions extends StatelessWidget {
             builder: (context) => const EmergencyNumbersBody(),
           ),
         );
-      } else {
-        null;
-      };
+      } else if (text =="نصائح امنيه"){
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) =>  SecurityTipsPage(),
+          ),
+        );
+      }
+
       },
       child: Container(
         height: 100,
