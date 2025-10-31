@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'build_snack_bar.dart';
 
 class MediaManager {
-  final ImagePicker _picker = ImagePicker();
+  final ImagePicker picker = ImagePicker();
   final List<File> _selectedMedia = [];
 
   List<File> get selectedMedia => _selectedMedia;
@@ -15,7 +15,7 @@ class MediaManager {
   /// Pick multiple images from gallery
   Future<void> pickImages(BuildContext context) async {
     try {
-      final List<XFile> images = await _picker.pickMultiImage();
+      final List<XFile> images = await picker.pickMultiImage();
       if (images.isNotEmpty) {
         _selectedMedia.addAll(images.map((xFile) => File(xFile.path)));
       }
@@ -32,7 +32,7 @@ class MediaManager {
   /// Pick single video from gallery
   Future<void> pickVideo(BuildContext context) async {
     try {
-      final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
+      final XFile? video = await picker.pickVideo(source: ImageSource.gallery);
       if (video != null) {
         _selectedMedia.add(File(video.path));
       }

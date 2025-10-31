@@ -1,5 +1,4 @@
 import 'package:depi_project/features/auth/presentation/views/signin_view.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/main_screen.dart';
 import 'package:depi_project/core/utils/shared_preferences_singleton.dart';
 import 'package:depi_project/contants.dart';
 import 'package:depi_project/features/home/presentation/views/main_screen.dart';
