@@ -1,5 +1,5 @@
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/home_layout.dart';
 import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
+import 'package:depi_project/features/home/presentation/views/home_layout.dart';
 import 'package:depi_project/features/home/presentation/views/notifications_body.dart';
 import 'package:depi_project/features/home/presentation/views/profile_body.dart';
 import 'package:depi_project/features/home/presentation/views/repports_body.dart';
