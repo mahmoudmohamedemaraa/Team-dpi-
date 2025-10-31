@@ -7,6 +7,7 @@ import 'package:depi_project/features/splash/presentation/views/splash_view.dart
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/helpers/on_generate_routes.dart';
@@ -28,6 +29,8 @@ void main() async {
     log('Error initializing Firebase: $e');
   }
   await SharedPreferencesSingleton.init();
+
+  await dotenv.load(fileName: ".env");
 
   setupGetit();
 
@@ -54,8 +57,7 @@ class DEPI extends StatelessWidget {
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-     // initialRoute: EmergencyNumbersBody.routeName,
-       initialRoute: SplashScreen.routeName,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }

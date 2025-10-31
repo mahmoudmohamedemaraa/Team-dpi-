@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -138,12 +139,13 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
                 text: ' انشاء حساب',
                 textColor: const Color.fromARGB(255, 11, 11, 11),
-                gradientColors: [
-                  const Color(0xffDB3022),
-                  Color(0xFFFF9A8B),
-                  const Color(0xffDB3022),
-                ],
-                shadowColor: const Color.fromARGB(255, 190, 122, 122).withOpacity(0.2),
+                gradientColors: AppTheme.primaryGradientColors,
+                shadowColor: const Color.fromARGB(
+                  255,
+                  190,
+                  122,
+                  122,
+                ).withOpacity(0.2),
               ),
               SizedBox(height: 20),
               GestureDetector(
@@ -157,11 +159,16 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     CustomButton(
                       text: 'تسجيل الدخول',
                       gradientColors: [
-                  const Color.fromARGB(130, 228, 222, 222),
-                  const Color.fromARGB(130, 239, 191, 191),
-                  const Color.fromARGB(130, 228, 222, 222),
-                ],
-                shadowColor: const Color.fromARGB(255, 231, 124, 124).withOpacity(0.5),
+                        const Color.fromARGB(130, 228, 222, 222),
+                        const Color.fromARGB(130, 239, 191, 191),
+                        const Color.fromARGB(130, 228, 222, 222),
+                      ],
+                      shadowColor: const Color.fromARGB(
+                        255,
+                        231,
+                        124,
+                        124,
+                      ).withOpacity(0.5),
 
                       borderWidth: 1.5,
                       hasShadow: false,

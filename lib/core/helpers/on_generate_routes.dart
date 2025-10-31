@@ -20,7 +20,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const AddReportView());
 
     case EmergencyNumbersBody.routeName:
-      return MaterialPageRoute(builder: (context) => const EmergencyNumbersBody());
+      return MaterialPageRoute(
+        builder: (context) => const EmergencyNumbersBody(),
+      );
 
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

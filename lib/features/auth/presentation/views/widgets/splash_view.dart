@@ -1,7 +1,7 @@
 import 'package:depi_project/features/auth/presentation/views/signin_view.dart';
+import 'package:depi_project/features/home/presentation/views/main_screen.dart';
 import 'package:depi_project/core/utils/shared_preferences_singleton.dart';
 import 'package:depi_project/contants.dart';
-import 'package:depi_project/features/home/presentation/views/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -85,7 +85,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
 
     // ⏱ الانتقال بعد الانيميشن: تحقق من حالة تسجيل الدخول
-    Future.delayed(const Duration(seconds: 10), () async {
+    Future.delayed(const Duration(seconds: 2), () async {
       final loggedIn = SharedPreferencesSingleton.getBool(isLoggedIn);
       if (loggedIn) {
         Navigator.pushReplacement(

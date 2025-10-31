@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.onSaved,
     this.validator,
+    this.maxLines = 1,
   });
   final String labelText;
   final String hintText;
@@ -20,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final int maxLines;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,11 +36,25 @@ class CustomTextField extends StatelessWidget {
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
                 child: Container(
-                  height: 55,
+                  constraints: BoxConstraints(
+                    minHeight: maxLines == 1 ? 55 : 55.0 * maxLines,
+                  ),
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 172, 170, 170).withOpacity(0.15),
+                    color: const Color.fromARGB(
+                      255,
+                      172,
+                      170,
+                      170,
+                    ).withOpacity(0.15),
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: const Color.fromARGB(255, 13, 13, 13).withOpacity(0.12)),
+                    border: Border.all(
+                      color: const Color.fromARGB(
+                        255,
+                        13,
+                        13,
+                        13,
+                      ).withOpacity(0.12),
+                    ),
                   ),
                 ),
               ),
@@ -54,11 +70,19 @@ class CustomTextField extends StatelessWidget {
                 onSaved: onSaved,
                 keyboardType: keyboardType,
                 obscureText: obscureText,
+                maxLines: maxLines,
                 style: const TextStyle(color: Color.fromARGB(255, 3, 3, 3)),
                 decoration: InputDecoration(
                   suffixIcon: suffixIcon,
                   hintText: hintText,
-                  hintStyle: TextStyle(color: const Color.fromARGB(255, 13, 13, 13).withOpacity(0.7)),
+                  hintStyle: TextStyle(
+                    color: const Color.fromARGB(
+                      255,
+                      13,
+                      13,
+                      13,
+                    ).withOpacity(0.7),
+                  ),
                   border: InputBorder.none,
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 16,
