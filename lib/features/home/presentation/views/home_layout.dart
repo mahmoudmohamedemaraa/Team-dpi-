@@ -1,7 +1,8 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/widget_awareness_card.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/widget_quick_options.dart';
+import 'package:depi_project/features/from_home_to_page/security_tips_page/presentation/security_tips_page.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_awareness_card.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
 import 'package:flutter/material.dart';
 
 class HomeLayout extends StatelessWidget {
@@ -146,9 +147,18 @@ class HomeLayout extends StatelessWidget {
                   ),
                   SizedBox(width: 16),
                   Expanded(
-                    child: WidgetQuickOptions(
-                      icon: Icons.security,
-                      text: "نصائح امنيه",
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => SecurityTipsPage(),
+                          ),
+                        );
+                      },
+                      child: WidgetQuickOptions(
+                        icon: Icons.security,
+                        text: "نصائح امنيه",
+                      ),
                     ),
                   ),
                 ],
