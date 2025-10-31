@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:depi_project/core/services/custom_bloc_observer.dart';
-import 'package:depi_project/features/auth/presentation/views/signin_view.dart';
+import 'package:depi_project/features/emergency_numbers/presentation/views/emergency_numbers_body.dart';
 import 'package:depi_project/features/splash/presentation/views/splash_view.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -54,7 +54,8 @@ class DEPI extends StatelessWidget {
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashScreen.routeName,
+     // initialRoute: EmergencyNumbersBody.routeName,
+       initialRoute: SplashScreen.routeName,
     );
   }
 }

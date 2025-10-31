@@ -4,6 +4,8 @@ import 'package:depi_project/features/home/presentation/views/widgets/home_widge
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
 import 'package:flutter/material.dart';
 
+import '../../../emergency_numbers/presentation/views/emergency_numbers_body.dart';
+
 class HomeLayout extends StatelessWidget {
   const HomeLayout({super.key});
 
@@ -168,6 +170,15 @@ class HomeLayout extends StatelessWidget {
                     child: WidgetQuickOptions(
                       icon: Icons.phone,
                       text: " ارقام طوارئ",
+                      // onTap: (){
+                      //   Navigator.of(context).push(
+                      //     MaterialPageRoute(
+                      //       builder: (context) => const EmergencyNumbersBody(),
+                      //     ),
+                      //   );
+                      // },
+                      
+
                     ),
                   ),
                 ],
