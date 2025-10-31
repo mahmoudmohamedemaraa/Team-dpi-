@@ -85,7 +85,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
 
     // ⏱ الانتقال بعد الانيميشن: تحقق من حالة تسجيل الدخول
-    Future.delayed(const Duration(seconds: 2), () async {
+    Future.delayed(const Duration(seconds: 10), () async {
       final loggedIn = SharedPreferencesSingleton.getBool(isLoggedIn);
       if (loggedIn) {
         Navigator.pushReplacement(

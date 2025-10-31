@@ -1,17 +1,25 @@
-import 'package:cloudinary_api/uploader/cloudinary_uploader.dart';
-import 'package:cloudinary_url_gen/cloudinary.dart';
-import 'package:cloudinary_api/src/request/model/uploader_params.dart';
 import 'dart:io';
+import 'package:dio/dio.dart';
+import 'package:uuid/uuid.dart';
 
 import 'storage_service.dart';
 
 class CloudinaryService implements StorageService {
-  final Cloudinary cloudinary;
+  final String _cloudName;
   final String _uploadPreset;
+  final String _apiKey;
+  final Uuid _uuid;
+  final Dio _dio;
 
-  CloudinaryService({required String cloudName, required String uploadPreset})
-    : cloudinary = Cloudinary.fromCloudName(cloudName: cloudName),
-      _uploadPreset = uploadPreset;
+  CloudinaryService({
+    required String cloudName,
+    required String uploadPreset,
+    required String apiKey,
+  }) : _cloudName = cloudName,
+       _uploadPreset = uploadPreset,
+       _apiKey = apiKey,
+       _uuid = const Uuid(),
+       _dio = Dio();
 
   @override
   Future<String> uploadFile(
@@ -20,23 +28,61 @@ class CloudinaryService implements StorageService {
     bool isVideo = false,
   }) async {
     try {
-      final response = await cloudinary.uploader().upload(
-        file,
-        params: UploadParams(
-          uploadPreset: _uploadPreset,
-          folder: folderPath,
+      final String uniqueId = _uuid.v4();
+      final String publicId = '$folderPath/$uniqueId';
 
-          resourceType: isVideo ? 'video' : 'image',
+      final String resourceType = isVideo ? 'video' : 'image';
+      final String url =
+          'https://api.cloudinary.com/v1_1/$_cloudName/$resourceType/upload';
+
+      FormData formData = FormData.fromMap({
+        'file': await MultipartFile.fromFile(
+          file.path,
+          filename: file.path.split('/').last,
         ),
-      );
+        'upload_preset': _uploadPreset,
+        'public_id': publicId,
+        'api_key': _apiKey,
+      });
 
-      if (response?.data?.secureUrl == null) {
-        throw Exception('Upload successful but no secure URL returned');
+      final response = await _dio.post(url, data: formData);
+
+      if (response.statusCode != 200) {
+        throw Exception(
+          'Cloudinary upload failed with status: ${response.statusCode}. Response: ${response.data}',
+        );
       }
 
-      return response!.data!.secureUrl!;
+      final Map<String, dynamic> responseData = response.data;
+
+      if (responseData.containsKey('error')) {
+        throw Exception(
+          'Cloudinary API Error: ${responseData['error']['message']}',
+        );
+      }
+
+      final String? secureUrl = responseData['secure_url'];
+
+      if (secureUrl != null && secureUrl.isNotEmpty) {
+        return secureUrl;
+      } else {
+        throw Exception(
+          'Upload successful but no valid secure_url found in response.',
+        );
+      }
+    } on DioException catch (e) {
+      String errorMessage = 'Network or API error during Cloudinary upload.';
+      if (e.response != null) {
+        errorMessage +=
+            ' Status: ${e.response?.statusCode}. Data: ${e.response?.data}';
+      } else {
+        errorMessage += ' Message: ${e.message}';
+      }
+      throw Exception(errorMessage);
     } catch (e) {
-      throw Exception('Cloudinary upload failed: $e');
+      throw Exception(
+        'An unexpected error occurred during Cloudinary upload: $e',
+      );
     }
   }
 }
