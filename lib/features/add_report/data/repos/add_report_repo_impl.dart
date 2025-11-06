@@ -18,6 +18,7 @@ class AddReportRepoImpl implements AddReportRepo {
   Future<Either<Failure, void>> addReport(ReportEntity report) async {
     try {
       await databaseService.addData(
+        documentId: report.reportId,
         path: BackendEndpoint.addReports,
         data: ReportModel.fromEntity(report).toJson(),
       );
