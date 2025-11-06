@@ -1,10 +1,10 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
-import 'package:depi_project/core/helpers/build_snackbar.dart';
 import 'package:depi_project/features/home/presentation/views/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../../core/helpers/build_snack_bar.dart';
 import '../../manager/cubits/signup_cubit/signup_cubit.dart';
 import 'signup_view_body.dart';
 

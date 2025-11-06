@@ -10,6 +10,8 @@ class ReportEntity {
   final String? address;
   final DateTime updatedAt;
   final ReportStatusEnum status;
+
+  final String? adminComment;
   ReportEntity({
     required this.reportId,
 
@@ -21,6 +23,7 @@ class ReportEntity {
     this.address,
     required this.updatedAt,
     this.status = ReportStatusEnum.pending,
+    this.adminComment,
   });
 
   factory ReportEntity.fromJson(Map<String, dynamic> json) {
@@ -37,6 +40,7 @@ class ReportEntity {
         (e) => e.name == json['status'],
         orElse: () => ReportStatusEnum.pending,
       ),
+      adminComment: json['adminComment'],
     );
   }
 
@@ -51,6 +55,7 @@ class ReportEntity {
     String? address,
     DateTime? updatedAt,
     ReportStatusEnum? status,
+    String? adminComment,
   }) {
     return ReportEntity(
       reportId: reportId ?? this.reportId,
@@ -62,6 +67,7 @@ class ReportEntity {
       address: address ?? this.address,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,
+      adminComment: adminComment ?? this.adminComment,
     );
   }
 

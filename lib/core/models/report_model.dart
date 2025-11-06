@@ -9,6 +9,7 @@ class ReportModel extends ReportEntity {
 
   ReportModel({
     required super.reportId,
+
     required super.title,
     required super.userId,
     required super.description,
@@ -17,6 +18,7 @@ class ReportModel extends ReportEntity {
     super.address,
     required super.updatedAt,
     super.status = ReportStatusEnum.pending,
+    super.adminComment,
     required this.mediaFiles,
   });
 
@@ -32,6 +34,7 @@ class ReportModel extends ReportEntity {
       'address': address,
       'updatedAt': updatedAt.toIso8601String(),
       'status': status.name,
+      'adminComment': adminComment,
     };
   }
 
@@ -47,6 +50,7 @@ class ReportModel extends ReportEntity {
       address: map['address'],
       updatedAt: DateTime.parse(map['updatedAt']),
       status: statusFromString(map['status']),
+      adminComment: map['adminComment'],
       mediaFiles: [],
     );
   }
@@ -66,6 +70,7 @@ class ReportModel extends ReportEntity {
       address: entity.address,
       updatedAt: entity.updatedAt,
       status: entity.status,
+      adminComment: entity.adminComment,
       mediaFiles: mediaFiles ?? [],
     );
   }
@@ -81,6 +86,7 @@ class ReportModel extends ReportEntity {
       address: address,
       updatedAt: updatedAt,
       status: status,
+      adminComment: adminComment,
     );
   }
 }

@@ -117,6 +117,7 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                         createdAt: DateTime.now(),
                         updatedAt: DateTime.now(),
                         address: address,
+                        adminComment: null,
                       );
                       context.read<AddReportCubit>().addReport(
                         reportEntity,
