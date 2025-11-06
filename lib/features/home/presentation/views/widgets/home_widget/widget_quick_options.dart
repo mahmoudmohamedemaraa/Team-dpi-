@@ -35,26 +35,30 @@ class WidgetQuickOptions extends StatelessWidget {
 
       },
       child: Container(
-        height: 100,
-        // width: MediaQuery.of(context).size.width * 0.4,
+        height:  MediaQuery.of(context).size.width * 0.22,
         decoration: BoxDecoration(
           color: AppTheme.lightRed,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: AppTheme.primaryColor),
-            SizedBox(height: 16),
-            Text(
-              text,
-              style: TextStyle(
-                color: AppTheme.primaryColor,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                text,
+                style: TextStyle(
+                  color: AppTheme.primaryColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
+               Icon(icon,
+                size: 35,
+                color: AppTheme.primaryColor
+                ),
+            ],
+          ),
         ),
       ),
     );

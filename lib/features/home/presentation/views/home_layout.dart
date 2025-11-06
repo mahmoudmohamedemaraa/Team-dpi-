@@ -136,18 +136,15 @@ class HomeLayout extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    child: WidgetQuickOptions(
+                    WidgetQuickOptions(
                       icon: Icons.receipt_long,
                       text: " بلاغاتي",
                     ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: GestureDetector(
+                    const SizedBox(height: 16),
+                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -160,28 +157,13 @@ class HomeLayout extends StatelessWidget {
                         text: "نصائح امنيه",
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: WidgetQuickOptions(
-                      icon: Icons.emoji_events,
-                      text: "المكافات",
-                    ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: WidgetQuickOptions(
+                    const SizedBox(height: 16),
+                   WidgetQuickOptions(
                       icon: Icons.phone,
                       text: " ارقام طوارئ",
                     ),
-                  ),
                 ],
-              ),
+              ),                 
               SizedBox(height: 32),
               WidgetAwarenessCard(
                 text1: "توعية الوزارة",
