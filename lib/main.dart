@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:depi_project/core/services/custom_bloc_observer.dart';
+import 'package:depi_project/features/add_report/presentation/manager/cubits/add_report_cubit/add_report_cubit.dart';
 import 'package:depi_project/features/emergency_numbers/presentation/views/emergency_numbers_body.dart';
+import 'package:depi_project/features/reports/presentation/manager/cubit/reports_cubit.dart';
 import 'package:depi_project/features/splash/presentation/views/splash_view.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -34,7 +36,22 @@ void main() async {
 
   setupGetit();
 
-  runApp(const DEPI());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<AddReportCubit>(
+        create: (context)=>AddReportCubit( getIt(), getIt()),
+        
+        
+      ),
+      BlocProvider<GetUserReportsCubit>(
+        create: (context)=>GetUserReportsCubit() ..fetchUserReports(),
+        
+        
+      ),
+    ],
+    child: const DEPI()
+    )
+    );
 }
 
 class DEPI extends StatelessWidget {
