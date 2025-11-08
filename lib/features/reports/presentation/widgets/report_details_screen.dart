@@ -5,29 +5,28 @@ import 'package:flutter/material.dart';
 
 import 'package:depi_project/features/reports/presentation/widgets/media_thumbnail.dart';
 
-
-
 class ReportDetailsScreen extends StatelessWidget {
   final ReportEntity report;
-  
+
   const ReportDetailsScreen({super.key, required this.report});
 
   @override
   Widget build(BuildContext context) {
     Color getReportStatusColor(ReportStatusEnum status) {
-  switch (status) {
-    case ReportStatusEnum.pending:
-      return Colors.blueGrey.shade500; 
-    case ReportStatusEnum.inReview:
-      return Colors.amber.shade700; 
-    case ReportStatusEnum.investigating:
-      return Colors.orange.shade700; 
-    case ReportStatusEnum.resolved:
-      return Colors.green.shade600; 
-    case ReportStatusEnum.rejected:
-      return Colors.red.shade600; 
+      switch (status) {
+        case ReportStatusEnum.pending:
+          return Colors.blueGrey.shade500;
+        case ReportStatusEnum.inReview:
+          return Colors.amber.shade700;
+        case ReportStatusEnum.investigating:
+          return Colors.orange.shade700;
+        case ReportStatusEnum.resolved:
+          return Colors.green.shade600;
+        case ReportStatusEnum.rejected:
+          return Colors.red.shade600;
+      }
     }
-}
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('تفاصيل التقرير'),
@@ -74,10 +73,7 @@ class ReportDetailsScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Text(
-              report.description,
-              style: const TextStyle(fontSize: 16),
-            ),
+            Text(report.description, style: const TextStyle(fontSize: 16)),
             const Divider(height: 32),
 
             if (report.address != null && report.address!.isNotEmpty)
@@ -104,7 +100,7 @@ class ReportDetailsScreen extends StatelessWidget {
                   const Divider(height: 32),
                 ],
               ),
-            
+
             // (Media)
             if (report.mediaUrls.isNotEmpty)
               Column(
@@ -119,11 +115,16 @@ class ReportDetailsScreen extends StatelessWidget {
                     height: 100,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: report.mediaUrls.length > 4 ? 4 : report.mediaUrls.length,
+                      itemCount: report.mediaUrls.length > 4
+                          ? 4
+                          : report.mediaUrls.length,
                       itemBuilder: (context, index) {
                         final url = report.mediaUrls[index];
-                        final showMore = index == 3 && report.mediaUrls.length > 4;
-                        final remaining = showMore ? report.mediaUrls.length - 4 : 0;
+                        final showMore =
+                            index == 3 && report.mediaUrls.length > 4;
+                        final remaining = showMore
+                            ? report.mediaUrls.length - 4
+                            : 0;
                         return Padding(
                           padding: const EdgeInsets.only(right: 8.0),
                           child: MediaThumbnail(
@@ -138,7 +139,7 @@ class ReportDetailsScreen extends StatelessWidget {
                   const Divider(height: 32),
                 ],
               ),
-            
+
             // (Admin Comment)
             if (report.adminComment != null && report.adminComment!.isNotEmpty)
               Container(
@@ -153,7 +154,11 @@ class ReportDetailsScreen extends StatelessWidget {
                   children: [
                     const Text(
                       'تعليق المسؤول:',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: AppTheme.primaryColor,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
