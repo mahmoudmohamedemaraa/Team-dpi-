@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
           255,
           255,
         ), // خلفية غامقة أنيقة
-        body: screens[currentIndex],
+        body: IndexedStack(index: currentIndex, children: screens),
 
         // 🔸 الزر العائم في المنتصف (أحمر متوهج)
         floatingActionButton: Container(
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(30),
             child: BottomNavigationBar(
-              backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+              //   backgroundColor: const Color.fromARGB(0, 0, 0, 0),
               elevation: 0,
               type: BottomNavigationBarType.fixed,
               currentIndex: currentIndex,

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,53 +9,74 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GetUserReportsCubit extends Cubit<GetUserReportsState> {
   GetUserReportsCubit() : super(GetUserReportsInitial());
-
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? _subscription;
 
-  Future<void> fetchUserReports() async {
+  void listenToUserReports() async {
     try {
       emit(GetUserReportsLoading());
       final currentUser = await getUser();
-      final userId = currentUser?.uId ?? '';
+      final userId = currentUser.uId;
 
       if (userId.isEmpty) {
         emit(GetUserReportsError("User ID is missing"));
         return;
       }
 
-      log("Fetching reports for user: $userId");
+      log("Listening to reports for user: $userId");
 
-      final querySnapshot = await _firestore
+      await _subscription?.cancel();
+
+      final query = _firestore
           .collection('reports')
           .where('userId', isEqualTo: userId)
-          .get();
+          .orderBy('createdAt', descending: true);
 
-      log("Query returned ${querySnapshot.docs.length} documents");
-
-      final reports = querySnapshot.docs.map((doc) {
-        final data = doc.data();
-
-        if (data['createdAt'] is String) {
+      _subscription = query.snapshots().listen(
+        (querySnapshot) {
           try {
-            data['createdAt'] = Timestamp.fromDate(DateTime.parse(data['createdAt']));
-          } catch (e) {
-            print("Failed to parse createdAt: $e");
-          }
-        }
-        if (data['updatedAt'] is String) {
-          try {
-            data['updatedAt'] = Timestamp.fromDate(DateTime.parse(data['updatedAt']));
-          } catch (e) {
-            print("Failed to parse updatedAt: $e");
-          }
-        }
+            final reports = querySnapshot.docs.map((doc) {
+              final data = Map<String, dynamic>.from(doc.data());
 
-        return ReportEntity.fromJson(data);
-      }).toList();
+              if (data['createdAt'] is String) {
+                try {
+                  data['createdAt'] = Timestamp.fromDate(
+                    DateTime.parse(data['createdAt']),
+                  );
+                } catch (e) {
+                  log("Failed to parse createdAt: $e");
+                }
+              }
+              if (data['updatedAt'] is String) {
+                try {
+                  data['updatedAt'] = Timestamp.fromDate(
+                    DateTime.parse(data['updatedAt']),
+                  );
+                } catch (e) {
+                  log("Failed to parse updatedAt: $e");
+                }
+              }
 
-      emit(GetUserReportsSuccess(reports));
+              return ReportEntity.fromJson(data);
+            }).toList();
+
+            emit(GetUserReportsSuccess(reports));
+          } catch (e) {
+            emit(GetUserReportsError(e.toString()));
+          }
+        },
+        onError: (err) {
+          emit(GetUserReportsError(err.toString()));
+        },
+      );
     } catch (e) {
       emit(GetUserReportsError(e.toString()));
     }
+  }
+
+  @override
+  Future<void> close() async {
+    await _subscription?.cancel();
+    return super.close();
   }
 }
