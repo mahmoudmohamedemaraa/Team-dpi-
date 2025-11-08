@@ -1,8 +1,8 @@
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/home_layout.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/notifications_body.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/profile_body.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/repports_body.dart';
 import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
+import 'package:depi_project/features/home/presentation/views/home_layout.dart';
+import 'package:depi_project/features/home/presentation/views/notifications_body.dart';
+import 'package:depi_project/features/home/presentation/views/profile_body.dart';
+import 'package:depi_project/features/reports/presentation/views/repports_body.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
           255,
           255,
         ), // خلفية غامقة أنيقة
-        body: screens[currentIndex],
+        body: IndexedStack(index: currentIndex, children: screens),
 
         // 🔸 الزر العائم في المنتصف (أحمر متوهج)
         floatingActionButton: Container(
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(30),
             child: BottomNavigationBar(
-              backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+              //   backgroundColor: const Color.fromARGB(0, 0, 0, 0),
               elevation: 0,
               type: BottomNavigationBarType.fixed,
               currentIndex: currentIndex,
