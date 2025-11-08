@@ -3,6 +3,8 @@ import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
 import 'package:flutter/material.dart';
 
+import 'package:depi_project/features/reports/presentation/widgets/media_thumbnail.dart';
+
 
 
 class ReportDetailsScreen extends StatelessWidget {
@@ -117,17 +119,17 @@ class ReportDetailsScreen extends StatelessWidget {
                     height: 100,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: report.mediaUrls.length,
+                      itemCount: report.mediaUrls.length > 4 ? 4 : report.mediaUrls.length,
                       itemBuilder: (context, index) {
+                        final url = report.mediaUrls[index];
+                        final showMore = index == 3 && report.mediaUrls.length > 4;
+                        final remaining = showMore ? report.mediaUrls.length - 4 : 0;
                         return Padding(
                           padding: const EdgeInsets.only(right: 8.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.network(
-                              report.mediaUrls[index],
-                              width: 100,
-                              fit: BoxFit.cover,
-                            ),
+                          child: MediaThumbnail(
+                            mediaUrl: url,
+                            showMoreIndicator: showMore,
+                            remainingCount: remaining,
                           ),
                         );
                       },
@@ -148,16 +150,17 @@ class ReportDetailsScreen extends StatelessWidget {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  spacing: 8,
                   children: [
                     const Text(
                       'تعليق المسؤول:',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      report.adminComment!,
-                      style: const TextStyle(fontSize: 16),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        report.adminComment!,
+                        style: const TextStyle(fontSize: 16),
+                      ),
                     ),
                   ],
                 ),
