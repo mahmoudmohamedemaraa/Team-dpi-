@@ -15,7 +15,7 @@ class GetUserReportsCubit extends Cubit<GetUserReportsState> {
   void listenToUserReports() async {
     try {
       emit(GetUserReportsLoading());
-      final currentUser = await getUser();
+      final currentUser = getUser();
       final userId = currentUser.uId;
 
       if (userId.isEmpty) {

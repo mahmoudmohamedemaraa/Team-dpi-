@@ -1,8 +1,5 @@
-import 'dart:io';
 
-import 'package:depi_project/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:video_thumbnail/video_thumbnail.dart';
 
 import '../../../../../core/helpers/media_manager.dart';
 import 'image_widget.dart';

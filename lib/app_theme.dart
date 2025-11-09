@@ -7,7 +7,7 @@ class AppTheme {
   static const Color lightGrey = Color(0xFFF5F5F5);
   static const lightRed = Color(0xFFFAD1CF);
   static const Color grey = Color(0xE0E0E0E0);
-  static const darkGrey = Color(0xFFF9E9E9E);
+  static const darkGrey = Color(0xfff9e9e9e);
   static const primaryGradientColors = [
     Color(0xffDB3022),
     Color(0xFFFF9A8B),

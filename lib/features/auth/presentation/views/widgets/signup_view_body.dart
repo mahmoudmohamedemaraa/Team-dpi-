@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

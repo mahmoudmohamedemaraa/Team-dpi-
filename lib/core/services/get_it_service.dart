@@ -1,6 +1,9 @@
 import 'package:depi_project/core/repos/media_repo/media_repo.dart';
 import 'package:depi_project/core/repos/media_repo/media_repo_impl.dart';
 import 'package:depi_project/features/add_report/data/repos/add_report_repo_impl.dart';
+import 'package:depi_project/features/notifications/data/repos/notifications_repo_impl.dart';
+import 'package:depi_project/features/notifications/domain/repos/notifications_repo.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 
@@ -38,5 +41,8 @@ void setupGetit() {
   );
   getIt.registerSingleton<AddReportRepo>(
     AddReportRepoImpl(getIt.get<DatabaseService>()),
+  );
+  getIt.registerSingleton<NotificationsRepo>(
+    NotificationsRepoImpl(getIt.get<DatabaseService>()),
   );
 }

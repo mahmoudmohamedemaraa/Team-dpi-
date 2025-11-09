@@ -65,7 +65,7 @@ class HomeLayout extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 32),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.25,
                 child: Stack(

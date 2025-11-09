@@ -2,7 +2,7 @@ import 'dart:io';
 
 import '../enums/report_status_enums.dart';
 import '../entities/report_entity.dart';
-import '../helpers/status_from_string.dart';
+import '../helpers/report_status_helper.dart';
 
 class ReportModel extends ReportEntity {
   final List<File> mediaFiles;

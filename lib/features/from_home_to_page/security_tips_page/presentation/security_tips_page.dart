@@ -1,7 +1,4 @@
-import 'package:depi_project/app_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
-
+import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -61,45 +58,27 @@ class SecurityTipsPage extends StatelessWidget {
     },
   ];
 
+  SecurityTipsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    const bgGradient = LinearGradient(
+      colors: [
+        Color.fromARGB(247, 221, 63, 52),
+        Color.fromARGB(210, 221, 63, 52),
+        Color.fromARGB(242, 221, 63, 52),
+        Color.fromARGB(210, 221, 63, 52),
+        Color.fromARGB(246, 221, 63, 52),
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
+
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: const Text(
-          "نصائح أمنية",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            shadows: [
-              BoxShadow(
-                color: AppTheme.lightRed,
-                blurRadius: 15,
-                spreadRadius: 5,
-                blurStyle: BlurStyle.outer,
-                offset: Offset.zero,
-              ),
-            ],
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: buildAppBar(title: 'نصائح أمنية', gradient: bgGradient),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(247, 221, 63, 52),
-              Color.fromARGB(210, 221, 63, 52),
-              Color.fromARGB(242, 221, 63, 52),
-              Color.fromARGB(210, 221, 63, 52),
-              Color.fromARGB(246, 221, 63, 52),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: const BoxDecoration(gradient: bgGradient),
         child: ListView.builder(
           padding: const EdgeInsets.fromLTRB(16, 100, 16, 16),
           itemCount: tips.length,

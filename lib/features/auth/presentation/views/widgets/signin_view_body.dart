@@ -4,7 +4,6 @@ import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:depi_project/features/auth/presentation/views/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:ui';
 
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../manager/cubits/signin_cubit/signin_cubit.dart';

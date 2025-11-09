@@ -4,4 +4,5 @@ class BackendEndpoint {
   static const isUserExists = 'users';
   static const uploadMedia = 'reports';
   static const addReports = 'reports';
+  static const getNotifications = 'notifications';
 }

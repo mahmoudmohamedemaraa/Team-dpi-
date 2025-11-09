@@ -8,6 +8,8 @@ import 'package:depi_project/features/reports/presentation/widgets/report_detail
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/build_app_bar.dart';
+
 class RepportsBody extends StatefulWidget {
   const RepportsBody({super.key});
 
@@ -21,18 +23,7 @@ class _RepportsBodyState extends State<RepportsBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.white,
-      appBar: AppBar(
-        backgroundColor: AppTheme.white,
-        title: Text(
-          "بلاغاتي",
-          style: TextStyle(
-            color: AppTheme.primaryColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
-        ),
-        centerTitle: true,
-      ),
+      appBar: buildAppBar(title: 'بلاغاتي'),
       body: BlocProvider(
         create: (_) => GetUserReportsCubit()..listenToUserReports(),
         child: BlocBuilder<GetUserReportsCubit, GetUserReportsState>(

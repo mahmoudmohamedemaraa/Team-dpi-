@@ -1,4 +1,5 @@
 import '../enums/report_status_enums.dart';
+import '../helpers/format_date_time.dart';
 
 class ReportEntity {
   final String reportId;
@@ -33,9 +34,9 @@ class ReportEntity {
       userId: json['userId'],
       description: json['description'],
       mediaUrls: List<String>.from(json['mediaUrls']),
-      createdAt: DateTime.parse(json['createdAt'].toDate().toString()),
+      createdAt: parseDateTime(json['createdAt']),
       address: json['address'],
-      updatedAt: DateTime.parse(json['updatedAt'].toDate().toString()),
+      updatedAt: parseDateTime(json['updatedAt']),
       status: ReportStatusEnum.values.firstWhere(
         (e) => e.name == json['status'],
         orElse: () => ReportStatusEnum.pending,
