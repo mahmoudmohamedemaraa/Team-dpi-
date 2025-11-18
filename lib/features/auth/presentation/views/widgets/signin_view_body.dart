@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../manager/cubits/signin_cubit/signin_cubit.dart';
+import '../reset_password_view.dart';
 
 class SigninViewBody extends StatelessWidget {
   SigninViewBody({super.key});
@@ -53,7 +54,21 @@ class SigninViewBody extends StatelessWidget {
               SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text('نسيت كلمة المرور؟')],
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, ResetPasswordView.routeName);
+                    },
+                    child: const Text(
+                      'نسيت كلمة المرور؟',
+                      style: TextStyle(
+                        color: AppTheme.primaryColor,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 20),
               CustomButton(

@@ -29,4 +29,8 @@ class SharedPreferencesSingleton {
   static List<String> getStringList(String key) {
     return _instance.getStringList(key) ?? <String>[];
   }
+
+  static Future<bool> remove(String key) async {
+    return await _instance.remove(key);
+  }
 }

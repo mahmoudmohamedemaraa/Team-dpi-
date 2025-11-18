@@ -29,7 +29,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     //  الأنيميشن الأساسي (الظهور + التكبير + التوهج + الدوران)
     _mainController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 3),
     )..forward();
 
     //  أنيميشن النبض المستمر بعد انتهاء الأنيميشن الأساسي
@@ -85,7 +85,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
 
     // ⏱ الانتقال بعد الانيميشن: تحقق من حالة تسجيل الدخول
-    Future.delayed(const Duration(seconds: 10), () async {
+    Future.delayed(const Duration(seconds: 4), () async {
       final loggedIn = SharedPreferencesSingleton.getBool(isLoggedIn);
       if (loggedIn) {
         Navigator.pushReplacement(

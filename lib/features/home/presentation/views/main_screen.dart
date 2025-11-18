@@ -2,7 +2,7 @@ import 'package:depi_project/core/helpers/get_user.dart';
 import 'package:depi_project/core/services/get_it_service.dart';
 import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
 import 'package:depi_project/features/home/presentation/views/home_layout.dart';
-import 'package:depi_project/features/home/presentation/views/profile_body.dart';
+import 'package:depi_project/features/profile/presentation/views/profile_view.dart';
 import 'package:depi_project/core/widgets/notification_badge_icon.dart';
 import 'package:depi_project/features/notifications/domain/repos/notifications_repo.dart';
 import 'package:depi_project/core/cubits/get_notifications_cubit/get_notifications_cubit.dart';
@@ -39,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
         value: notificationsCubit,
         child: const NotificationsView(provideCubit: false),
       ),
-      const ProfileBody(),
+      const ProfileView(),
     ];
   }
 
@@ -85,6 +85,7 @@ class _MainScreenState extends State<MainScreen> {
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
+                useSafeArea: true,
                 backgroundColor: Colors.transparent,
                 builder: (context) => const AddReportView(),
               );

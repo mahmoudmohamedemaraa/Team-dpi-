@@ -1,6 +1,7 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
 
 class SecurityTipsPage extends StatelessWidget {
   final List<Map<String, dynamic>> tips = [
@@ -62,64 +63,49 @@ class SecurityTipsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const bgGradient = LinearGradient(
-      colors: [
-        Color.fromARGB(247, 221, 63, 52),
-        Color.fromARGB(210, 221, 63, 52),
-        Color.fromARGB(242, 221, 63, 52),
-        Color.fromARGB(210, 221, 63, 52),
-        Color.fromARGB(246, 221, 63, 52),
-      ],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-    );
-
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: buildAppBar(title: 'نصائح أمنية', gradient: bgGradient),
-      body: Container(
-        decoration: const BoxDecoration(gradient: bgGradient),
-        child: ListView.builder(
-          padding: const EdgeInsets.fromLTRB(16, 100, 16, 16),
-          itemCount: tips.length,
-          itemBuilder: (context, index) {
-            final tip = tips[index];
-            return FadeInUp(
-              delay: Duration(milliseconds: 100 * index),
-              child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white.withOpacity(0.3)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 6,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
+      backgroundColor: AppTheme.white,
+      appBar: buildAppBar(title: 'نصائح أمنية'),
+      body: ListView.builder(
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+        itemCount: tips.length,
+        itemBuilder: (context, index) {
+          final tip = tips[index];
+          return FadeInUp(
+            delay: Duration(milliseconds: 100 * index),
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.grey.shade200),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: tip["color"].withOpacity(0.15),
+                  child: Icon(tip["icon"], color: tip["color"]),
                 ),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: tip["color"].withOpacity(0.2),
-                    child: Icon(tip["icon"], color: tip["color"]),
+                title: Text(
+                  tip["text"],
+                  style: const TextStyle(
+                    color: AppTheme.black,
+                    fontSize: 15,
+                    height: 1.4,
+                    fontWeight: FontWeight.w500,
                   ),
-                  title: Text(
-                    tip["text"],
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      height: 1.4,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
+                  textAlign: TextAlign.justify,
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

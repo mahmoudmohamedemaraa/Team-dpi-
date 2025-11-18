@@ -22,9 +22,10 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
             message: 'تم تسجيل الدخول بنجاح',
             contentType: ContentType.success,
           );
-          Navigator.of(
-            context,
-          ).push(MaterialPageRoute(builder: (context) => MainScreen()));
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const MainScreen()),
+            (route) => false,
+          );
         }
         if (state is SigninFailure) {
           buildSnackBar(

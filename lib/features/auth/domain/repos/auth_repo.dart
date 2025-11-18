@@ -17,6 +17,10 @@ abstract class AuthRepo {
     String password,
   );
 
+  Future<Either<Failure, void>> resetPassword(String emailOrNationalId);
+
+  Future<Either<Failure, void>> signOut();
+
   Future addUserData({required UserEntity user});
   Future saveUserData({required UserEntity user});
 

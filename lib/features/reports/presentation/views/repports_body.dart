@@ -50,6 +50,7 @@ class _RepportsBodyState extends State<RepportsBody> {
               }
 
               return ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: state.reports.length,
                 itemBuilder: (context, index) {
                   final report = state.reports[index];

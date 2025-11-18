@@ -22,9 +22,10 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
             message: 'تم التسجيل بنجاح',
             contentType: ContentType.success,
           );
-          Navigator.of(
-            context,
-          ).push(MaterialPageRoute(builder: (context) => MainScreen()));
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const MainScreen()),
+            (route) => false,
+          );
         }
         if (state is SignupFailure) {
           buildSnackBar(

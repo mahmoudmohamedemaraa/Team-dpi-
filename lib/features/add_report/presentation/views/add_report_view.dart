@@ -1,4 +1,5 @@
 import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:depi_project/core/repos/media_repo/media_repo.dart';
 import 'package:depi_project/features/add_report/domain/repos/add_report_repo.dart';
 import 'package:depi_project/features/add_report/presentation/manager/cubits/add_report_cubit/add_report_cubit.dart';
@@ -20,10 +21,7 @@ class AddReportView extends StatelessWidget {
         child: const AddReportViewBodyBlocBuilder(),
       ),
       backgroundColor: AppTheme.white,
-      appBar: AppBar(
-        backgroundColor: AppTheme.white,
-        title: Text("تقديم بلاغ"),
-      ),
+      appBar: buildAppBar(title: 'تقديم بلاغ'),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
+import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:depi_project/features/reports/presentation/widgets/media_thumbnail.dart';
@@ -28,10 +29,7 @@ class ReportDetailsScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('تفاصيل التقرير'),
-        backgroundColor: AppTheme.primaryColor,
-      ),
+      appBar: buildAppBar(title: 'تفاصيل البلاغ'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(

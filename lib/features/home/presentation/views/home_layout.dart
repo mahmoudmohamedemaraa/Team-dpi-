@@ -4,7 +4,7 @@ import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
 import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
 import 'package:depi_project/features/from_home_to_page/security_tips_page/presentation/security_tips_page.dart';
-import 'package:depi_project/features/home/presentation/views/profile_body.dart';
+import 'package:depi_project/features/profile/presentation/views/profile_view.dart';
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_awareness_card.dart';
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class HomeLayout extends StatelessWidget {
                           log("Navigating to Profile Page");
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => ProfileBody(),
+                              builder: (context) => ProfileView(),
                             ),
                           );
                         },
