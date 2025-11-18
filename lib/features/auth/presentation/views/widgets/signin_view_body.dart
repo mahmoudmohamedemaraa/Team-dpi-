@@ -1,12 +1,13 @@
+import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_button.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:depi_project/features/auth/presentation/views/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:ui';
 
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../manager/cubits/signin_cubit/signin_cubit.dart';
+import '../reset_password_view.dart';
 
 class SigninViewBody extends StatelessWidget {
   SigninViewBody({super.key});
@@ -25,7 +26,7 @@ class SigninViewBody extends StatelessWidget {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(height:290),
+              SizedBox(height: 290),
               CustomTextField(
                 onSaved: (value) {
                   emailOrNationalId = value!;
@@ -50,10 +51,24 @@ class SigninViewBody extends StatelessWidget {
                   password = value!;
                 },
               ),
-              SizedBox(height:30),
+              SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text('نسيت كلمة المرور؟')],
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, ResetPasswordView.routeName);
+                    },
+                    child: const Text(
+                      'نسيت كلمة المرور؟',
+                      style: TextStyle(
+                        color: AppTheme.primaryColor,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 20),
               CustomButton(
@@ -69,12 +84,8 @@ class SigninViewBody extends StatelessWidget {
                   }
                 },
                 text: 'تسجيل الدخول',
-                gradientColors: [
-                  const Color(0xffDB3022),
-                  Color(0xFFFF9A8B),
-                  const Color(0xffDB3022),
-                ],
-                shadowColor: const Color(0xFFFF7F37).withOpacity(0.4),
+                gradientColors: AppTheme.primaryGradientColors,
+                shadowColor: AppTheme.primaryShadowColor,
               ),
               SizedBox(height: 180),
               GestureDetector(
@@ -88,11 +99,16 @@ class SigninViewBody extends StatelessWidget {
                     CustomButton(
                       text: 'انشاء حساب',
                       gradientColors: [
-                  const Color.fromARGB(130, 228, 222, 222),
-                  const Color.fromARGB(130, 239, 191, 191),
-                  const Color.fromARGB(130, 228, 222, 222),
-                ],
-                shadowColor: const Color.fromARGB(255, 231, 124, 124).withOpacity(0.5),
+                        const Color.fromARGB(130, 228, 222, 222),
+                        const Color.fromARGB(130, 239, 191, 191),
+                        const Color.fromARGB(130, 228, 222, 222),
+                      ],
+                      shadowColor: const Color.fromARGB(
+                        255,
+                        231,
+                        124,
+                        124,
+                      ).withOpacity(0.5),
 
                       borderWidth: 1.5,
                       hasShadow: false,

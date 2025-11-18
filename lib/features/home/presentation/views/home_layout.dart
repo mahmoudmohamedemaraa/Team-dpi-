@@ -1,8 +1,15 @@
+import 'dart:developer';
+
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/widget_awareness_card.dart';
-import 'package:depi_project/features/auth/presentation/views/widgets/home_widget/widget_quick_options.dart';
+import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
+import 'package:depi_project/features/from_home_to_page/security_tips_page/presentation/security_tips_page.dart';
+import 'package:depi_project/features/profile/presentation/views/profile_view.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_awareness_card.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
 import 'package:flutter/material.dart';
+
+import '../../../reports/presentation/views/repports_body.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({super.key});
@@ -31,27 +38,37 @@ class HomeLayout extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 16),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "مرحبا بك",
-                            style: TextStyle(
-                              color: AppTheme.darkGrey,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          log("Navigating to Profile Page");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ProfileView(),
                             ),
-                          ),
-                          Text(
-                            "${getUser().firstName} ${getUser().lastName}",
-                            style: TextStyle(
-                              color: AppTheme.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                          );
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "مرحبا بك",
+                              style: TextStyle(
+                                color: AppTheme.darkGrey,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
+                            Text(
+                              "${getUser().firstName} ${getUser().lastName}",
+                              style: TextStyle(
+                                color: AppTheme.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -59,7 +76,7 @@ class HomeLayout extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 32),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.25,
                 child: Stack(
@@ -85,10 +102,17 @@ class HomeLayout extends StatelessWidget {
                               color: AppTheme.darkGrey,
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Icon(
-                              Icons.add_box,
-                              color: AppTheme.white,
-                              size: 20,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(
+                                  context,
+                                ).pushNamed(AddReportView.routeName);
+                              },
+                              child: Icon(
+                                Icons.add_box,
+                                color: AppTheme.white,
+                                size: 20,
+                              ),
                             ),
                           ),
                           Text(
@@ -135,41 +159,37 @@ class HomeLayout extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
+                  GestureDetector(
+                    onTap: () {
+                      log("Navigating to RepportsBody");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => RepportsBody()),
+                      );
+                    },
                     child: WidgetQuickOptions(
                       icon: Icons.receipt_long,
-                      text: " بلاغاتي",
+                      text: "بلاغاتي",
                     ),
                   ),
-                  SizedBox(width: 16),
-                  Expanded(
+                  const SizedBox(height: 16),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => SecurityTipsPage(),
+                        ),
+                      );
+                    },
                     child: WidgetQuickOptions(
                       icon: Icons.security,
                       text: "نصائح امنيه",
                     ),
                   ),
-                ],
-              ),
-              SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: WidgetQuickOptions(
-                      icon: Icons.emoji_events,
-                      text: "المكافات",
-                    ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: WidgetQuickOptions(
-                      icon: Icons.phone,
-                      text: " ارقام طوارئ",
-                    ),
-                  ),
+                  const SizedBox(height: 16),
+                  WidgetQuickOptions(icon: Icons.phone, text: " ارقام طوارئ"),
                 ],
               ),
               SizedBox(height: 32),

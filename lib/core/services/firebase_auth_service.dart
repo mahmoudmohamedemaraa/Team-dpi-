@@ -97,4 +97,43 @@ class FirebaseAuthService {
   bool isUserLoggedIn() {
     return FirebaseAuth.instance.currentUser != null;
   }
+
+  Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      log('Exception in FirebaseAuthService.signOut: ${e.toString()}');
+      throw CustomException(
+        message: 'حدث خطأ أثناء تسجيل الخروج. الرجاء المحاولة مرة أخرى.',
+      );
+    }
+  }
+
+  Future<void> sendPasswordResetEmail({required String email}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      log('FirebaseAuthException in sendPasswordResetEmail: ${e.code}');
+      if (e.code == 'user-not-found') {
+        throw CustomException(
+          message: 'لا يوجد حساب مسجل بهذا البريد الإلكتروني.',
+        );
+      } else if (e.code == 'invalid-email') {
+        throw CustomException(message: 'البريد الإلكتروني غير صالح.');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(
+          message: 'فشل الاتصال بالشبكة. الرجاء التحقق من اتصالك بالإنترنت.',
+        );
+      } else {
+        throw CustomException(
+          message: 'فشل إرسال رابط إعادة تعيين كلمة المرور.',
+        );
+      }
+    } catch (e) {
+      log('Exception in sendPasswordResetEmail: ${e.toString()}');
+      throw CustomException(
+        message: 'حدث خطأ غير معروف. الرجاء المحاولة مرة أخرى.',
+      );
+    }
+  }
 }

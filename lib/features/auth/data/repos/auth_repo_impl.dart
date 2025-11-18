@@ -213,4 +213,47 @@ class AuthRepoImplementation extends AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, void>> resetPassword(String emailOrNationalId) async {
+    try {
+      String email;
+
+      // Check if input is national ID or email
+      if (RegExp(r'^\d+$').hasMatch(emailOrNationalId)) {
+        // It's a national ID, get the email
+        email = await getEmailByNationalId(emailOrNationalId);
+      } else {
+        // It's already an email
+        email = emailOrNationalId;
+      }
+
+      await firebaseAuthService.sendPasswordResetEmail(email: email);
+      return right(null);
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in resetPassword: ${e.toString()}');
+      return left(
+        ServerFailure('حدث خطأ غير معروف. الرجاء المحاولة مرة أخرى.'),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> signOut() async {
+    try {
+      await firebaseAuthService.signOut();
+      await SharedPreferencesSingleton.remove(kUserData);
+      await SharedPreferencesSingleton.remove(isLoggedIn);
+      return right(null);
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in signOut: ${e.toString()}');
+      return left(
+        ServerFailure('حدث خطأ أثناء تسجيل الخروج. الرجاء المحاولة مرة أخرى.'),
+      );
+    }
+  }
 }
