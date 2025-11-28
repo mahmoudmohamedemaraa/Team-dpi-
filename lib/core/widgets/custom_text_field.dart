@@ -40,12 +40,12 @@ class CustomTextField extends StatelessWidget {
                     minHeight: maxLines == 1 ? 55 : 55.0 * maxLines,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(
-                      255,
-                      172,
-                      170,
-                      170,
-                    ).withOpacity(0.15),
+                    // color: const Color.fromARGB(
+                    //   255,
+                    //   172,
+                    //   170,
+                    //   170,
+                    // ).withOpacity(0.15),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: const Color.fromARGB(

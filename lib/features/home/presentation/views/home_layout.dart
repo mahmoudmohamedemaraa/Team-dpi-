@@ -7,6 +7,7 @@ import 'package:depi_project/features/from_home_to_page/security_tips_page/prese
 import 'package:depi_project/features/profile/presentation/views/profile_view.dart';
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_awareness_card.dart';
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../reports/presentation/views/repports_body.dart';
@@ -52,7 +53,7 @@ class HomeLayout extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "مرحبا بك",
+                              S.of(context).greeting,
                               style: TextStyle(
                                 color: AppTheme.darkGrey,
                                 fontSize: 14,
@@ -90,7 +91,7 @@ class HomeLayout extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 32, top: 32),
+                      padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         spacing: 16,
@@ -116,7 +117,7 @@ class HomeLayout extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            " تقديم بلاغ جديد",
+                            S.of(context).reportButtonTitle,
                             style: TextStyle(
                               color: AppTheme.black,
                               fontSize: 16,
@@ -128,14 +129,14 @@ class HomeLayout extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "يمكنك تقديم بلاغ جديد  ",
+                                S.of(context).reportButtonDiscription,
                                 style: TextStyle(
                                   color: AppTheme.black,
                                   fontSize: 12,
                                 ),
                               ),
                               Text(
-                                "بسهولة وبسرعة",
+                                S.of(context).reportButtonDiscriptionContinue,
                                 style: TextStyle(
                                   color: AppTheme.black,
                                   fontSize: 12,
@@ -151,7 +152,7 @@ class HomeLayout extends StatelessWidget {
               ),
               SizedBox(height: 32),
               Text(
-                "خيارات سريعة",
+                S.of(context).quickOptions,
                 style: TextStyle(
                   color: AppTheme.black,
                   fontSize: 16,
@@ -171,7 +172,7 @@ class HomeLayout extends StatelessWidget {
                     },
                     child: WidgetQuickOptions(
                       icon: Icons.receipt_long,
-                      text: "بلاغاتي",
+                      text: S.of(context).myReports,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -185,28 +186,31 @@ class HomeLayout extends StatelessWidget {
                     },
                     child: WidgetQuickOptions(
                       icon: Icons.security,
-                      text: "نصائح امنيه",
+                      text: S.of(context).securityTips,
                     ),
                   ),
                   const SizedBox(height: 16),
-                  WidgetQuickOptions(icon: Icons.phone, text: " ارقام طوارئ"),
+                  WidgetQuickOptions(
+                    icon: Icons.phone,
+                    text: S.of(context).emergencyNumbers,
+                  ),
                 ],
               ),
               SizedBox(height: 32),
               WidgetAwarenessCard(
-                text1: "توعية الوزارة",
-                text2: " تحذير من الاحتيال السيبراني",
-                text3: " احم نفسك من الجرائم السيبرانية  ",
+                text1: S.of(context).ministryAwareness,
+                text2: S.of(context).cyberFraudWarning,
+                text3: S.of(context).cyberFraudWarningContinue,
                 imageUrl: "assets/images/security.jpg",
-                text4: "والاحتيال والتهديد",
+                text4: S.of(context).cyberFraudWarningContinue2,
               ),
               SizedBox(height: 16),
               WidgetAwarenessCard(
-                text1: "توعية الوزارة",
-                text2: " التبليغ عن الجرائم الالكترونية",
-                text3: "ابلغ عن الجرائم الالكترونية والحتيال",
+                text1: S.of(context).ministryAwareness,
+                text2: S.of(context).reportingCybercrimes,
+                text3: S.of(context).cyberFraudWarningContinue3,
                 imageUrl: "assets/images/computer2.jpg",
-                text4: "السيبراني لحماية نفسك",
+                text4: S.of(context).cyberFraudWarningContinue4,
               ),
             ],
           ),

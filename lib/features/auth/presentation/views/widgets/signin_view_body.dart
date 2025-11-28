@@ -2,6 +2,7 @@ import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_button.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:depi_project/features/auth/presentation/views/signup_view.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,14 +34,14 @@ class SigninViewBody extends StatelessWidget {
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'برجاء إدخال البريد الإلكتروني أو الرقم القومي';
+                    return S.of(context).enterEmailOrId;
                   } else if (!value.contains('@') &&
                       !RegExp(r'^\d+$').hasMatch(value)) {
-                    return 'برجاء إدخال بريد إلكتروني صالح أو رقم قومي صحيح';
+                    return S.of(context).validEmailOrId;
                   }
                   return null;
                 },
-                labelText: ' البريد الالكتروني او الرقم القومي',
+                labelText: S.of(context).emailOrId,
                 hintText: 'example@mail.com',
                 obscureText: false,
                 keyboardType: TextInputType.text,
@@ -59,8 +60,8 @@ class SigninViewBody extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(context, ResetPasswordView.routeName);
                     },
-                    child: const Text(
-                      'نسيت كلمة المرور؟',
+                    child: Text(
+                      S.of(context).forgetPassword,
                       style: TextStyle(
                         color: AppTheme.primaryColor,
                         fontWeight: FontWeight.w600,
@@ -83,7 +84,7 @@ class SigninViewBody extends StatelessWidget {
                     autovalidateMode = AutovalidateMode.always;
                   }
                 },
-                text: 'تسجيل الدخول',
+                text: S.of(context).signIn,
                 gradientColors: AppTheme.primaryGradientColors,
                 shadowColor: AppTheme.primaryShadowColor,
               ),
@@ -94,10 +95,10 @@ class SigninViewBody extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    Text('ليس لديك حساب؟'),
+                    Text(S.of(context).do_notHaveAccount),
                     SizedBox(height: 15),
                     CustomButton(
-                      text: 'انشاء حساب',
+                      text: S.of(context).creatingAccount,
                       gradientColors: [
                         const Color.fromARGB(130, 228, 222, 222),
                         const Color.fromARGB(130, 239, 191, 191),

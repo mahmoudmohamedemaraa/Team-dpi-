@@ -1,5 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:depi_project/features/home/presentation/views/main_screen.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -18,8 +19,8 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
         if (state is SigninSuccess) {
           buildSnackBar(
             context: context,
-            title: 'تم تسجيل الدخول',
-            message: 'تم تسجيل الدخول بنجاح',
+            title: S.of(context).signIn,
+            message: S.of(context).signInSuccess,
             contentType: ContentType.success,
           );
           Navigator.of(context).pushAndRemoveUntil(
@@ -30,7 +31,7 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
         if (state is SigninFailure) {
           buildSnackBar(
             context: context,
-            title: 'لم يتم تسجيل الدخول',
+            title: S.of(context).notSignedIn,
             message: state.errorMessage,
             contentType: ContentType.failure,
           );

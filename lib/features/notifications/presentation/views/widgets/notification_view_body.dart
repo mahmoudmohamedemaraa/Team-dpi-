@@ -1,4 +1,5 @@
 import 'package:depi_project/core/cubits/get_notifications_cubit/get_notifications_cubit.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,9 +32,9 @@ class NotificationsViewBody extends StatelessWidget {
 
         if (state is GetNotificationsSuccess) {
           if (state.notifications.isEmpty) {
-            return const Center(
+            return Center(
               child: Text(
-                'لا توجد إشعارات حالياً.',
+                S.of(context).noNotfi,
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             );

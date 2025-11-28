@@ -1,5 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
@@ -48,14 +49,14 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'برجاء إدخال عنوان البلاغ';
+                    return S.of(context).enterReportTitle;
                   } else if (value.length < 5) {
-                    return 'عنوان البلاغ يجب أن يكون 5 أحرف على الأقل';
+                    return S.of(context).reportTitleAtLeast5;
                   }
                   return null;
                 },
-                labelText: 'عنوان البلاغ',
-                hintText: 'مثال: سرقة محل تجاري',
+                labelText: S.of(context).reporTitle,
+                hintText: S.of(context).reportEx,
                 obscureText: false,
                 keyboardType: TextInputType.text,
               ),
@@ -68,14 +69,14 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'برجاء إدخال وصف البلاغ';
+                    return S.of(context).enterReportDescribtion;
                   } else if (value.length < 10) {
-                    return 'وصف البلاغ يجب أن يكون 10 أحرف على الأقل';
+                    return S.of(context).reportDescribtionAtLeast10;
                   }
                   return null;
                 },
-                labelText: 'وصف البلاغ',
-                hintText: 'اكتب تفاصيل البلاغ بالكامل...',
+                labelText: S.of(context).reportDescribtion,
+                hintText: S.of(context).writeReportDescribtion,
                 obscureText: false,
                 keyboardType: TextInputType.multiline,
                 maxLines: 5,
@@ -88,8 +89,8 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                   address = value?.isEmpty == true ? null : value;
                 },
                 validator: (value) => null,
-                labelText: 'الموقع (اختياري)',
-                hintText: 'مثال: شارع الجمهورية، القاهرة',
+                labelText: S.of(context).location,
+                hintText: S.of(context).locationEx,
                 obscureText: false,
                 keyboardType: TextInputType.text,
               ),
@@ -130,15 +131,17 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                   } else {
                     buildSnackBar(
                       context: context,
-                      title: 'تنبيه',
-                      message: 'يجب إضافة صورة أو فيديو واحد على الأقل',
+                      title: S.of(context).alert,
+                      message: S.of(context).mustAddMedia,
                       contentType: ContentType.warning,
                     );
                   }
                 },
-                text: 'إرسال البلاغ',
-                gradientColors: AppTheme.primaryGradientColors,
-                shadowColor: AppTheme.primaryShadowColor,
+                text: S.of(context).sendingReport,
+                // gradientColors: AppTheme.primaryGradientColors,
+                // shadowColor: AppTheme.primaryShadowColor,
+                backgroundColor: AppTheme.primaryColor,
+                hasShadow: false,
               ),
               const SizedBox(height: 40),
             ],

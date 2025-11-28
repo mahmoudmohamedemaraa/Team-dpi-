@@ -1,5 +1,6 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/media_manager.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class MediaSectionHeader extends StatelessWidget {
@@ -18,7 +19,7 @@ class MediaSectionHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'الصور والفيديوهات',
+          S.of(context).photosAndVideos,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
@@ -34,7 +35,7 @@ class MediaSectionHeader extends StatelessWidget {
                 onMediaChanged();
               },
               icon: Icon(Icons.photo_library, color: AppTheme.primaryColor),
-              tooltip: 'إضافة صور',
+              tooltip: S.of(context).addingPhoto,
             ),
             IconButton(
               onPressed: () async {
@@ -42,7 +43,7 @@ class MediaSectionHeader extends StatelessWidget {
                 onMediaChanged();
               },
               icon: Icon(Icons.videocam, color: AppTheme.primaryColor),
-              tooltip: 'إضافة فيديو',
+              tooltip:  S.of(context).addingVideo,
             ),
           ],
         ),

@@ -7,6 +7,7 @@ import 'package:depi_project/features/auth/domain/entities/user_entity.dart';
 import 'package:depi_project/features/auth/domain/repos/auth_repo.dart';
 import 'package:depi_project/features/auth/presentation/views/signin_view.dart';
 import 'package:depi_project/features/profile/presentation/widgets/profile_info_tile.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {
@@ -18,7 +19,7 @@ class ProfileView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildAppBar(title: 'الملف الشخصي'),
+      appBar: buildAppBar(title: S.of(context).profile),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -39,17 +40,17 @@ class ProfileView extends StatelessWidget {
             const SizedBox(height: 30),
 
             ProfileInfoTile(
-              title: "البريد الإلكتروني",
+              title: S.of(context).email,
               value: user.email,
               icon: Icons.email_outlined,
             ),
             ProfileInfoTile(
-              title: "رقم الهاتف",
+              title: S.of(context).phoneNumber,
               value: user.phoneNumber,
               icon: Icons.phone,
             ),
             ProfileInfoTile(
-              title: "الرقم القومي",
+              title: S.of(context).nationalID,
               value: user.nationalId,
               icon: Icons.credit_card,
             ),
@@ -79,13 +80,13 @@ class ProfileView extends StatelessWidget {
                   },
                 );
               },
-              text: 'تسجيل الخروج',
+              text: S.of(context).logout,
               gradientColors: [
                 Colors.red.shade400,
                 Colors.red.shade600,
                 Colors.red.shade400,
               ],
-              shadowColor: Colors.red.shade300,
+              //shadowColor: Colors.red.shade300,
               textColor: Colors.white,
             ),
           ],

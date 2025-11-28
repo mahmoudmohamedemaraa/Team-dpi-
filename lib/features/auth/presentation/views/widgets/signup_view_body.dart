@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,8 +40,8 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   firstName = value!;
                 },
-                labelText: 'الاسم الاول',
-                hintText: 'محمد',
+                labelText: S.of(context).fristName,
+                hintText: S.of(context).fristNameEx,
                 obscureText: false,
                 keyboardType: TextInputType.name,
               ),
@@ -49,8 +50,8 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   lastName = value!;
                 },
-                labelText: 'الاسم الاخير',
-                hintText: 'احمد',
+                labelText: S.of(context).LastName,
+                hintText: S.of(context).LastNameEx,
                 obscureText: false,
                 keyboardType: TextInputType.name,
               ),
@@ -59,17 +60,17 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   nationalId = value!;
                 },
-                labelText: 'الرقم القومي',
+                labelText: S.of(context).nationalID,
                 hintText: '29XXXXXXXXXXXX',
                 obscureText: false,
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'برجاء إدخال الرقم القومي';
+                    return S.of(context).enterNationalId;
                   } else if (!RegExp(r'^\d+$').hasMatch(value)) {
-                    return 'الرقم القومي يجب أن يحتوي على أرقام فقط';
+                    return S.of(context).nationalIdOnlyNums;
                   } else if (value.length != 14) {
-                    return 'الرقم القومي يجب أن يتكون من 14 رقمًا';
+                    return S.of(context).nationalIdAtleastNums;
                   }
                   return null;
                 },
@@ -79,17 +80,17 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   phoneNumber = value!;
                 },
-                labelText: 'رقم الهاتف',
+                labelText: S.of(context).phoneNumber,
                 hintText: '01XXXXXXXXX',
                 obscureText: false,
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'برجاء إدخال رقم الهاتف';
+                    return S.of(context).enterPhone ;
                   } else if (!RegExp(r'^\d+$').hasMatch(value)) {
-                    return 'رقم الهاتف يجب أن يحتوي على أرقام فقط';
+                    return S.of(context).phoneNumberOnlyNums;
                   } else if (value.length != 11) {
-                    return 'رقم الهاتف يجب أن يتكون من 11 رقمًا';
+                    return S.of(context).phoneNumber11;
                   }
                   return null;
                 },
@@ -100,7 +101,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   email = value!;
                 },
-                labelText: 'البريد الالكتروني',
+                labelText: S.of(context).email,
                 hintText: 'example@mail.com',
                 obscureText: false,
                 keyboardType: TextInputType.emailAddress,
@@ -136,7 +137,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     });
                   }
                 },
-                text: ' انشاء حساب',
+                text: S.of(context).creatingAccount,
                 textColor: const Color.fromARGB(255, 11, 11, 11),
                 gradientColors: AppTheme.primaryGradientColors,
                 shadowColor: const Color.fromARGB(
@@ -153,10 +154,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
                 child: Column(
                   children: [
-                    Text(' لديك حساب؟'),
+                    Text(S.of(context).havingAccount),
                     SizedBox(height: 20),
                     CustomButton(
-                      text: 'تسجيل الدخول',
+                      text: S.of(context).signIn,
                       gradientColors: [
                         const Color.fromARGB(130, 228, 222, 222),
                         const Color.fromARGB(130, 239, 191, 191),

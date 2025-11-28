@@ -1,4 +1,5 @@
 import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,9 +15,9 @@ class ResetPasswordViewBodyBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is ResetPasswordSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
-                'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني',
+                S.of(context).passwardResetSuccessfully,
               ),
               backgroundColor: Colors.green,
               duration: Duration(seconds: 3),

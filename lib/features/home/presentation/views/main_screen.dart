@@ -1,3 +1,4 @@
+import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
 import 'package:depi_project/core/services/get_it_service.dart';
 import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
@@ -8,6 +9,7 @@ import 'package:depi_project/features/notifications/domain/repos/notifications_r
 import 'package:depi_project/core/cubits/get_notifications_cubit/get_notifications_cubit.dart';
 import 'package:depi_project/features/notifications/presentation/views/notifications_view.dart';
 import 'package:depi_project/features/reports/presentation/views/repports_body.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -67,12 +69,14 @@ class _MainScreenState extends State<MainScreen> {
 
         // 🔸 الزر العائم في المنتصف (أحمر متوهج)
         floatingActionButton: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: Color(0xFFFF6B5E), // توهج أحمر
-                blurRadius: 20,
+                color: AppTheme.primaryColor.withValues(
+                  alpha: 0.2,
+                ), // توهج أحمر
+                blurRadius: 10,
                 spreadRadius: 5,
               ),
             ],
@@ -97,6 +101,7 @@ class _MainScreenState extends State<MainScreen> {
 
         // 🔸 الشريط السفلي
         bottomNavigationBar: ClipRRect(
+          
           borderRadius: BorderRadius.circular(30),
           child: BlocBuilder<GetNotificationsCubit, GetNotificationsState>(
             bloc: notificationsCubit,
@@ -106,6 +111,7 @@ class _MainScreenState extends State<MainScreen> {
                   : 0;
 
               return BottomNavigationBar(
+                
                 elevation: 0,
                 type: BottomNavigationBarType.fixed,
                 currentIndex: currentIndex,
@@ -114,21 +120,21 @@ class _MainScreenState extends State<MainScreen> {
                 iconSize: 24,
                 onTap: (index) => setState(() => currentIndex = index),
                 items: [
-                  const BottomNavigationBarItem(
+                  BottomNavigationBarItem(
                     icon: Icon(Icons.home),
-                    label: "الرئيسية",
+                    label: S.of(context).home,
                   ),
-                  const BottomNavigationBarItem(
+                  BottomNavigationBarItem(
                     icon: Icon(Icons.receipt_long),
-                    label: "بلاغاتي",
+                    label: S.of(context).myReports,
                   ),
                   BottomNavigationBarItem(
                     icon: NotificationBadgeIcon(count: unreadCount),
-                    label: "الاشعارات",
+                    label: S.of(context).notifications,
                   ),
-                  const BottomNavigationBarItem(
+                  BottomNavigationBarItem(
                     icon: Icon(Icons.person),
-                    label: "الملف الشخصي",
+                    label: S.of(context).profile,
                   ),
                 ],
               );

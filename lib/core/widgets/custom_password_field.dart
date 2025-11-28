@@ -1,3 +1,4 @@
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_text_field.dart';
@@ -17,11 +18,11 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
     return CustomTextField(
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'برجاء إدخال كلمة المرور';
+          return S.of(context).enteringPassword;
         }
         return null;
       },
-      labelText: 'كلمة المرور ',
+      labelText: S.of(context).password,
       hintText: '********',
       keyboardType: TextInputType.visiblePassword,
       obscureText: isObscured,

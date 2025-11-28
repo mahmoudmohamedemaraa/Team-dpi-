@@ -5,6 +5,7 @@ import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/features/reports/presentation/manager/cubit/reports_cubit.dart';
 import 'package:depi_project/features/reports/presentation/manager/cubit/reports_state.dart';
 import 'package:depi_project/features/reports/presentation/widgets/report_detail_card.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,7 +24,7 @@ class _RepportsBodyState extends State<RepportsBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.white,
-      appBar: buildAppBar(title: 'بلاغاتي'),
+      appBar: buildAppBar(title: S.of(context).myReports),
       body: BlocProvider(
         create: (_) => GetUserReportsCubit()..listenToUserReports(),
         child: BlocBuilder<GetUserReportsCubit, GetUserReportsState>(
@@ -34,16 +35,16 @@ class _RepportsBodyState extends State<RepportsBody> {
               log(state.message);
               return Center(
                 child: Text(
-                  'حدث خطأ أثناء تحميل البلاغات:\n${state.message}',
+                  '${S.of(context).errorWhileLouding}\n${state.message}',
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 16, color: Colors.red),
                 ),
               );
             } else if (state is GetUserReportsSuccess) {
               if (state.reports.isEmpty) {
-                return const Center(
+                return Center(
                   child: Text(
-                    'لا توجد بلاغات لهذا المستخدم.',
+                    S.of(context).noReports,
                     style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                 );

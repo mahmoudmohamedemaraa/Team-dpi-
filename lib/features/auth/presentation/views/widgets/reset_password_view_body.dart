@@ -1,6 +1,7 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_button.dart';
 import 'package:depi_project/core/widgets/custom_text_field.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,38 +31,38 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 120),
-              const Text(
-                'إعادة تعيين كلمة المرور',
+              Text(
+                S.of(context).resetPassword,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: AppTheme.black,
                 ),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Text(
-                'أدخل بريدك الإلكتروني أو الرقم القومي وسنرسل لك رابط لإعادة تعيين كلمة المرور',
+                S.of(context).SendingEmailForNewPassword,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey.shade600,
                   height: 1.4,
                 ),
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 40),
               CustomTextField(
                 onSaved: (value) {
                   emailOrNationalId = value!;
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'برجاء إدخال البريد الإلكتروني أو الرقم القومي';
+                    return S.of(context).enterEmailOrId;
                   } else if (!value.contains('@') &&
                       !RegExp(r'^\d+$').hasMatch(value)) {
-                    return 'برجاء إدخال بريد إلكتروني صالح أو رقم قومي صحيح';
+                    return S.of(context).validEmailOrId;
                   }
                   return null;
                 },
-                labelText: 'البريد الإلكتروني أو الرقم القومي',
+                labelText:S.of(context).emailOrId,
                 hintText: 'example@mail.com ',
                 obscureText: false,
                 keyboardType: TextInputType.text,
@@ -78,7 +79,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                     autovalidateMode = AutovalidateMode.always;
                   }
                 },
-                text: 'إرسال رابط إعادة التعيين',
+                text: S.of(context).sendingLinkReset,
                 gradientColors: AppTheme.primaryGradientColors,
                 shadowColor: AppTheme.primaryShadowColor,
               ),
@@ -88,8 +89,8 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    'العودة لتسجيل الدخول',
+                  child:  Text(
+                    S.of(context).backSignIn,
                     style: TextStyle(
                       color: AppTheme.primaryColor,
                       fontSize: 16,

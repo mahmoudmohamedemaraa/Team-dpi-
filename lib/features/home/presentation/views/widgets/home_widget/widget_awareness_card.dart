@@ -57,15 +57,17 @@ class WidgetAwarenessCard extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(imageUrl, fit: BoxFit.cover),
-              ),
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+            Expanded(
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(imageUrl, fit: BoxFit.cover),
+                ),
+                height: 100,
+
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
           ],

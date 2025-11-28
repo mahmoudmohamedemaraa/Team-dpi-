@@ -1,4 +1,4 @@
-
+import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/media_manager.dart';
@@ -93,7 +93,7 @@ class MediaPickerSection extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'اضغط على الأيقونات لإضافة الوسائط',
+                    S.of(context).addPhotosAndVideos,
                     style: TextStyle(color: Colors.grey[600]),
                   ),
                 ],
