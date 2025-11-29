@@ -5,6 +5,7 @@ import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:depi_project/features/reports/presentation/widgets/media_thumbnail.dart';
+import 'package:depi_project/generated/l10n.dart';
 
 class ReportDetailsScreen extends StatelessWidget {
   final ReportEntity report;
@@ -29,7 +30,7 @@ class ReportDetailsScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: buildAppBar(title: 'تفاصيل البلاغ'),
+      appBar: buildAppBar(title: S.of(context).reportDetails),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -47,9 +48,9 @@ class ReportDetailsScreen extends StatelessWidget {
 
             Row(
               children: [
-                const Text(
-                  'الحالة:',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                Text(
+                  '${S.of(context).status}:',
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(width: 8),
                 Chip(
@@ -66,9 +67,9 @@ class ReportDetailsScreen extends StatelessWidget {
             ),
             const Divider(height: 32),
 
-            const Text(
-              'الوصف:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              '${S.of(context).description}:',
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(report.description, style: const TextStyle(fontSize: 16)),
@@ -78,9 +79,9 @@ class ReportDetailsScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'الموقع:',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  Text(
+                    '${S.of(context).address}:',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -104,9 +105,9 @@ class ReportDetailsScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'الصور/الفيديو:',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  Text(
+                    '${S.of(context).media}:',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   SizedBox(
@@ -150,9 +151,9 @@ class ReportDetailsScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Text(
-                      'تعليق المسؤول:',
-                      style: TextStyle(
+                    Text(
+                      '${S.of(context).adminComment}:',
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: AppTheme.primaryColor,

@@ -3,6 +3,7 @@ import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
 import 'package:depi_project/features/reports/presentation/views/report_details_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:depi_project/generated/l10n.dart';
 
 class ReportDetailCard extends StatelessWidget {
   final ReportEntity data;
@@ -106,7 +107,7 @@ class ReportDetailCard extends StatelessWidget {
                 ),
               const SizedBox(height: 8),
               Text(
-                'تاريخ البلاغ : ${data.createdAt.day}/${data.createdAt.month}/${data.createdAt.year} ',
+                '${S.of(context).reportDate} : ${data.createdAt.day}/${data.createdAt.month}/${data.createdAt.year} ',
                 style: TextStyle(color: AppTheme.darkGrey, fontSize: 10),
               ),
             ],

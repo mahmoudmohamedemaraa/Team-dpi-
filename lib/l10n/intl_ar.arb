@@ -90,6 +90,13 @@
     "Password":"كلمة المرور",
     "deletingAccountErrorMessage":"حدث خطأ أثناء حذف الحساب. الرجاء المحاولة مرة أخرى",
     "forgetPassword":"هل نسيت كلمة السر",
-    "do_notHaveAccount":"ليس لديك حساب"
+    "do_notHaveAccount":"ليس لديك حساب",
+    "reportDetails":"تفاصيل البلاغ",
+    "status":"الحالة",
+    "description":"الوصف",
+    "address":"الموقع",
+    "media":"الصور/الفيديو",
+    "adminComment":"تعليق المسؤول",
+    "reportDate":"تاريخ البلاغ"
 
 }

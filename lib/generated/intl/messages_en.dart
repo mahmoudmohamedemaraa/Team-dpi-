@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addingPhoto": MessageLookupByLibrary.simpleMessage("Adding photo"),
     "addingVideo": MessageLookupByLibrary.simpleMessage("Adding video"),
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "adminComment": MessageLookupByLibrary.simpleMessage("Admin Comment"),
     "alert": MessageLookupByLibrary.simpleMessage("Alert!"),
     "ambulance": MessageLookupByLibrary.simpleMessage("Ambulance"),
     "backSignIn": MessageLookupByLibrary.simpleMessage("Back for Sign in"),
@@ -56,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deletingAccountErrorMessage": MessageLookupByLibrary.simpleMessage(
       "An error occurred while deleting the account. Please try again.",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Description"),
     "doYouWantToCall": MessageLookupByLibrary.simpleMessage(
       "Do you want to call",
     ),
@@ -106,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Example: wsatt albald ,Cairo",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "media": MessageLookupByLibrary.simpleMessage("Photos/Videos"),
     "ministryAwareness": MessageLookupByLibrary.simpleMessage(
       "Ministry awareness",
     ),
@@ -153,12 +157,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Submit new report",
     ),
+    "reportDate": MessageLookupByLibrary.simpleMessage("Report Date"),
     "reportDescribtion": MessageLookupByLibrary.simpleMessage(
       "Report describtion",
     ),
     "reportDescribtionAtLeast10": MessageLookupByLibrary.simpleMessage(
       "report describtion should be at least 10",
     ),
+    "reportDetails": MessageLookupByLibrary.simpleMessage("Report Details"),
     "reportEx": MessageLookupByLibrary.simpleMessage(
       "Example: Robbing a store",
     ),
@@ -180,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "signed in successfully",
     ),
     "singInFailing": MessageLookupByLibrary.simpleMessage("sing in has faild"),
+    "status": MessageLookupByLibrary.simpleMessage("Status"),
     "submitReport": MessageLookupByLibrary.simpleMessage("Submit Report"),
     "tip1": MessageLookupByLibrary.simpleMessage(
       "Enable two-factor authentication (2FA) to protect your accounts from hacking",

@@ -28,9 +28,10 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -877,6 +878,51 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Report Details`
+  String get reportDetails {
+    return Intl.message(
+      'Report Details',
+      name: 'reportDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message('Status', name: 'status', desc: '', args: []);
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message('Description', name: 'description', desc: '', args: []);
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
+  }
+
+  /// `Photos/Videos`
+  String get media {
+    return Intl.message('Photos/Videos', name: 'media', desc: '', args: []);
+  }
+
+  /// `Admin Comment`
+  String get adminComment {
+    return Intl.message(
+      'Admin Comment',
+      name: 'adminComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Date`
+  String get reportDate {
+    return Intl.message('Report Date', name: 'reportDate', desc: '', args: []);
   }
 }
 

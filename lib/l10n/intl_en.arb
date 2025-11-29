@@ -91,6 +91,13 @@
     "password":"Password",
     "deletingAccountErrorMessage":"An error occurred while deleting the account. Please try again.",
     "forgetPassword":"do you forget your passward",
-    "do_notHaveAccount":"Don't have account"
+    "do_notHaveAccount":"Don't have account",
+    "reportDetails":"Report Details",
+    "status":"Status",
+    "description":"Description",
+    "address":"Address",
+    "media":"Photos/Videos",
+    "adminComment":"Admin Comment",
+    "reportDate":"Report Date"
     
 }

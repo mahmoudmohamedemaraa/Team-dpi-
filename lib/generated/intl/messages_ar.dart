@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addingPhoto": MessageLookupByLibrary.simpleMessage("اضافة صورة"),
     "addingVideo": MessageLookupByLibrary.simpleMessage("اضافة فيديو"),
+    "address": MessageLookupByLibrary.simpleMessage("الموقع"),
+    "adminComment": MessageLookupByLibrary.simpleMessage("تعليق المسؤول"),
     "alert": MessageLookupByLibrary.simpleMessage("تنبيه"),
     "ambulance": MessageLookupByLibrary.simpleMessage("الإسعاف"),
     "backSignIn": MessageLookupByLibrary.simpleMessage("العودة لتسجيل الدخول"),
@@ -56,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deletingAccountErrorMessage": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ أثناء حذف الحساب. الرجاء المحاولة مرة أخرى",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "doYouWantToCall": MessageLookupByLibrary.simpleMessage(
       "هل تريد الاتصال ب ",
     ),
@@ -95,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "location": MessageLookupByLibrary.simpleMessage("الموقع (اختياري)"),
     "locationEx": MessageLookupByLibrary.simpleMessage("مثال: شارع الجمهورية"),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "media": MessageLookupByLibrary.simpleMessage("الصور/الفيديو"),
     "ministryAwareness": MessageLookupByLibrary.simpleMessage("توعية الوزارة"),
     "mustAddMedia": MessageLookupByLibrary.simpleMessage(
       "يجب اضافة صورة واحده او فيديو علي الاقل",
@@ -141,12 +145,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "تقديم بلاغ جديد",
     ),
+    "reportDate": MessageLookupByLibrary.simpleMessage("تاريخ البلاغ"),
     "reportDescribtion": MessageLookupByLibrary.simpleMessage(
       "Report describtion",
     ),
     "reportDescribtionAtLeast10": MessageLookupByLibrary.simpleMessage(
       "وصف البلاغ يجب ان يكون علي الاقل 10احرف",
     ),
+    "reportDetails": MessageLookupByLibrary.simpleMessage("تفاصيل البلاغ"),
     "reportEx": MessageLookupByLibrary.simpleMessage("مثال: سرقة محل تجاري"),
     "reportTitle": MessageLookupByLibrary.simpleMessage("عنوان البلاغ"),
     "reportTitleAtLeast5": MessageLookupByLibrary.simpleMessage(
@@ -167,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
     ),
+    "status": MessageLookupByLibrary.simpleMessage("الحالة"),
     "submitReport": MessageLookupByLibrary.simpleMessage("تقديم بلاغ"),
     "tip1": MessageLookupByLibrary.simpleMessage(
       "قم بتفعيل المصادقة الثنائية (2FA) لحماية حساباتك من الاختراق.",
