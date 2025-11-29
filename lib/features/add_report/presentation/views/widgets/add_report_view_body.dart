@@ -69,14 +69,14 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return S.of(context).enterReportDescribtion;
+                    return S.of(context).enterReportDescription;
                   } else if (value.length < 10) {
-                    return S.of(context).reportDescribtionAtLeast10;
+                    return S.of(context).reportDescriptionAtLeast10;
                   }
                   return null;
                 },
-                labelText: S.of(context).reportDescribtion,
-                hintText: S.of(context).writeReportDescribtion,
+                labelText: S.of(context).reportDescription,
+                hintText: S.of(context).writeReportDescription,
                 obscureText: false,
                 keyboardType: TextInputType.multiline,
                 maxLines: 5,

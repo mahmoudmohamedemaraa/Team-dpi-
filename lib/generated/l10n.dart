@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Easily and quickly`
+  /// `easily and quickly`
   String get reportButtonDiscriptionContinue {
     return Intl.message(
-      'Easily and quickly',
+      'easily and quickly',
       name: 'reportButtonDiscriptionContinue',
       desc: '',
       args: [],
@@ -125,20 +125,20 @@ class S {
     );
   }
 
-  /// `Ministry awareness`
+  /// `Ministry Awareness`
   String get ministryAwareness {
     return Intl.message(
-      'Ministry awareness',
+      'Ministry Awareness',
       name: 'ministryAwareness',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cyber ​​fraud warning`
+  /// `Cyber Fraud Warning`
   String get cyberFraudWarning {
     return Intl.message(
-      'Cyber ​​fraud warning',
+      'Cyber Fraud Warning',
       name: 'cyberFraudWarning',
       desc: '',
       args: [],
@@ -165,10 +165,10 @@ class S {
     );
   }
 
-  /// `Reporting cybercrimes`
+  /// `Reporting Cybercrimes`
   String get reportingCybercrimes {
     return Intl.message(
-      'Reporting cybercrimes',
+      'Reporting Cybercrimes',
       name: 'reportingCybercrimes',
       desc: '',
       args: [],
@@ -205,10 +205,10 @@ class S {
     );
   }
 
-  /// `Report title`
+  /// `Report Title`
   String get reportTitle {
     return Intl.message(
-      'Report title',
+      'Report Title',
       name: 'reportTitle',
       desc: '',
       args: [],
@@ -255,6 +255,11 @@ class S {
     return Intl.message('National ID', name: 'nationalID', desc: '', args: []);
   }
 
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
   /// `Logout`
   String get logout {
     return Intl.message('Logout', name: 'logout', desc: '', args: []);
@@ -270,30 +275,30 @@ class S {
     );
   }
 
-  /// `There are no Report from that user`
+  /// `There are no reports from this user`
   String get noReports {
     return Intl.message(
-      'There are no Report from that user',
+      'There are no reports from this user',
       name: 'noReports',
       desc: '',
       args: [],
     );
   }
 
-  /// `Error While Louding`
+  /// `Error While Loading`
   String get errorWhileLouding {
     return Intl.message(
-      'Error While Louding',
+      'Error While Loading',
       name: 'errorWhileLouding',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enable two-factor authentication (2FA) to protect your accounts from hacking`
+  /// `Enable two-factor authentication (2FA) to protect your accounts from hacking.`
   String get tip1 {
     return Intl.message(
-      'Enable two-factor authentication (2FA) to protect your accounts from hacking',
+      'Enable two-factor authentication (2FA) to protect your accounts from hacking.',
       name: 'tip1',
       desc: '',
       args: [],
@@ -320,10 +325,10 @@ class S {
     );
   }
 
-  /// `Use and regularly update security software to protect against viruses and hacks`
+  /// `Use and regularly update security software to protect against viruses and hacks.`
   String get tip4 {
     return Intl.message(
-      'Use and regularly update security software to protect against viruses and hacks',
+      'Use and regularly update security software to protect against viruses and hacks.',
       name: 'tip4',
       desc: '',
       args: [],
@@ -470,9 +475,9 @@ class S {
     );
   }
 
-  /// `Report title`
+  /// `Report Title`
   String get reporTitle {
-    return Intl.message('Report title', name: 'reporTitle', desc: '', args: []);
+    return Intl.message('Report Title', name: 'reporTitle', desc: '', args: []);
   }
 
   /// `Example: Robbing a store`
@@ -485,41 +490,41 @@ class S {
     );
   }
 
-  /// `enter report describtion`
-  String get enterReportDescribtion {
+  /// `Enter report description`
+  String get enterReportDescription {
     return Intl.message(
-      'enter report describtion',
-      name: 'enterReportDescribtion',
+      'Enter report description',
+      name: 'enterReportDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `report describtion should be at least 10`
-  String get reportDescribtionAtLeast10 {
+  /// `Report description should be at least 10 characters`
+  String get reportDescriptionAtLeast10 {
     return Intl.message(
-      'report describtion should be at least 10',
-      name: 'reportDescribtionAtLeast10',
+      'Report description should be at least 10 characters',
+      name: 'reportDescriptionAtLeast10',
       desc: '',
       args: [],
     );
   }
 
-  /// `Report describtion`
-  String get reportDescribtion {
+  /// `Report Description`
+  String get reportDescription {
     return Intl.message(
-      'Report describtion',
-      name: 'reportDescribtion',
+      'Report Description',
+      name: 'reportDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Write Report describtion`
-  String get writeReportDescribtion {
+  /// `Write report description`
+  String get writeReportDescription {
     return Intl.message(
-      'Write Report describtion',
-      name: 'writeReportDescribtion',
+      'Write report description',
+      name: 'writeReportDescription',
       desc: '',
       args: [],
     );
@@ -535,10 +540,10 @@ class S {
     );
   }
 
-  /// `Example: wsatt albald ,Cairo`
+  /// `Example: Downtown, Cairo`
   String get locationEx {
     return Intl.message(
-      'Example: wsatt albald ,Cairo',
+      'Example: Downtown, Cairo',
       name: 'locationEx',
       desc: '',
       args: [],
@@ -570,65 +575,65 @@ class S {
     return Intl.message('Alert!', name: 'alert', desc: '', args: []);
   }
 
-  /// `you should add atleast one photo or a video`
+  /// `You should add at least one photo or video`
   String get mustAddMedia {
     return Intl.message(
-      'you should add atleast one photo or a video',
+      'You should add at least one photo or video',
       name: 'mustAddMedia',
       desc: '',
       args: [],
     );
   }
 
-  /// `Send report`
+  /// `Send Report`
   String get sendingReport {
     return Intl.message(
-      'Send report',
+      'Send Report',
       name: 'sendingReport',
       desc: '',
       args: [],
     );
   }
 
-  /// `Adding photo`
+  /// `Adding Photo`
   String get addingPhoto {
     return Intl.message(
-      'Adding photo',
+      'Adding Photo',
       name: 'addingPhoto',
       desc: '',
       args: [],
     );
   }
 
-  /// `Adding video`
+  /// `Adding Video`
   String get addingVideo {
     return Intl.message(
-      'Adding video',
+      'Adding Video',
       name: 'addingVideo',
       desc: '',
       args: [],
     );
   }
 
-  /// `signed in `
+  /// `Sign in`
   String get signIn {
-    return Intl.message('signed in ', name: 'signIn', desc: '', args: []);
+    return Intl.message('Sign in', name: 'signIn', desc: '', args: []);
   }
 
-  /// `signed in successfully`
+  /// `Signed in successfully`
   String get signInSuccess {
     return Intl.message(
-      'signed in successfully',
+      'Signed in successfully',
       name: 'signInSuccess',
       desc: '',
       args: [],
     );
   }
 
-  /// `Didn't sing in`
+  /// `Didn't sign in`
   String get notSignedIn {
     return Intl.message(
-      'Didn\'t sing in',
+      'Didn\'t sign in',
       name: 'notSignedIn',
       desc: '',
       args: [],
@@ -645,10 +650,10 @@ class S {
     );
   }
 
-  /// `Reset password`
+  /// `Reset Password`
   String get resetPassword {
     return Intl.message(
-      'Reset password',
+      'Reset Password',
       name: 'resetPassword',
       desc: '',
       args: [],
@@ -690,39 +695,39 @@ class S {
     return Intl.message('Email or ID', name: 'emailOrId', desc: '', args: []);
   }
 
-  /// `Sending Link for resetting`
+  /// `Sending Reset Link`
   String get sendingLinkReset {
     return Intl.message(
-      'Sending Link for resetting',
+      'Sending Reset Link',
       name: 'sendingLinkReset',
       desc: '',
       args: [],
     );
   }
 
-  /// `Back for Sign in`
+  /// `Back to Sign In`
   String get backSignIn {
     return Intl.message(
-      'Back for Sign in',
+      'Back to Sign In',
       name: 'backSignIn',
       desc: '',
       args: [],
     );
   }
 
-  /// `sing in has faild`
+  /// `Sign in has failed`
   String get singInFailing {
     return Intl.message(
-      'sing in has faild',
+      'Sign in has failed',
       name: 'singInFailing',
       desc: '',
       args: [],
     );
   }
 
-  /// `frist name`
+  /// `First Name`
   String get fristName {
-    return Intl.message('frist name', name: 'fristName', desc: '', args: []);
+    return Intl.message('First Name', name: 'fristName', desc: '', args: []);
   }
 
   /// `Eddard`
@@ -730,9 +735,9 @@ class S {
     return Intl.message('Eddard', name: 'fristNameEx', desc: '', args: []);
   }
 
-  /// `last name`
+  /// `Last Name`
   String get LastName {
-    return Intl.message('last name', name: 'LastName', desc: '', args: []);
+    return Intl.message('Last Name', name: 'LastName', desc: '', args: []);
   }
 
   /// `Stark`
@@ -740,60 +745,60 @@ class S {
     return Intl.message('Stark', name: 'LastNameEx', desc: '', args: []);
   }
 
-  /// `Please enter national ID`
+  /// `Please enter your national ID`
   String get enterNationalId {
     return Intl.message(
-      'Please enter national ID',
+      'Please enter your national ID',
       name: 'enterNationalId',
       desc: '',
       args: [],
     );
   }
 
-  /// `the national ID has to be only Numbers`
+  /// `National ID must contain only numbers`
   String get nationalIdOnlyNums {
     return Intl.message(
-      'the national ID has to be only Numbers',
+      'National ID must contain only numbers',
       name: 'nationalIdOnlyNums',
       desc: '',
       args: [],
     );
   }
 
-  /// `the national ID has to be only 14`
+  /// `National ID must be exactly 14 digits`
   String get nationalIdAtleastNums {
     return Intl.message(
-      'the national ID has to be only 14',
+      'National ID must be exactly 14 digits',
       name: 'nationalIdAtleastNums',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enter phone number`
+  /// `Enter Phone Number`
   String get enterPhone {
     return Intl.message(
-      'Enter phone number',
+      'Enter Phone Number',
       name: 'enterPhone',
       desc: '',
       args: [],
     );
   }
 
-  /// `the Phone Number has to be only Numbers`
+  /// `Phone number must contain only numbers`
   String get phoneNumberOnlyNums {
     return Intl.message(
-      'the Phone Number has to be only Numbers',
+      'Phone number must contain only numbers',
       name: 'phoneNumberOnlyNums',
       desc: '',
       args: [],
     );
   }
 
-  /// `the phone number must be 11 digits`
+  /// `Phone number must be 11 digits`
   String get phoneNumber11 {
     return Intl.message(
-      'the phone number must be 11 digits',
+      'Phone number must be 11 digits',
       name: 'phoneNumber11',
       desc: '',
       args: [],
@@ -810,10 +815,10 @@ class S {
     );
   }
 
-  /// `Do you have account?`
+  /// `Do you have an account?`
   String get havingAccount {
     return Intl.message(
-      'Do you have account?',
+      'Do you have an account?',
       name: 'havingAccount',
       desc: '',
       args: [],
@@ -835,10 +840,10 @@ class S {
     );
   }
 
-  /// `PLease enter password`
+  /// `Please enter password`
   String get enteringPassword {
     return Intl.message(
-      'PLease enter password',
+      'Please enter password',
       name: 'enteringPassword',
       desc: '',
       args: [],
@@ -860,20 +865,20 @@ class S {
     );
   }
 
-  /// `do you forget your passward`
+  /// `Forgot your password?`
   String get forgetPassword {
     return Intl.message(
-      'do you forget your passward',
+      'Forgot your password?',
       name: 'forgetPassword',
       desc: '',
       args: [],
     );
   }
 
-  /// `Don't have account`
+  /// `Don't have an account?`
   String get do_notHaveAccount {
     return Intl.message(
-      'Don\'t have account',
+      'Don\'t have an account?',
       name: 'do_notHaveAccount',
       desc: '',
       args: [],
@@ -923,6 +928,121 @@ class S {
   /// `Report Date`
   String get reportDate {
     return Intl.message('Report Date', name: 'reportDate', desc: '', args: []);
+  }
+
+  /// `Pending`
+  String get statusPending {
+    return Intl.message('Pending', name: 'statusPending', desc: '', args: []);
+  }
+
+  /// `In Review`
+  String get statusInReview {
+    return Intl.message(
+      'In Review',
+      name: 'statusInReview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Investigating`
+  String get statusInvestigating {
+    return Intl.message(
+      'Investigating',
+      name: 'statusInvestigating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resolved`
+  String get statusResolved {
+    return Intl.message('Resolved', name: 'statusResolved', desc: '', args: []);
+  }
+
+  /// `Rejected`
+  String get statusRejected {
+    return Intl.message('Rejected', name: 'statusRejected', desc: '', args: []);
+  }
+
+  /// `Report Status Updated`
+  String get reportStatusUpdated {
+    return Intl.message(
+      'Report Status Updated',
+      name: 'reportStatusUpdated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your report status has been changed to`
+  String get reportStatusChangedTo {
+    return Intl.message(
+      'Your report status has been changed to',
+      name: 'reportStatusChangedTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Now`
+  String get now {
+    return Intl.message('Now', name: 'now', desc: '', args: []);
+  }
+
+  /// `since`
+  String get since {
+    return Intl.message('since', name: 'since', desc: '', args: []);
+  }
+
+  /// `minute`
+  String get minute {
+    return Intl.message('minute', name: 'minute', desc: '', args: []);
+  }
+
+  /// `minutes`
+  String get minutes {
+    return Intl.message('minutes', name: 'minutes', desc: '', args: []);
+  }
+
+  /// `hour`
+  String get hour {
+    return Intl.message('hour', name: 'hour', desc: '', args: []);
+  }
+
+  /// `hours`
+  String get hours {
+    return Intl.message('hours', name: 'hours', desc: '', args: []);
+  }
+
+  /// `day`
+  String get day {
+    return Intl.message('day', name: 'day', desc: '', args: []);
+  }
+
+  /// `days`
+  String get days {
+    return Intl.message('days', name: 'days', desc: '', args: []);
+  }
+
+  /// `Choose Language`
+  String get chooseLanguage {
+    return Intl.message(
+      'Choose Language',
+      name: 'chooseLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message('English', name: 'english', desc: '', args: []);
   }
 }
 

@@ -41,14 +41,17 @@ class ReportNotificationModel {
     );
   }
 
-  factory ReportNotificationModel.fromEntity(ReportEntity reportEntity) {
+  factory ReportNotificationModel.fromEntity(
+    ReportEntity reportEntity, {
+    String? customTitle,
+    String? customMessage,
+  }) {
     return ReportNotificationModel(
       id: '',
       reportId: reportEntity.reportId,
       userId: reportEntity.userId,
-      title: 'تم تحديث حالة البلاغ',
-      message:
-          'تم تغيير حالة البلاغ الخاص بك إلى ${reportEntity.statusDisplayName}',
+      title: customTitle ?? 'تم تحديث حالة البلاغ',
+      message: customMessage ?? 'تم تغيير حالة البلاغ',
       status: reportEntity.status,
       timestamp: DateTime.now(),
       isRead: false,

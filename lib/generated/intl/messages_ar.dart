@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "LastName": MessageLookupByLibrary.simpleMessage("الاسم الاخير"),
     "LastNameEx": MessageLookupByLibrary.simpleMessage("طنطاوي"),
     "SendingEmailForNewPassword": MessageLookupByLibrary.simpleMessage(
-      "أدخل عنوان بريدك الإلكتروني أو رقم الهوية الوطنية وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك.",
+      "أدخل عنوان بريدك الإلكتروني أو الرقم القومي وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك.",
     ),
     "addPhotosAndVideos": MessageLookupByLibrary.simpleMessage(
       "اضغط على الأيقونات لإضافة الوسائط",
@@ -37,8 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "adminComment": MessageLookupByLibrary.simpleMessage("تعليق المسؤول"),
     "alert": MessageLookupByLibrary.simpleMessage("تنبيه"),
     "ambulance": MessageLookupByLibrary.simpleMessage("الإسعاف"),
+    "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "backSignIn": MessageLookupByLibrary.simpleMessage("العودة لتسجيل الدخول"),
     "callNow": MessageLookupByLibrary.simpleMessage("اتصل الان"),
+    "chooseLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "creatingAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
     "cyberFraudWarning": MessageLookupByLibrary.simpleMessage(
       "تحذير من الاحتيال الإلكتروني",
@@ -55,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "cyberFraudWarningContinue4": MessageLookupByLibrary.simpleMessage(
       " الإلكتروني لحماية نفسك",
     ),
+    "day": MessageLookupByLibrary.simpleMessage("يوم"),
+    "days": MessageLookupByLibrary.simpleMessage("أيام"),
     "deletingAccountErrorMessage": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ أثناء حذف الحساب. الرجاء المحاولة مرة أخرى",
     ),
@@ -71,14 +75,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "البريد الالكتروني او الرقم القومي",
     ),
     "emergencyNumbers": MessageLookupByLibrary.simpleMessage("أرقام الطوارئ"),
+    "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterEmailOrId": MessageLookupByLibrary.simpleMessage(
-      "الرجاء إدخال عنوان بريدك الإلكتروني أو رقم الهوية الوطنية.",
+      "الرجاء إدخال عنوان بريدك الإلكتروني أو الرقم القومي.",
     ),
     "enterNationalId": MessageLookupByLibrary.simpleMessage(
       "رجاء ادخل الرقم القومي",
     ),
     "enterPhone": MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
-    "enterReportDescribtion": MessageLookupByLibrary.simpleMessage(
+    "enterReportDescription": MessageLookupByLibrary.simpleMessage(
       "ادخل وصف للبلاغ",
     ),
     "enterReportTitle": MessageLookupByLibrary.simpleMessage(
@@ -95,11 +100,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "greeting": MessageLookupByLibrary.simpleMessage("مرحباً"),
     "havingAccount": MessageLookupByLibrary.simpleMessage("هل لديك حساب ؟"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
+    "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
+    "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "location": MessageLookupByLibrary.simpleMessage("الموقع (اختياري)"),
     "locationEx": MessageLookupByLibrary.simpleMessage("مثال: شارع الجمهورية"),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "media": MessageLookupByLibrary.simpleMessage("الصور/الفيديو"),
     "ministryAwareness": MessageLookupByLibrary.simpleMessage("توعية الوزارة"),
+    "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
+    "minutes": MessageLookupByLibrary.simpleMessage("دقائق"),
     "mustAddMedia": MessageLookupByLibrary.simpleMessage(
       "يجب اضافة صورة واحده او فيديو علي الاقل",
     ),
@@ -117,11 +127,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noReports": MessageLookupByLibrary.simpleMessage(
       "لا توجد بلاغات لهذا المستخدم.",
     ),
-    "notSignedIn": MessageLookupByLibrary.simpleMessage("Didn\'t sing in"),
+    "notSignedIn": MessageLookupByLibrary.simpleMessage("لم يتم تسجيل الدخول"),
     "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+    "now": MessageLookupByLibrary.simpleMessage("الآن"),
     "passwardResetSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني",
     ),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "phoneNumber11": MessageLookupByLibrary.simpleMessage(
       "رقم الهاتف يجب ان يتكون من 11 رقما",
@@ -146,14 +158,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "تقديم بلاغ جديد",
     ),
     "reportDate": MessageLookupByLibrary.simpleMessage("تاريخ البلاغ"),
-    "reportDescribtion": MessageLookupByLibrary.simpleMessage(
-      "Report describtion",
-    ),
-    "reportDescribtionAtLeast10": MessageLookupByLibrary.simpleMessage(
-      "وصف البلاغ يجب ان يكون علي الاقل 10احرف",
+    "reportDescription": MessageLookupByLibrary.simpleMessage("وصف البلاغ"),
+    "reportDescriptionAtLeast10": MessageLookupByLibrary.simpleMessage(
+      "وصف البلاغ يجب ان يكون علي الاقل 10 احرف",
     ),
     "reportDetails": MessageLookupByLibrary.simpleMessage("تفاصيل البلاغ"),
     "reportEx": MessageLookupByLibrary.simpleMessage("مثال: سرقة محل تجاري"),
+    "reportStatusChangedTo": MessageLookupByLibrary.simpleMessage(
+      "تم تغيير حالة البلاغ الخاص بك إلى",
+    ),
+    "reportStatusUpdated": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث حالة البلاغ",
+    ),
     "reportTitle": MessageLookupByLibrary.simpleMessage("عنوان البلاغ"),
     "reportTitleAtLeast5": MessageLookupByLibrary.simpleMessage(
       "عنوان البلاغ يجب ان يكون علي الاقل 5 احرف",
@@ -169,11 +185,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "ارسال رابط لإعادة التعيين",
     ),
     "sendingReport": MessageLookupByLibrary.simpleMessage(" ارسال بلاغ"),
-    "signIn": MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول "),
+    "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
     ),
+    "since": MessageLookupByLibrary.simpleMessage("منذ"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+    "statusInReview": MessageLookupByLibrary.simpleMessage("تحت المراجعة"),
+    "statusInvestigating": MessageLookupByLibrary.simpleMessage("جاري التحقيق"),
+    "statusPending": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
+    "statusRejected": MessageLookupByLibrary.simpleMessage("مرفوض"),
+    "statusResolved": MessageLookupByLibrary.simpleMessage("تم الحل"),
     "submitReport": MessageLookupByLibrary.simpleMessage("تقديم بلاغ"),
     "tip1": MessageLookupByLibrary.simpleMessage(
       "قم بتفعيل المصادقة الثنائية (2FA) لحماية حساباتك من الاختراق.",
@@ -209,10 +231,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "يرجى استخدام هذه الأرقام فقط في حالات الطوارئ الحقيقية.",
     ),
     "validEmailOrId": MessageLookupByLibrary.simpleMessage(
-      "الرجاء إدخال عنوان بريد إلكتروني صالح أو رقم هوية وطنية صالح.",
+      "الرجاء إدخال عنوان بريد إلكتروني صالح أو رقم قومي صالح.",
     ),
     "water": MessageLookupByLibrary.simpleMessage("المياه"),
-    "writeReportDescribtion": MessageLookupByLibrary.simpleMessage(
+    "writeReportDescription": MessageLookupByLibrary.simpleMessage(
       "اكتب تفاصيل البلاغ",
     ),
   };

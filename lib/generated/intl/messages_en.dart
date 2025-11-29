@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "HelpLine": MessageLookupByLibrary.simpleMessage("HelpLine"),
-    "LastName": MessageLookupByLibrary.simpleMessage("last name"),
+    "LastName": MessageLookupByLibrary.simpleMessage("Last Name"),
     "LastNameEx": MessageLookupByLibrary.simpleMessage("Stark"),
     "SendingEmailForNewPassword": MessageLookupByLibrary.simpleMessage(
       "Enter your email address or national ID number and we will send you a link to reset your password.",
@@ -31,17 +31,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "addPhotosAndVideos": MessageLookupByLibrary.simpleMessage(
       "Tap the icons to add media",
     ),
-    "addingPhoto": MessageLookupByLibrary.simpleMessage("Adding photo"),
-    "addingVideo": MessageLookupByLibrary.simpleMessage("Adding video"),
+    "addingPhoto": MessageLookupByLibrary.simpleMessage("Adding Photo"),
+    "addingVideo": MessageLookupByLibrary.simpleMessage("Adding Video"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
     "adminComment": MessageLookupByLibrary.simpleMessage("Admin Comment"),
     "alert": MessageLookupByLibrary.simpleMessage("Alert!"),
     "ambulance": MessageLookupByLibrary.simpleMessage("Ambulance"),
-    "backSignIn": MessageLookupByLibrary.simpleMessage("Back for Sign in"),
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "backSignIn": MessageLookupByLibrary.simpleMessage("Back to Sign In"),
     "callNow": MessageLookupByLibrary.simpleMessage("Call Now"),
+    "chooseLanguage": MessageLookupByLibrary.simpleMessage("Choose Language"),
     "creatingAccount": MessageLookupByLibrary.simpleMessage("Creating Account"),
     "cyberFraudWarning": MessageLookupByLibrary.simpleMessage(
-      "Cyber ​​fraud warning",
+      "Cyber Fraud Warning",
     ),
     "cyberFraudWarningContinue": MessageLookupByLibrary.simpleMessage(
       "Protect yourself from cybercrime,",
@@ -55,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "cyberFraudWarningContinue4": MessageLookupByLibrary.simpleMessage(
       "to protect yourself",
     ),
+    "day": MessageLookupByLibrary.simpleMessage("day"),
+    "days": MessageLookupByLibrary.simpleMessage("days"),
     "deletingAccountErrorMessage": MessageLookupByLibrary.simpleMessage(
       "An error occurred while deleting the account. Please try again.",
     ),
@@ -63,7 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Do you want to call",
     ),
     "do_notHaveAccount": MessageLookupByLibrary.simpleMessage(
-      "Don\'t have account",
+      "Don\'t have an account?",
     ),
     "electricalEmergency": MessageLookupByLibrary.simpleMessage(
       "Electrical emergency",
@@ -73,123 +77,144 @@ class MessageLookup extends MessageLookupByLibrary {
     "emergencyNumbers": MessageLookupByLibrary.simpleMessage(
       "Emergency Numbers",
     ),
+    "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterEmailOrId": MessageLookupByLibrary.simpleMessage(
       "Please enter your email address or national ID number.",
     ),
     "enterNationalId": MessageLookupByLibrary.simpleMessage(
-      "Please enter national ID",
+      "Please enter your national ID",
     ),
-    "enterPhone": MessageLookupByLibrary.simpleMessage("Enter phone number"),
-    "enterReportDescribtion": MessageLookupByLibrary.simpleMessage(
-      "enter report describtion",
+    "enterPhone": MessageLookupByLibrary.simpleMessage("Enter Phone Number"),
+    "enterReportDescription": MessageLookupByLibrary.simpleMessage(
+      "Enter report description",
     ),
     "enterReportTitle": MessageLookupByLibrary.simpleMessage(
       "Enter Report Title",
     ),
     "enteringPassword": MessageLookupByLibrary.simpleMessage(
-      "PLease enter password",
+      "Please enter password",
     ),
     "errorWhileLouding": MessageLookupByLibrary.simpleMessage(
-      "Error While Louding",
+      "Error While Loading",
     ),
     "fireEmergency": MessageLookupByLibrary.simpleMessage("Fire emergency"),
     "fireFighters": MessageLookupByLibrary.simpleMessage("Fire Fighters"),
     "forgetPassword": MessageLookupByLibrary.simpleMessage(
-      "do you forget your passward",
+      "Forgot your password?",
     ),
-    "fristName": MessageLookupByLibrary.simpleMessage("frist name"),
+    "fristName": MessageLookupByLibrary.simpleMessage("First Name"),
     "fristNameEx": MessageLookupByLibrary.simpleMessage("Eddard"),
     "greeting": MessageLookupByLibrary.simpleMessage("Hello"),
     "havingAccount": MessageLookupByLibrary.simpleMessage(
-      "Do you have account?",
+      "Do you have an account?",
     ),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "hour": MessageLookupByLibrary.simpleMessage("hour"),
+    "hours": MessageLookupByLibrary.simpleMessage("hours"),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
     "location": MessageLookupByLibrary.simpleMessage("Location (Optional)"),
     "locationEx": MessageLookupByLibrary.simpleMessage(
-      "Example: wsatt albald ,Cairo",
+      "Example: Downtown, Cairo",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "media": MessageLookupByLibrary.simpleMessage("Photos/Videos"),
     "ministryAwareness": MessageLookupByLibrary.simpleMessage(
-      "Ministry awareness",
+      "Ministry Awareness",
     ),
+    "minute": MessageLookupByLibrary.simpleMessage("minute"),
+    "minutes": MessageLookupByLibrary.simpleMessage("minutes"),
     "mustAddMedia": MessageLookupByLibrary.simpleMessage(
-      "you should add atleast one photo or a video",
+      "You should add at least one photo or video",
     ),
     "myReports": MessageLookupByLibrary.simpleMessage("My Reports"),
     "nationalID": MessageLookupByLibrary.simpleMessage("National ID"),
     "nationalIdAtleastNums": MessageLookupByLibrary.simpleMessage(
-      "the national ID has to be only 14",
+      "National ID must be exactly 14 digits",
     ),
     "nationalIdOnlyNums": MessageLookupByLibrary.simpleMessage(
-      "the national ID has to be only Numbers",
+      "National ID must contain only numbers",
     ),
     "noNotfi": MessageLookupByLibrary.simpleMessage(
       "There are no notifications at the moment.",
     ),
     "noReports": MessageLookupByLibrary.simpleMessage(
-      "There are no Report from that user",
+      "There are no reports from this user",
     ),
-    "notSignedIn": MessageLookupByLibrary.simpleMessage("Didn\'t sing in"),
+    "notSignedIn": MessageLookupByLibrary.simpleMessage("Didn\'t sign in"),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+    "now": MessageLookupByLibrary.simpleMessage("Now"),
     "passwardResetSuccessfully": MessageLookupByLibrary.simpleMessage(
       "A password reset link has been sent to your email address.",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneNumber11": MessageLookupByLibrary.simpleMessage(
-      "the phone number must be 11 digits",
+      "Phone number must be 11 digits",
     ),
     "phoneNumberOnlyNums": MessageLookupByLibrary.simpleMessage(
-      "the Phone Number has to be only Numbers",
+      "Phone number must contain only numbers",
     ),
     "photosAndVideos": MessageLookupByLibrary.simpleMessage("Photos & Videos"),
     "police": MessageLookupByLibrary.simpleMessage("Police"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "quickOptions": MessageLookupByLibrary.simpleMessage("Quick options"),
-    "reporTitle": MessageLookupByLibrary.simpleMessage("Report title"),
+    "reporTitle": MessageLookupByLibrary.simpleMessage("Report Title"),
     "reportButtonDiscription": MessageLookupByLibrary.simpleMessage(
       "You can submit a new report",
     ),
     "reportButtonDiscriptionContinue": MessageLookupByLibrary.simpleMessage(
-      "Easily and quickly",
+      "easily and quickly",
     ),
     "reportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Submit new report",
     ),
     "reportDate": MessageLookupByLibrary.simpleMessage("Report Date"),
-    "reportDescribtion": MessageLookupByLibrary.simpleMessage(
-      "Report describtion",
+    "reportDescription": MessageLookupByLibrary.simpleMessage(
+      "Report Description",
     ),
-    "reportDescribtionAtLeast10": MessageLookupByLibrary.simpleMessage(
-      "report describtion should be at least 10",
+    "reportDescriptionAtLeast10": MessageLookupByLibrary.simpleMessage(
+      "Report description should be at least 10 characters",
     ),
     "reportDetails": MessageLookupByLibrary.simpleMessage("Report Details"),
     "reportEx": MessageLookupByLibrary.simpleMessage(
       "Example: Robbing a store",
     ),
-    "reportTitle": MessageLookupByLibrary.simpleMessage("Report title"),
+    "reportStatusChangedTo": MessageLookupByLibrary.simpleMessage(
+      "Your report status has been changed to",
+    ),
+    "reportStatusUpdated": MessageLookupByLibrary.simpleMessage(
+      "Report Status Updated",
+    ),
+    "reportTitle": MessageLookupByLibrary.simpleMessage("Report Title"),
     "reportTitleAtLeast5": MessageLookupByLibrary.simpleMessage(
       "Report title should be at least 5 letters",
     ),
     "reportingCybercrimes": MessageLookupByLibrary.simpleMessage(
-      "Reporting cybercrimes",
+      "Reporting Cybercrimes",
     ),
-    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "securityTips": MessageLookupByLibrary.simpleMessage("Security Tips"),
     "sendingLinkReset": MessageLookupByLibrary.simpleMessage(
-      "Sending Link for resetting",
+      "Sending Reset Link",
     ),
-    "sendingReport": MessageLookupByLibrary.simpleMessage("Send report"),
-    "signIn": MessageLookupByLibrary.simpleMessage("signed in "),
+    "sendingReport": MessageLookupByLibrary.simpleMessage("Send Report"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
-      "signed in successfully",
+      "Signed in successfully",
     ),
-    "singInFailing": MessageLookupByLibrary.simpleMessage("sing in has faild"),
+    "since": MessageLookupByLibrary.simpleMessage("since"),
+    "singInFailing": MessageLookupByLibrary.simpleMessage("Sign in has failed"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
+    "statusInReview": MessageLookupByLibrary.simpleMessage("In Review"),
+    "statusInvestigating": MessageLookupByLibrary.simpleMessage(
+      "Investigating",
+    ),
+    "statusPending": MessageLookupByLibrary.simpleMessage("Pending"),
+    "statusRejected": MessageLookupByLibrary.simpleMessage("Rejected"),
+    "statusResolved": MessageLookupByLibrary.simpleMessage("Resolved"),
     "submitReport": MessageLookupByLibrary.simpleMessage("Submit Report"),
     "tip1": MessageLookupByLibrary.simpleMessage(
-      "Enable two-factor authentication (2FA) to protect your accounts from hacking",
+      "Enable two-factor authentication (2FA) to protect your accounts from hacking.",
     ),
     "tip10": MessageLookupByLibrary.simpleMessage(
       "Update your operating system and applications to avoid security vulnerabilities.",
@@ -201,7 +226,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Make sure that the websites you visit begin with HTTPS before entering any sensitive data.",
     ),
     "tip4": MessageLookupByLibrary.simpleMessage(
-      "Use and regularly update security software to protect against viruses and hacks",
+      "Use and regularly update security software to protect against viruses and hacks.",
     ),
     "tip5": MessageLookupByLibrary.simpleMessage(
       "Use a reliable VPN when connecting to public or open networks.",
@@ -225,8 +250,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter a valid email address or a valid national ID number.",
     ),
     "water": MessageLookupByLibrary.simpleMessage("Water"),
-    "writeReportDescribtion": MessageLookupByLibrary.simpleMessage(
-      "Write Report describtion",
+    "writeReportDescription": MessageLookupByLibrary.simpleMessage(
+      "Write report description",
     ),
   };
 }

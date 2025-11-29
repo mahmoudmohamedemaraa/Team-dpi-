@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../enums/report_status_enums.dart';
+import '../../generated/l10n.dart';
 
 Color getStatusColor(ReportStatusEnum status) {
   switch (status) {
@@ -17,18 +18,18 @@ Color getStatusColor(ReportStatusEnum status) {
   }
 }
 
-String getStatusText(ReportStatusEnum status) {
+String getStatusText(BuildContext context, ReportStatusEnum status) {
   switch (status) {
     case ReportStatusEnum.pending:
-      return 'قيد الانتظار';
+      return S.of(context).statusPending;
     case ReportStatusEnum.inReview:
-      return 'قيد المراجعة';
+      return S.of(context).statusInReview;
     case ReportStatusEnum.investigating:
-      return 'قيد التحقيق';
+      return S.of(context).statusInvestigating;
     case ReportStatusEnum.resolved:
-      return 'تم الحل';
+      return S.of(context).statusResolved;
     case ReportStatusEnum.rejected:
-      return 'مرفوض';
+      return S.of(context).statusRejected;
   }
 }
 

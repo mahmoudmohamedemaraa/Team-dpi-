@@ -3,6 +3,7 @@ import 'package:depi_project/features/emergency_numbers/presentation/views/emerg
 import 'package:depi_project/features/from_home_to_page/security_tips_page/presentation/security_tips_page.dart';
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../reports/presentation/views/repports_body.dart';
 
@@ -38,13 +39,13 @@ class WidgetQuickOptions extends StatelessWidget {
         }
       },
       child: Container(
-        height: MediaQuery.of(context).size.width * 0.22,
+        height: 80.h,
         decoration: BoxDecoration(
           color: AppTheme.primaryColor.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -52,11 +53,11 @@ class WidgetQuickOptions extends StatelessWidget {
                 text,
                 style: TextStyle(
                   color: AppTheme.primaryColor,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Icon(icon, size: 35, color: AppTheme.primaryColor),
+              Icon(icon, size: 35.sp, color: AppTheme.primaryColor),
             ],
           ),
         ),

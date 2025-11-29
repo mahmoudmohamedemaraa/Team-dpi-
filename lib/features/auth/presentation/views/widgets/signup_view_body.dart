@@ -5,6 +5,7 @@ import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
@@ -29,13 +30,13 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: Form(
           key: formKey,
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: 50.h),
               CustomTextField(
                 onSaved: (value) {
                   firstName = value!;
@@ -45,7 +46,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 obscureText: false,
                 keyboardType: TextInputType.name,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               CustomTextField(
                 onSaved: (value) {
                   lastName = value!;
@@ -55,7 +56,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 obscureText: false,
                 keyboardType: TextInputType.name,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               CustomTextField(
                 onSaved: (value) {
                   nationalId = value!;
@@ -75,7 +76,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
               CustomTextField(
                 onSaved: (value) {
                   phoneNumber = value!;
@@ -86,7 +87,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return S.of(context).enterPhone ;
+                    return S.of(context).enterPhone;
                   } else if (!RegExp(r'^\d+$').hasMatch(value)) {
                     return S.of(context).phoneNumberOnlyNums;
                   } else if (value.length != 11) {
@@ -96,7 +97,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
               ),
 
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               CustomTextField(
                 onSaved: (value) {
                   email = value!;
@@ -106,13 +107,13 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 obscureText: false,
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               CustomPasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
               CustomButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
@@ -147,7 +148,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   122,
                 ).withOpacity(0.2),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
@@ -155,7 +156,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 child: Column(
                   children: [
                     Text(S.of(context).havingAccount),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     CustomButton(
                       text: S.of(context).signIn,
                       gradientColors: [
@@ -170,14 +171,14 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                         124,
                       ).withOpacity(0.5),
 
-                      borderWidth: 1.5,
+                      borderWidth: 1.5.w,
                       hasShadow: false,
                       textColor: const Color.fromARGB(255, 11, 11, 11),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
             ],
           ),
         ),

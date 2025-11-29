@@ -3,6 +3,7 @@ import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:depi_project/features/reports/presentation/widgets/media_thumbnail.dart';
 import 'package:depi_project/generated/l10n.dart';
@@ -32,30 +33,33 @@ class ReportDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(title: S.of(context).reportDetails),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               report.title,
-              style: const TextStyle(
-                fontSize: 24,
+              style: TextStyle(
+                fontSize: 24.sp,
                 fontWeight: FontWeight.bold,
                 color: AppTheme.black,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
 
             Row(
               children: [
                 Text(
                   '${S.of(context).status}:',
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8.w),
                 Chip(
                   label: Text(
-                    report.statusDisplayName,
+                    report.getStatusDisplayName(context),
                     style: TextStyle(
                       color: AppTheme.white,
                       fontWeight: FontWeight.w600,
@@ -65,15 +69,15 @@ class ReportDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const Divider(height: 32),
+            Divider(height: 32.h),
 
             Text(
               '${S.of(context).description}:',
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 8),
-            Text(report.description, style: const TextStyle(fontSize: 16)),
-            const Divider(height: 32),
+            SizedBox(height: 8.h),
+            Text(report.description, style: TextStyle(fontSize: 16.sp)),
+            Divider(height: 32.h),
 
             if (report.address != null && report.address!.isNotEmpty)
               Column(
@@ -81,22 +85,29 @@ class ReportDetailsScreen extends StatelessWidget {
                 children: [
                   Text(
                     '${S.of(context).address}:',
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   Row(
                     children: [
-                      const Icon(Icons.location_on, color: AppTheme.darkGrey),
-                      const SizedBox(width: 8),
+                      Icon(
+                        Icons.location_on,
+                        color: AppTheme.darkGrey,
+                        size: 20.sp,
+                      ),
+                      SizedBox(width: 8.w),
                       Expanded(
                         child: Text(
                           report.address!,
-                          style: const TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16.sp),
                         ),
                       ),
                     ],
                   ),
-                  const Divider(height: 32),
+                  Divider(height: 32.h),
                 ],
               ),
 
@@ -107,11 +118,14 @@ class ReportDetailsScreen extends StatelessWidget {
                 children: [
                   Text(
                     '${S.of(context).media}:',
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   SizedBox(
-                    height: 100,
+                    height: 100.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: report.mediaUrls.length > 4
@@ -125,7 +139,7 @@ class ReportDetailsScreen extends StatelessWidget {
                             ? report.mediaUrls.length - 4
                             : 0;
                         return Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
+                          padding: EdgeInsets.only(right: 8.w),
                           child: MediaThumbnail(
                             mediaUrl: url,
                             showMoreIndicator: showMore,
@@ -135,17 +149,17 @@ class ReportDetailsScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const Divider(height: 32),
+                  Divider(height: 32.h),
                 ],
               ),
 
             // (Admin Comment)
             if (report.adminComment != null && report.adminComment!.isNotEmpty)
               Container(
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.all(12.w),
                 decoration: BoxDecoration(
                   color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   border: Border.all(color: AppTheme.darkGrey.withOpacity(0.5)),
                 ),
                 child: Row(
@@ -153,17 +167,17 @@ class ReportDetailsScreen extends StatelessWidget {
                   children: [
                     Text(
                       '${S.of(context).adminComment}:',
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         color: AppTheme.primaryColor,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8.w),
                     Expanded(
                       child: Text(
                         report.adminComment!,
-                        style: const TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16.sp),
                       ),
                     ),
                   ],

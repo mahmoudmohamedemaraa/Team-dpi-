@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -8,10 +9,10 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.gradientColors,
     this.textColor = Colors.white,
-    this.fontSize = 18,
+    this.fontSize,
     this.fontWeight = FontWeight.w600,
-    this.height = 54,
-    this.borderRadius = 999,
+    this.height,
+    this.borderRadius,
     this.hasShadow = true,
     this.shadowColor,
     this.borderColor,
@@ -23,10 +24,10 @@ class CustomButton extends StatelessWidget {
   final Color? backgroundColor;
   final List<Color>? gradientColors;
   final Color textColor;
-  final double fontSize;
+  final double? fontSize;
   final FontWeight fontWeight;
-  final double height;
-  final double borderRadius;
+  final double? height;
+  final double? borderRadius;
   final bool hasShadow;
   final Color? shadowColor;
   final Color? borderColor;
@@ -34,8 +35,12 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final effectiveHeight = height?.h ?? 54.h;
+    final effectiveBorderRadius = borderRadius?.r ?? 999.r;
+    final effectiveFontSize = fontSize?.sp ?? 18.sp;
+
     return Container(
-      height: height,
+      height: effectiveHeight,
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: gradientColors != null
@@ -46,7 +51,7 @@ class CustomButton extends StatelessWidget {
               )
             : null,
         color: backgroundColor,
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: BorderRadius.circular(effectiveBorderRadius),
         border: borderColor != null && borderWidth != null
             ? Border.all(color: borderColor!, width: borderWidth!)
             : null,
@@ -72,7 +77,7 @@ class CustomButton extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: BorderRadius.circular(effectiveBorderRadius),
           ),
           backgroundColor: Colors.transparent,
           padding: EdgeInsets.zero,
@@ -82,7 +87,7 @@ class CustomButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor,
-            fontSize: fontSize,
+            fontSize: effectiveFontSize,
             fontWeight: fontWeight,
           ),
         ),

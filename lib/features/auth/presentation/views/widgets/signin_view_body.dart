@@ -5,6 +5,7 @@ import 'package:depi_project/features/auth/presentation/views/signup_view.dart';
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../manager/cubits/signin_cubit/signin_cubit.dart';
@@ -21,13 +22,13 @@ class SigninViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: Form(
           key: formKey,
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(height: 290),
+              SizedBox(height: 200.h),
               CustomTextField(
                 onSaved: (value) {
                   emailOrNationalId = value!;
@@ -46,13 +47,13 @@ class SigninViewBody extends StatelessWidget {
                 obscureText: false,
                 keyboardType: TextInputType.text,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               CustomPasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 30.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -71,7 +72,7 @@ class SigninViewBody extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               CustomButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
@@ -88,7 +89,7 @@ class SigninViewBody extends StatelessWidget {
                 gradientColors: AppTheme.primaryGradientColors,
                 shadowColor: AppTheme.primaryShadowColor,
               ),
-              SizedBox(height: 180),
+              SizedBox(height: 100.h),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, SignupView.routeName);
@@ -96,7 +97,7 @@ class SigninViewBody extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(S.of(context).do_notHaveAccount),
-                    SizedBox(height: 15),
+                    SizedBox(height: 15.h),
                     CustomButton(
                       text: S.of(context).creatingAccount,
                       gradientColors: [
@@ -111,14 +112,14 @@ class SigninViewBody extends StatelessWidget {
                         124,
                       ).withOpacity(0.5),
 
-                      borderWidth: 1.5,
+                      borderWidth: 1.5.w,
                       hasShadow: false,
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 30.h),
             ],
           ),
         ),

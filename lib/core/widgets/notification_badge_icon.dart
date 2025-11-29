@@ -1,5 +1,6 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationBadgeIcon extends StatelessWidget {
   const NotificationBadgeIcon({super.key, required this.count});
@@ -16,20 +17,20 @@ class NotificationBadgeIcon extends StatelessWidget {
         const Icon(Icons.notifications),
         if (count > 0)
           Positioned(
-            right: -6,
-            top: -6,
+            right: -6.w,
+            top: -6.h,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
               decoration: BoxDecoration(
                 color: AppTheme.primaryColor,
-                borderRadius: BorderRadius.circular(24),
+                borderRadius: BorderRadius.circular(24.r),
               ),
-              constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+              constraints: BoxConstraints(minWidth: 16.w, minHeight: 16.h),
               child: Text(
                 displayCount,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,

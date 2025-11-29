@@ -12,6 +12,7 @@ import 'package:depi_project/features/reports/presentation/views/repports_body.d
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -94,15 +95,14 @@ class _MainScreenState extends State<MainScreen> {
                 builder: (context) => const AddReportView(),
               );
             },
-            child: const Icon(Icons.add, size: 32, color: Colors.white),
+            child: Icon(Icons.add, size: 32.sp, color: Colors.white),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
         // 🔸 الشريط السفلي
         bottomNavigationBar: ClipRRect(
-          
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(30.r),
           child: BlocBuilder<GetNotificationsCubit, GetNotificationsState>(
             bloc: notificationsCubit,
             builder: (context, state) {
@@ -111,13 +111,12 @@ class _MainScreenState extends State<MainScreen> {
                   : 0;
 
               return BottomNavigationBar(
-                
                 elevation: 0,
                 type: BottomNavigationBarType.fixed,
                 currentIndex: currentIndex,
                 selectedItemColor: const Color(0xFFFF6B5E),
                 unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
-                iconSize: 24,
+                iconSize: 24.sp,
                 onTap: (index) => setState(() => currentIndex = index),
                 items: [
                   BottomNavigationBarItem(

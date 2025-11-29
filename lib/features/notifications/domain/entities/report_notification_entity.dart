@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
+import '../../../../generated/l10n.dart';
 
 class ReportNotificationEntity {
   final String id;
@@ -20,6 +22,32 @@ class ReportNotificationEntity {
     required this.timestamp,
     this.isRead = false,
   });
+
+  // Get localized title
+  String getLocalizedTitle(BuildContext context) {
+    return S.of(context).reportStatusUpdated;
+  }
+
+  // Get localized message with status
+  String getLocalizedMessage(BuildContext context) {
+    final statusText = _getStatusText(context);
+    return '${S.of(context).reportStatusChangedTo} $statusText';
+  }
+
+  String _getStatusText(BuildContext context) {
+    switch (status) {
+      case ReportStatusEnum.pending:
+        return S.of(context).statusPending;
+      case ReportStatusEnum.inReview:
+        return S.of(context).statusInReview;
+      case ReportStatusEnum.investigating:
+        return S.of(context).statusInvestigating;
+      case ReportStatusEnum.resolved:
+        return S.of(context).statusResolved;
+      case ReportStatusEnum.rejected:
+        return S.of(context).statusRejected;
+    }
+  }
 
   // Copy with method to create a modified copy of the entity
   ReportNotificationEntity copyWith({

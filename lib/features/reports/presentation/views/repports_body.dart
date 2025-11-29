@@ -8,6 +8,7 @@ import 'package:depi_project/features/reports/presentation/widgets/report_detail
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/build_app_bar.dart';
 
@@ -45,7 +46,7 @@ class _RepportsBodyState extends State<RepportsBody> {
                 return Center(
                   child: Text(
                     S.of(context).noReports,
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                    style: TextStyle(fontSize: 16.sp, color: Colors.grey),
                   ),
                 );
               }

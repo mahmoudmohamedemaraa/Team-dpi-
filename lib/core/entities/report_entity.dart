@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import '../enums/report_status_enums.dart';
 import '../helpers/format_date_time.dart';
+import '../../generated/l10n.dart';
 
 class ReportEntity {
   final String reportId;
@@ -72,19 +74,19 @@ class ReportEntity {
     );
   }
 
-  /// Get status display name in Arabic
-  String get statusDisplayName {
+  /// Get status display name with localization
+  String getStatusDisplayName(BuildContext context) {
     switch (status) {
       case ReportStatusEnum.pending:
-        return 'قيد المراجعة';
+        return S.of(context).statusPending;
       case ReportStatusEnum.inReview:
-        return 'تحت المراجعة';
+        return S.of(context).statusInReview;
       case ReportStatusEnum.investigating:
-        return 'جاري التحقيق';
+        return S.of(context).statusInvestigating;
       case ReportStatusEnum.resolved:
-        return 'تم الحل';
+        return S.of(context).statusResolved;
       case ReportStatusEnum.rejected:
-        return 'مرفوض';
+        return S.of(context).statusRejected;
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:depi_project/core/enums/report_status_enums.dart';
 import 'package:depi_project/features/reports/presentation/views/report_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:depi_project/generated/l10n.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReportDetailCard extends StatelessWidget {
   final ReportEntity data;
@@ -36,13 +37,15 @@ class ReportDetailCard extends StatelessWidget {
         );
       },
       child: Card(
-        margin: const EdgeInsets.all(8),
+        margin: EdgeInsets.all(8.w),
         elevation: 2,
         shadowColor: AppTheme.black,
         color: AppTheme.lightGrey,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -54,50 +57,51 @@ class ReportDetailCard extends StatelessWidget {
                       data.title,
                       style: TextStyle(
                         color: AppTheme.black,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Chip(
                     label: Text(
-                      data.statusDisplayName,
+                      data.getStatusDisplayName(context),
                       style: TextStyle(
                         color: AppTheme.white,
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     backgroundColor: getReportStatusColor(data.status),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 4,
-                      vertical: 0,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 0),
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Text(
                 data.description,
-                style: TextStyle(color: AppTheme.black, fontSize: 12),
+                style: TextStyle(color: AppTheme.black, fontSize: 12.sp),
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               if (data.address != null && data.address!.isNotEmpty)
                 Row(
                   children: [
-                    Icon(Icons.location_on, size: 16, color: AppTheme.darkGrey),
-                    const SizedBox(width: 4),
+                    Icon(
+                      Icons.location_on,
+                      size: 16.sp,
+                      color: AppTheme.darkGrey,
+                    ),
+                    SizedBox(width: 4.w),
                     Expanded(
                       child: Text(
                         data.address!,
                         style: TextStyle(
                           color: AppTheme.darkGrey,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -105,10 +109,10 @@ class ReportDetailCard extends StatelessWidget {
                     ),
                   ],
                 ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Text(
                 '${S.of(context).reportDate} : ${data.createdAt.day}/${data.createdAt.month}/${data.createdAt.year} ',
-                style: TextStyle(color: AppTheme.darkGrey, fontSize: 10),
+                style: TextStyle(color: AppTheme.darkGrey, fontSize: 10.sp),
               ),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WidgetAwarenessCard extends StatelessWidget {
   const WidgetAwarenessCard({
@@ -21,11 +22,11 @@ class WidgetAwarenessCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.only(
-          left: 16,
-          right: 16,
-          top: 32,
-          bottom: 32,
+        padding: EdgeInsets.only(
+          left: 16.w,
+          right: 16.w,
+          top: 32.h,
+          bottom: 32.h,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,38 +36,41 @@ class WidgetAwarenessCard extends StatelessWidget {
               children: [
                 Text(
                   text1,
-                  style: TextStyle(color: AppTheme.primaryColor, fontSize: 14),
+                  style: TextStyle(
+                    color: AppTheme.primaryColor,
+                    fontSize: 14.sp,
+                  ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Text(
                   text2,
                   style: TextStyle(
                     color: AppTheme.black,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Text(
                   text3,
-                  style: TextStyle(color: AppTheme.darkGrey, fontSize: 14),
+                  style: TextStyle(color: AppTheme.darkGrey, fontSize: 14.sp),
                 ),
                 Text(
                   text4,
-                  style: TextStyle(color: AppTheme.darkGrey, fontSize: 14),
+                  style: TextStyle(color: AppTheme.darkGrey, fontSize: 14.sp),
                 ),
               ],
             ),
             Expanded(
               child: Container(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   child: Image.asset(imageUrl, fit: BoxFit.cover),
                 ),
-                height: 100,
+                height: 100.h,
 
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
               ),
             ),
@@ -76,7 +80,7 @@ class WidgetAwarenessCard extends StatelessWidget {
       elevation: 0.5,
       shadowColor: AppTheme.black,
       color: AppTheme.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
     );
   }
 }

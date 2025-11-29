@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/cubits/locale_cubit/locale_cubit.dart';
 import 'core/helpers/on_generate_routes.dart';
 import 'core/services/get_it_service.dart';
 import 'core/utils/shared_preferences_singleton.dart';
@@ -33,7 +35,7 @@ void main() async {
 
   setupGetit();
 
-  runApp(const DEPI());
+  runApp(BlocProvider(create: (context) => LocaleCubit(), child: const DEPI()));
 }
 
 class DEPI extends StatelessWidget {
@@ -41,22 +43,43 @@ class DEPI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 245, 247, 245),
-        fontFamily: 'Cairo',
-      ),
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      locale: const Locale('en'),
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashScreen.routeName,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return BlocBuilder<LocaleCubit, LocaleState>(
+          builder: (context, state) {
+            Locale currentLocale = const Locale('ar');
+            if (state is LocaleChanged) {
+              currentLocale = state.locale;
+            }
+
+            return MaterialApp(
+              theme: ThemeData(
+                scaffoldBackgroundColor: const Color.fromARGB(
+                  255,
+                  245,
+                  247,
+                  245,
+                ),
+                fontFamily: 'Cairo',
+              ),
+              localizationsDelegates: [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              locale: currentLocale,
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: onGenerateRoute,
+              initialRoute: SplashScreen.routeName,
+            );
+          },
+        );
+      },
     );
   }
 }

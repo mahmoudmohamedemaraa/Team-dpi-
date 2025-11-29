@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -28,16 +29,16 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(labelText),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         ClipRRect(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           child: Stack(
             children: [
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
                 child: Container(
                   constraints: BoxConstraints(
-                    minHeight: maxLines == 1 ? 55 : 55.0 * maxLines,
+                    minHeight: maxLines == 1 ? 55.h : 55.h * maxLines,
                   ),
                   decoration: BoxDecoration(
                     // color: const Color.fromARGB(
@@ -46,7 +47,7 @@ class CustomTextField extends StatelessWidget {
                     //   170,
                     //   170,
                     // ).withOpacity(0.15),
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                     border: Border.all(
                       color: const Color.fromARGB(
                         255,
@@ -84,9 +85,9 @@ class CustomTextField extends StatelessWidget {
                     ).withOpacity(0.7),
                   ),
                   border: InputBorder.none,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                    horizontal: 12,
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 16.h,
+                    horizontal: 12.w,
                   ),
                 ),
               ),

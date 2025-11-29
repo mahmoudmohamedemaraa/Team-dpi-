@@ -1,6 +1,7 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/cubits/get_notifications_cubit/get_notifications_cubit.dart';
 import '../../../../../core/helpers/format_date_time.dart';
@@ -15,22 +16,25 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formattedDate = formatDateTime(notification.timestamp.toLocal());
+    final formattedDate = formatDateTime(
+      notification.timestamp.toLocal(),
+      context,
+    );
     final statusColor = getStatusColor(notification.status);
-    final statusLabel = getStatusText(notification.status);
+    final statusLabel = getStatusText(context, notification.status);
 
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         onTap: () => handleTap(context),
         child: Container(
           decoration: BoxDecoration(
             color: notification.isRead ? AppTheme.lightGrey : AppTheme.lightRed,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             border: Border.all(color: AppTheme.primaryColor.withOpacity(0.1)),
           ),
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,30 +42,30 @@ class NotificationCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      notification.title,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      notification.getLocalizedTitle(context),
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         color: AppTheme.black,
                       ),
                       textAlign: TextAlign.right,
                     ),
                   ),
-                  if (!notification.isRead) const SizedBox(width: 8),
+                  if (!notification.isRead) SizedBox(width: 8.w),
                   if (!notification.isRead)
-                    const CircleAvatar(
-                      radius: 5,
+                    CircleAvatar(
+                      radius: 5.r,
                       backgroundColor: AppTheme.primaryColor,
                     ),
                 ],
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Text(
-                notification.message,
-                style: const TextStyle(fontSize: 14, color: AppTheme.black),
+                notification.getLocalizedMessage(context),
+                style: TextStyle(fontSize: 14.sp, color: AppTheme.black),
                 textAlign: TextAlign.right,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
               Row(
                 children: [
                   Chip(
@@ -69,15 +73,18 @@ class NotificationCard extends StatelessWidget {
                     backgroundColor: statusColor.withOpacity(0.15),
                     labelStyle: TextStyle(
                       color: statusColor,
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
                   ),
                   const Spacer(),
                   Text(
                     formattedDate,
-                    style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      color: Colors.grey.shade600,
+                    ),
                     textAlign: TextAlign.right,
                   ),
                 ],

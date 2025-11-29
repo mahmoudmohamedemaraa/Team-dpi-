@@ -1,5 +1,6 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar buildAppBar({required String title, Gradient? gradient}) {
   return AppBar(
@@ -12,7 +13,7 @@ AppBar buildAppBar({required String title, Gradient? gradient}) {
       style: TextStyle(
         color: gradient != null ? Colors.white : AppTheme.primaryColor,
         fontWeight: FontWeight.bold,
-        fontSize: 24,
+        fontSize: 24.sp,
       ),
     ),
     centerTitle: true,
