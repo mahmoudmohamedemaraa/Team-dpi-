@@ -48,7 +48,7 @@
 
 ### 📖 Project Documentation
 For detailed project documentation, please refer to:
-- **[Project Documentation (PDF)](docs/project_documentation.pdf)** - Complete project specifications, requirements, and technical details
+- **[Project Documentation (PDF)](docs/project_documentation.pdf)** - Project Planning, Stakeholder Analysis, Database Design , UI/UX Design 
 
 ### 🖥️ Related Projects
 - **[Aman-24 Dashboard](https://github.com/peterelia22/Admin_Dashoard)** - Admin dashboard for managing reports and users
