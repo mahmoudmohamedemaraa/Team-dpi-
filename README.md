@@ -15,6 +15,7 @@
 ## 📋 Table of Contents
 
 - [🎯 Overview](#-overview)
+- [📚 Documentation](#-documentation)
 - [✨ Features](#-features)
 - [📱 Screenshots](#-screenshots)
 - [🏗️ Architecture](#️-architecture)
@@ -40,6 +41,17 @@
 - 🔐 Offer security awareness and educational content
 - 📞 Quick access to emergency services and hotlines
 - 🌍 Support bilingual interface (Arabic & English)
+
+---
+
+## 📚 Documentation
+
+### 📖 Project Documentation
+For detailed project documentation, please refer to:
+- **[Project Documentation (PDF)](docs/project_documentation.pdf)** - Complete project specifications, requirements, and technical details
+
+### 🖥️ Related Projects
+- **[Aman-24 Dashboard](https://github.com/peterelia22/Admin_Dashoard)** - Admin dashboard for managing reports and users
 
 ---
 
@@ -507,7 +519,8 @@ We welcome contributions! Please follow these steps:
 
 **Team DEPI**
 
-- **Project Repository**: [Aman-24](https://github.com/peterelia22/Aman-24)
+- **Mobile App Repository**: [Aman-24](https://github.com/peterelia22/Aman-24)
+- **Dashboard Repository**: [Aman-24 Dashboard](https://github.com/peterelia22/Admin_Dashoard)
 - **Organization**: DEPI (Digital Egypt Pioneers Initiative)
 
 ---
