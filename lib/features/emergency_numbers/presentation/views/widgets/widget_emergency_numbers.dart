@@ -100,7 +100,7 @@ class _WidgetEmergencyNumbersState extends State<WidgetEmergencyNumbers> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
-                        ' ${S.of(context).doYouWantToCall} ${widget.number}?',
+                        ' ${S.of(context).doYouWantToCall} ${widget.number} ؟',
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           color: AppTheme.black,
                           fontWeight: FontWeight.bold,

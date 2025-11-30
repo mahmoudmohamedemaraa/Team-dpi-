@@ -64,6 +64,7 @@ class HomeLayout extends StatelessWidget {
                             ),
                             Text(
                               "${getUser().firstName} ${getUser().lastName}",
+                              maxLines: 1,
                               style: TextStyle(
                                 color: AppTheme.black,
                                 fontSize: 16.sp,

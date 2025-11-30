@@ -101,18 +101,82 @@
 ## 📱 Screenshots
 
 <div align="center">
-  <table>
-    <tr>
-      <td align="center"><strong>Home Screen</strong></td>
-      <td align="center"><strong>Add Report</strong></td>
-      <td align="center"><strong>My Reports</strong></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Report Details</strong></td>
-      <td align="center"><strong>Emergency Numbers</strong></td>
-      <td align="center"><strong>Security Tips</strong></td>
-    </tr>
-  </table>
+
+### Authentication Screens
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/splash_screen.jpeg" alt="Splash Screen" width="250"/><br />
+      <strong>Splash Screen</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/sign_in_page.jpeg" alt="Sign In" width="250"/><br />
+      <strong>Sign In</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/register_screen.jpeg" alt="Register" width="250"/><br />
+      <strong>Register</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/reset_password_screen.jpeg" alt="Reset Password" width="250"/><br />
+      <strong>Reset Password</strong>
+    </td>
+    <td colspan="2"></td>
+  </tr>
+</table>
+
+### Main Features
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/home_screen.jpeg" alt="Home Screen" width="250"/><br />
+      <strong>Home Screen</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/add_report_screen.jpeg" alt="Add Report" width="250"/><br />
+      <strong>Add Report</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/reports_screen.jpeg" alt="My Reports" width="250"/><br />
+      <strong>My Reports</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/report_details_screen.jpeg" alt="Report Details" width="250"/><br />
+      <strong>Report Details</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/notifications_screen.jpeg" alt="Notifications" width="250"/><br />
+      <strong>Notifications</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/profile_screen.jpeg" alt="Profile" width="250"/><br />
+      <strong>Profile</strong>
+    </td>
+  </tr>
+</table>
+
+### Emergency & Security
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/emergency_numbers_screen.jpeg" alt="Emergency Numbers" width="250"/><br />
+      <strong>Emergency Numbers</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/security_tips_screen.jpeg" alt="Security Tips" width="250"/><br />
+      <strong>Security Tips</strong>
+    </td>
+    <td></td>
+  </tr>
+</table>
+
 </div>
 
 ---
