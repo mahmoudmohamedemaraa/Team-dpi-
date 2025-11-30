@@ -20,7 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
-
+      - name: Create .env file from secrets
+        run: |
+          echo "CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}" >> .env
+          echo "CLOUDINARY_UPLOAD_PRESET=${{ secrets.CLOUDINARY_UPLOAD_PRESET }}" >> .env
+          echo "CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}" >> .env
       - name: Build APK
         run: flutter build apk --release
 
