@@ -14,19 +14,19 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Localization](#localization)
-- [Contributing](#contributing)
-- [Team](#team)
-- [License](#license)
+- [🎯 Overview](#-overview)
+- [✨ Features](#-features)
+- [📱 Screenshots](#-screenshots)
+- [🏗️ Architecture](#️-architecture)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [📂 Project Structure](#-project-structure)
+- [⚙️ Configuration](#️-configuration)
+- [🔄 CI/CD Pipeline](#-cicd-pipeline)
+- [🌍 Localization](#-localization)
+- [🤝 Contributing](#-contributing)
+- [👥 Team](#-team)
+- [📄 License](#-license)
 
 ---
 
@@ -521,9 +521,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support, please:
-- 📧 Email: [Contact Information]
-- 🐛 Open an issue on GitHub
-- 📚 Check the documentation
+- 🐛 Open an issue on [GitHub](https://github.com/peterelia22/Aman-24/issues)
+- 📚 Check the documentation in this README
 
 ---
 
