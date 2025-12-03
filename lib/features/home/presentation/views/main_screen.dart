@@ -117,6 +117,8 @@ class _MainScreenState extends State<MainScreen> {
                 selectedItemColor: const Color(0xFFFF6B5E),
                 unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
                 iconSize: 24.sp,
+                selectedFontSize: 10.sp,
+                unselectedFontSize: 10.sp,
                 onTap: (index) => setState(() => currentIndex = index),
                 items: [
                   BottomNavigationBarItem(

@@ -95,8 +95,9 @@ class HomeLayout extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(16.w),
                       child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 16.h,
+                        spacing: 12.h,
                         children: [
                           Container(
                             width: 45.w,
@@ -118,33 +119,43 @@ class HomeLayout extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Text(
-                            S.of(context).reportButtonTitle,
-                            style: TextStyle(
-                              color: AppTheme.black,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 8.w,
+                              vertical: 6.h,
                             ),
-                          ),
-                          Column(
-                            spacing: 8.h,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                S.of(context).reportButtonDiscription,
-                                style: TextStyle(
-                                  color: AppTheme.black,
-                                  fontSize: 12.sp,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.85),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            child: Column(
+                              spacing: 6.h,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  S.of(context).reportButtonTitle,
+                                  style: TextStyle(
+                                    color: AppTheme.black,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                S.of(context).reportButtonDiscriptionContinue,
-                                style: TextStyle(
-                                  color: AppTheme.black,
-                                  fontSize: 12.sp,
+                                Text(
+                                  S.of(context).reportButtonDiscription,
+                                  style: TextStyle(
+                                    color: AppTheme.black,
+                                    fontSize: 12.sp,
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Text(
+                                  S.of(context).reportButtonDiscriptionContinue,
+                                  style: TextStyle(
+                                    color: AppTheme.black,
+                                    fontSize: 12.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
