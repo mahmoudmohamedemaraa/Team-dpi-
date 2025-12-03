@@ -17,11 +17,11 @@ class SignupCubit extends Cubit<SignupState> {
     try {
       final exists = await authRepo.isNationalIdRegistered(user.nationalId);
       if (exists) {
-        emit(SignupFailure(errorMessage: 'الرقم القومي مسجل بالفعل'));
+        emit(SignupFailure(errorMessage: 'NATIONAL_ID_ALREADY_REGISTERED'));
         return;
       }
     } catch (e) {
-      emit(SignupFailure(errorMessage: 'حدث خطأ أثناء التحقق من الرقم القومي'));
+      emit(SignupFailure(errorMessage: 'ERROR_CHECKING_NATIONAL_ID'));
       return;
     }
 

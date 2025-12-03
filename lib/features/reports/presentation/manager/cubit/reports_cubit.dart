@@ -19,7 +19,7 @@ class GetUserReportsCubit extends Cubit<GetUserReportsState> {
       final userId = currentUser.uId;
 
       if (userId.isEmpty) {
-        emit(GetUserReportsError("User ID is missing"));
+        emit(GetUserReportsError("USER_ID_MISSING"));
         return;
       }
 
@@ -62,15 +62,15 @@ class GetUserReportsCubit extends Cubit<GetUserReportsState> {
 
             emit(GetUserReportsSuccess(reports));
           } catch (e) {
-            emit(GetUserReportsError(e.toString()));
+            emit(GetUserReportsError('FAILED_TO_LOAD_USER_REPORTS'));
           }
         },
         onError: (err) {
-          emit(GetUserReportsError(err.toString()));
+          emit(GetUserReportsError('FAILED_TO_LOAD_USER_REPORTS'));
         },
       );
     } catch (e) {
-      emit(GetUserReportsError(e.toString()));
+      emit(GetUserReportsError('FAILED_TO_LOAD_USER_REPORTS'));
     }
   }
 

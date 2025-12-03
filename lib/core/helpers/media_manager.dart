@@ -4,6 +4,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../generated/l10n.dart';
 import 'build_snack_bar.dart';
 
 class MediaManager {
@@ -21,8 +22,8 @@ class MediaManager {
       }
     } catch (e) {
       buildSnackBar(
-        title: 'خطأ',
-        message: 'فشل في اختيار الصور',
+        title: S.of(context).error,
+        message: S.of(context).failedToPickImages,
         contentType: ContentType.failure,
         context: context,
       );
@@ -39,8 +40,8 @@ class MediaManager {
     } catch (e) {
       buildSnackBar(
         context: context,
-        title: 'خطأ',
-        message: 'فشل في اختيار الفيديو',
+        title: S.of(context).error,
+        message: S.of(context).failedToPickVideo,
         contentType: ContentType.failure,
       );
     }

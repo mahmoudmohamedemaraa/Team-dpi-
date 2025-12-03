@@ -48,17 +48,13 @@ class CloudinaryService implements StorageService {
       final response = await _dio.post(url, data: formData);
 
       if (response.statusCode != 200) {
-        throw Exception(
-          'Cloudinary upload failed with status: ${response.statusCode}. Response: ${response.data}',
-        );
+        throw Exception('CLOUDINARY_UPLOAD_FAILED');
       }
 
       final Map<String, dynamic> responseData = response.data;
 
       if (responseData.containsKey('error')) {
-        throw Exception(
-          'Cloudinary API Error: ${responseData['error']['message']}',
-        );
+        throw Exception('CLOUDINARY_API_ERROR');
       }
 
       final String? secureUrl = responseData['secure_url'];
@@ -66,23 +62,12 @@ class CloudinaryService implements StorageService {
       if (secureUrl != null && secureUrl.isNotEmpty) {
         return secureUrl;
       } else {
-        throw Exception(
-          'Upload successful but no valid secure_url found in response.',
-        );
+        throw Exception('NO_SECURE_URL_FOUND');
       }
     } on DioException catch (e) {
-      String errorMessage = 'Network or API error during Cloudinary upload.';
-      if (e.response != null) {
-        errorMessage +=
-            ' Status: ${e.response?.statusCode}. Data: ${e.response?.data}';
-      } else {
-        errorMessage += ' Message: ${e.message}';
-      }
-      throw Exception(errorMessage);
+      throw Exception('NETWORK_OR_API_ERROR');
     } catch (e) {
-      throw Exception(
-        'An unexpected error occurred during Cloudinary upload: $e',
-      );
+      throw Exception('UNEXPECTED_CLOUDINARY_ERROR');
     }
   }
 }

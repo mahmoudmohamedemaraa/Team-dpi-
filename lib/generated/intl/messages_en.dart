@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "SendingEmailForNewPassword": MessageLookupByLibrary.simpleMessage(
       "Enter your email address or national ID number and we will send you a link to reset your password.",
     ),
+    "accountCreationFailed": MessageLookupByLibrary.simpleMessage(
+      "Account creation failed. Please try again.",
+    ),
     "addPhotosAndVideos": MessageLookupByLibrary.simpleMessage(
       "Tap the icons to add media",
     ),
@@ -40,7 +43,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "backSignIn": MessageLookupByLibrary.simpleMessage("Back to Sign In"),
     "callNow": MessageLookupByLibrary.simpleMessage("Call Now"),
+    "cannotFetchNotifications": MessageLookupByLibrary.simpleMessage(
+      "Cannot fetch notifications",
+    ),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("Choose Language"),
+    "cloudinaryApiError": MessageLookupByLibrary.simpleMessage(
+      "Cloudinary API Error",
+    ),
+    "cloudinaryUploadFailed": MessageLookupByLibrary.simpleMessage(
+      "Cloudinary upload failed",
+    ),
     "creatingAccount": MessageLookupByLibrary.simpleMessage("Creating Account"),
     "cyberFraudWarning": MessageLookupByLibrary.simpleMessage(
       "Cyber Fraud Warning",
@@ -59,7 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "day": MessageLookupByLibrary.simpleMessage("day"),
     "days": MessageLookupByLibrary.simpleMessage("days"),
-    "deletingAccountErrorMessage": MessageLookupByLibrary.simpleMessage(
+    "deleteAccountError": MessageLookupByLibrary.simpleMessage(
       "An error occurred while deleting the account. Please try again.",
     ),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
@@ -73,6 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Electrical emergency",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
+      "This email address is already in use.",
+    ),
     "emailOrId": MessageLookupByLibrary.simpleMessage("Email or ID"),
     "emergencyNumbers": MessageLookupByLibrary.simpleMessage(
       "Emergency Numbers",
@@ -94,8 +109,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "enteringPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter password",
     ),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "errorCheckingNationalId": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while verifying the national ID",
+    ),
     "errorWhileLouding": MessageLookupByLibrary.simpleMessage(
       "Error While Loading",
+    ),
+    "failedToAddReport": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while adding the report",
+    ),
+    "failedToLoadReportData": MessageLookupByLibrary.simpleMessage(
+      "Failed to load report data",
+    ),
+    "failedToLoadUserReports": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while loading user reports",
+    ),
+    "failedToPickImages": MessageLookupByLibrary.simpleMessage(
+      "Failed to pick images",
+    ),
+    "failedToPickVideo": MessageLookupByLibrary.simpleMessage(
+      "Failed to pick video",
+    ),
+    "failedToUpdateNotificationStatus": MessageLookupByLibrary.simpleMessage(
+      "Failed to update notification status",
+    ),
+    "failedToUploadMedia": MessageLookupByLibrary.simpleMessage(
+      "Failed to upload media",
+    ),
+    "fieldRequired": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
     ),
     "fireEmergency": MessageLookupByLibrary.simpleMessage("Fire emergency"),
     "fireFighters": MessageLookupByLibrary.simpleMessage("Fire Fighters"),
@@ -111,6 +154,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "hour": MessageLookupByLibrary.simpleMessage("hour"),
     "hours": MessageLookupByLibrary.simpleMessage("hours"),
+    "incorrectEmailOrPassword": MessageLookupByLibrary.simpleMessage(
+      "Incorrect email or password.",
+    ),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Invalid email address.",
+    ),
+    "invalidNotificationId": MessageLookupByLibrary.simpleMessage(
+      "Invalid notification ID",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "location": MessageLookupByLibrary.simpleMessage("Location (Optional)"),
     "locationEx": MessageLookupByLibrary.simpleMessage(
@@ -131,14 +183,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "nationalIdAtleastNums": MessageLookupByLibrary.simpleMessage(
       "National ID must be exactly 14 digits",
     ),
+    "nationalIdExists": MessageLookupByLibrary.simpleMessage(
+      "This national ID is already registered",
+    ),
     "nationalIdOnlyNums": MessageLookupByLibrary.simpleMessage(
       "National ID must contain only numbers",
+    ),
+    "networkConnectionFailed": MessageLookupByLibrary.simpleMessage(
+      "Network connection failed. Please check your internet connection.",
+    ),
+    "networkOrApiError": MessageLookupByLibrary.simpleMessage(
+      "Network or API error during Cloudinary upload",
     ),
     "noNotfi": MessageLookupByLibrary.simpleMessage(
       "There are no notifications at the moment.",
     ),
     "noReports": MessageLookupByLibrary.simpleMessage(
       "There are no reports from this user",
+    ),
+    "noSecureUrlFound": MessageLookupByLibrary.simpleMessage(
+      "Upload successful but no valid secure_url found in response",
     ),
     "notSignedIn": MessageLookupByLibrary.simpleMessage("Didn\'t sign in"),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -147,6 +211,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "A password reset link has been sent to your email address.",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordResetFailed": MessageLookupByLibrary.simpleMessage(
+      "Failed to send password reset link.",
+    ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneNumber11": MessageLookupByLibrary.simpleMessage(
       "Phone number must be 11 digits",
@@ -158,7 +225,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "police": MessageLookupByLibrary.simpleMessage("Police"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "quickOptions": MessageLookupByLibrary.simpleMessage("Quick options"),
-    "reporTitle": MessageLookupByLibrary.simpleMessage("Report Title"),
     "reportButtonDiscription": MessageLookupByLibrary.simpleMessage(
       "You can submit a new report",
     ),
@@ -179,6 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reportEx": MessageLookupByLibrary.simpleMessage(
       "Example: Robbing a store",
     ),
+    "reportNotFound": MessageLookupByLibrary.simpleMessage("Report not found"),
     "reportStatusChangedTo": MessageLookupByLibrary.simpleMessage(
       "Your report status has been changed to",
     ),
@@ -199,9 +266,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendingReport": MessageLookupByLibrary.simpleMessage("Send Report"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+    "signInFailed": MessageLookupByLibrary.simpleMessage(
+      "Sign in failed. Please check your credentials and try again.",
+    ),
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
       "Signed in successfully",
     ),
+    "signOutError": MessageLookupByLibrary.simpleMessage(
+      "An error occurred during sign out. Please try again.",
+    ),
+    "signupFailed": MessageLookupByLibrary.simpleMessage("Signup has failed"),
     "since": MessageLookupByLibrary.simpleMessage("since"),
     "singInFailing": MessageLookupByLibrary.simpleMessage("Sign in has failed"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
@@ -243,6 +317,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "tip9": MessageLookupByLibrary.simpleMessage(
       "Avoid conducting financial transactions over public Wi-Fi networks.",
     ),
+    "unexpectedError": MessageLookupByLibrary.simpleMessage(
+      "An unexpected error occurred during Cloudinary upload",
+    ),
+    "unknownAccountCreationError": MessageLookupByLibrary.simpleMessage(
+      "An unknown error occurred while creating the account. Please try again.",
+    ),
+    "unknownError": MessageLookupByLibrary.simpleMessage(
+      "An unknown error occurred. Please try again.",
+    ),
+    "unknownSignInError": MessageLookupByLibrary.simpleMessage(
+      "An unknown error occurred during sign in. Please try again.",
+    ),
+    "userIdMissing": MessageLookupByLibrary.simpleMessage("User ID is missing"),
+    "userNotFound": MessageLookupByLibrary.simpleMessage(
+      "No account registered with this email address.",
+    ),
     "usingEmergencyNumbers": MessageLookupByLibrary.simpleMessage(
       "Please use these numbers only in actual emergencies.",
     ),
@@ -250,6 +340,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter a valid email address or a valid national ID number.",
     ),
     "water": MessageLookupByLibrary.simpleMessage("Water"),
+    "weakPassword": MessageLookupByLibrary.simpleMessage(
+      "The password is too weak.",
+    ),
     "writeReportDescription": MessageLookupByLibrary.simpleMessage(
       "Write report description",
     ),

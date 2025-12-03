@@ -24,7 +24,7 @@ class AddReportRepoImpl implements AddReportRepo {
       );
       return const Right(null);
     } catch (e) {
-      return Left(ServerFailure('Failed to add report: $e'));
+      return Left(ServerFailure('FAILED_TO_ADD_REPORT'));
     }
   }
 }

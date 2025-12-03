@@ -55,24 +55,6 @@ class CustomButton extends StatelessWidget {
         border: borderColor != null && borderWidth != null
             ? Border.all(color: borderColor!, width: borderWidth!)
             : null,
-        boxShadow: hasShadow
-            ? [
-                BoxShadow(
-                  color: (shadowColor ?? backgroundColor ?? Colors.grey)
-                      .withOpacity(0.3),
-                  blurRadius: 25,
-                  offset: const Offset(0, 20),
-                  spreadRadius: 10,
-                ),
-                BoxShadow(
-                  color: (shadowColor ?? backgroundColor ?? Colors.grey)
-                      .withOpacity(0.2),
-                  blurRadius: 30,
-                  offset: const Offset(0, 50),
-                  spreadRadius: -60,
-                ),
-              ]
-            : null,
       ),
       child: TextButton(
         style: TextButton.styleFrom(

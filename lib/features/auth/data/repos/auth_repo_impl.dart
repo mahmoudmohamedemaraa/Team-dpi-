@@ -40,7 +40,7 @@ class AuthRepoImplementation extends AuthRepo {
       );
 
       if (exists) {
-        return left(ServerFailure('الرقم القومي مسجل بالفعل.'));
+        return left(ServerFailure('NATIONAL_ID_EXISTS'));
       }
 
       user = await firebaseAuthService.createUserWithEmailAndPassword(
@@ -68,11 +68,7 @@ class AuthRepoImplementation extends AuthRepo {
     } catch (e) {
       await deleteUser(user);
       log('Exception in createUserWithEmailAndPassword: $e');
-      return left(
-        ServerFailure(
-          'حدث خطأ غير معروف أثناء إنشاء الحساب. الرجاء المحاولة مرة أخرى.',
-        ),
-      );
+      return left(ServerFailure('UNKNOWN_ACCOUNT_CREATION_ERROR'));
     }
   }
 
@@ -191,7 +187,7 @@ class AuthRepoImplementation extends AuthRepo {
         email = emailOrNationalId;
       }
 
-      final user = await firebaseAuthService.signInWithEmailAndPassword(
+      await firebaseAuthService.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -206,11 +202,7 @@ class AuthRepoImplementation extends AuthRepo {
       return left(ServerFailure(e.message));
     } catch (e) {
       log('Exception in signInWithEmailOrNationalId: ${e.toString()}');
-      return left(
-        ServerFailure(
-          'حدث خطأ غير معروف أثناء تسجيل الدخول. الرجاء المحاولة مرة أخرى.',
-        ),
-      );
+      return left(ServerFailure('UNKNOWN_SIGN_IN_ERROR'));
     }
   }
 
@@ -234,9 +226,7 @@ class AuthRepoImplementation extends AuthRepo {
       return left(ServerFailure(e.message));
     } catch (e) {
       log('Exception in resetPassword: ${e.toString()}');
-      return left(
-        ServerFailure('حدث خطأ غير معروف. الرجاء المحاولة مرة أخرى.'),
-      );
+      return left(ServerFailure('UNKNOWN_ERROR'));
     }
   }
 
@@ -251,9 +241,7 @@ class AuthRepoImplementation extends AuthRepo {
       return left(ServerFailure(e.message));
     } catch (e) {
       log('Exception in signOut: ${e.toString()}');
-      return left(
-        ServerFailure('حدث خطأ أثناء تسجيل الخروج. الرجاء المحاولة مرة أخرى.'),
-      );
+      return left(ServerFailure('SIGN_OUT_ERROR'));
     }
   }
 }

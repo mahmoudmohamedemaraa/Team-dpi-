@@ -475,11 +475,6 @@ class S {
     );
   }
 
-  /// `Report Title`
-  String get reporTitle {
-    return Intl.message('Report Title', name: 'reporTitle', desc: '', args: []);
-  }
-
   /// `Example: Robbing a store`
   String get reportEx {
     return Intl.message(
@@ -725,6 +720,16 @@ class S {
     );
   }
 
+  /// `Signup has failed`
+  String get signupFailed {
+    return Intl.message(
+      'Signup has failed',
+      name: 'signupFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `First Name`
   String get fristName {
     return Intl.message('First Name', name: 'fristName', desc: '', args: []);
@@ -853,16 +858,6 @@ class S {
   /// `Password`
   String get password {
     return Intl.message('Password', name: 'password', desc: '', args: []);
-  }
-
-  /// `An error occurred while deleting the account. Please try again.`
-  String get deletingAccountErrorMessage {
-    return Intl.message(
-      'An error occurred while deleting the account. Please try again.',
-      name: 'deletingAccountErrorMessage',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `Forgot your password?`
@@ -1043,6 +1038,341 @@ class S {
   /// `English`
   String get english {
     return Intl.message('English', name: 'english', desc: '', args: []);
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `Failed to pick images`
+  String get failedToPickImages {
+    return Intl.message(
+      'Failed to pick images',
+      name: 'failedToPickImages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to pick video`
+  String get failedToPickVideo {
+    return Intl.message(
+      'Failed to pick video',
+      name: 'failedToPickVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to upload media`
+  String get failedToUploadMedia {
+    return Intl.message(
+      'Failed to upload media',
+      name: 'failedToUploadMedia',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cloudinary upload failed`
+  String get cloudinaryUploadFailed {
+    return Intl.message(
+      'Cloudinary upload failed',
+      name: 'cloudinaryUploadFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cloudinary API Error`
+  String get cloudinaryApiError {
+    return Intl.message(
+      'Cloudinary API Error',
+      name: 'cloudinaryApiError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload successful but no valid secure_url found in response`
+  String get noSecureUrlFound {
+    return Intl.message(
+      'Upload successful but no valid secure_url found in response',
+      name: 'noSecureUrlFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Network or API error during Cloudinary upload`
+  String get networkOrApiError {
+    return Intl.message(
+      'Network or API error during Cloudinary upload',
+      name: 'networkOrApiError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unexpected error occurred during Cloudinary upload`
+  String get unexpectedError {
+    return Intl.message(
+      'An unexpected error occurred during Cloudinary upload',
+      name: 'unexpectedError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while deleting the account. Please try again.`
+  String get deleteAccountError {
+    return Intl.message(
+      'An error occurred while deleting the account. Please try again.',
+      name: 'deleteAccountError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect email or password.`
+  String get incorrectEmailOrPassword {
+    return Intl.message(
+      'Incorrect email or password.',
+      name: 'incorrectEmailOrPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Network connection failed. Please check your internet connection.`
+  String get networkConnectionFailed {
+    return Intl.message(
+      'Network connection failed. Please check your internet connection.',
+      name: 'networkConnectionFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in failed. Please check your credentials and try again.`
+  String get signInFailed {
+    return Intl.message(
+      'Sign in failed. Please check your credentials and try again.',
+      name: 'signInFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred during sign in. Please try again.`
+  String get unknownSignInError {
+    return Intl.message(
+      'An unknown error occurred during sign in. Please try again.',
+      name: 'unknownSignInError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password is too weak.`
+  String get weakPassword {
+    return Intl.message(
+      'The password is too weak.',
+      name: 'weakPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This email address is already in use.`
+  String get emailAlreadyInUse {
+    return Intl.message(
+      'This email address is already in use.',
+      name: 'emailAlreadyInUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account creation failed. Please try again.`
+  String get accountCreationFailed {
+    return Intl.message(
+      'Account creation failed. Please try again.',
+      name: 'accountCreationFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred while creating the account. Please try again.`
+  String get unknownAccountCreationError {
+    return Intl.message(
+      'An unknown error occurred while creating the account. Please try again.',
+      name: 'unknownAccountCreationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred during sign out. Please try again.`
+  String get signOutError {
+    return Intl.message(
+      'An error occurred during sign out. Please try again.',
+      name: 'signOutError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No account registered with this email address.`
+  String get userNotFound {
+    return Intl.message(
+      'No account registered with this email address.',
+      name: 'userNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email address.`
+  String get invalidEmail {
+    return Intl.message(
+      'Invalid email address.',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to send password reset link.`
+  String get passwordResetFailed {
+    return Intl.message(
+      'Failed to send password reset link.',
+      name: 'passwordResetFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred. Please try again.`
+  String get unknownError {
+    return Intl.message(
+      'An unknown error occurred. Please try again.',
+      name: 'unknownError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This national ID is already registered`
+  String get nationalIdExists {
+    return Intl.message(
+      'This national ID is already registered',
+      name: 'nationalIdExists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while adding the report`
+  String get failedToAddReport {
+    return Intl.message(
+      'An error occurred while adding the report',
+      name: 'failedToAddReport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field is required`
+  String get fieldRequired {
+    return Intl.message(
+      'This field is required',
+      name: 'fieldRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while verifying the national ID`
+  String get errorCheckingNationalId {
+    return Intl.message(
+      'An error occurred while verifying the national ID',
+      name: 'errorCheckingNationalId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot fetch notifications`
+  String get cannotFetchNotifications {
+    return Intl.message(
+      'Cannot fetch notifications',
+      name: 'cannotFetchNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid notification ID`
+  String get invalidNotificationId {
+    return Intl.message(
+      'Invalid notification ID',
+      name: 'invalidNotificationId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to update notification status`
+  String get failedToUpdateNotificationStatus {
+    return Intl.message(
+      'Failed to update notification status',
+      name: 'failedToUpdateNotificationStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report not found`
+  String get reportNotFound {
+    return Intl.message(
+      'Report not found',
+      name: 'reportNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load report data`
+  String get failedToLoadReportData {
+    return Intl.message(
+      'Failed to load report data',
+      name: 'failedToLoadReportData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User ID is missing`
+  String get userIdMissing {
+    return Intl.message(
+      'User ID is missing',
+      name: 'userIdMissing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while loading user reports`
+  String get failedToLoadUserReports {
+    return Intl.message(
+      'An error occurred while loading user reports',
+      name: 'failedToLoadUserReports',
+      desc: '',
+      args: [],
+    );
   }
 }
 

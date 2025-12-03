@@ -21,6 +21,10 @@ class WidgetAwarenessCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0.5,
+      shadowColor: AppTheme.black,
+      color: AppTheme.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
       child: Padding(
         padding: EdgeInsets.only(
           left: 16.w,
@@ -77,10 +81,6 @@ class WidgetAwarenessCard extends StatelessWidget {
           ],
         ),
       ),
-      elevation: 0.5,
-      shadowColor: AppTheme.black,
-      color: AppTheme.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
     );
   }
 }

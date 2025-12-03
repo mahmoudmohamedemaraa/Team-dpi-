@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/helpers/error_message_helper.dart';
 import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/features/reports/presentation/manager/cubit/reports_cubit.dart';
 import 'package:depi_project/features/reports/presentation/manager/cubit/reports_state.dart';
@@ -36,7 +37,7 @@ class _RepportsBodyState extends State<RepportsBody> {
               log(state.message);
               return Center(
                 child: Text(
-                  '${S.of(context).errorWhileLouding}\n${state.message}',
+                  getErrorMessage(context, state.message),
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 16, color: Colors.red),
                 ),

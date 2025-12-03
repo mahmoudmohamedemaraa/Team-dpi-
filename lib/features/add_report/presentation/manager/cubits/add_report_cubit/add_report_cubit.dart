@@ -42,7 +42,7 @@ class AddReportCubit extends Cubit<AddReportState> {
       );
     } catch (e) {
       log('message: Error adding report: $e');
-      emit(AddReportFailure('حدث خطأ أثناء إضافة البلاغ: $e'));
+      emit(AddReportFailure('FAILED_TO_ADD_REPORT'));
     }
   }
 }

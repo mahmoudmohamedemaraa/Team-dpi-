@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:depi_project/core/helpers/build_snack_bar.dart';
+import 'package:depi_project/core/helpers/error_message_helper.dart';
+import 'package:depi_project/generated/l10n.dart';
 import 'package:depi_project/features/add_report/presentation/manager/cubits/add_report_cubit/add_report_cubit.dart';
 import 'package:depi_project/features/add_report/presentation/views/widgets/add_report_view_body.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +21,8 @@ class AddReportViewBodyBlocBuilder extends StatelessWidget {
           log(state.error);
           buildSnackBar(
             context: context,
-            title: 'خطا',
-            message: 'فشل في اضافة البلاغ',
+            title: S.of(context).error,
+            message: getErrorMessage(context, state.error),
             contentType: ContentType.failure,
           );
         }
@@ -28,9 +30,8 @@ class AddReportViewBodyBlocBuilder extends StatelessWidget {
           Navigator.pop(context);
           buildSnackBar(
             context: context,
-
-            title: 'نجاح',
-            message: 'تم اضافة البلاغ بنجاح',
+            title: S.of(context).submitReport,
+            message: S.of(context).sendingReport,
             contentType: ContentType.success,
           );
         }

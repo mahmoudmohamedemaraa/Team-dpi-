@@ -55,7 +55,7 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
                   }
                   return null;
                 },
-                labelText: S.of(context).reporTitle,
+                labelText: S.of(context).reportTitle,
                 hintText: S.of(context).reportEx,
                 obscureText: false,
                 keyboardType: TextInputType.text,

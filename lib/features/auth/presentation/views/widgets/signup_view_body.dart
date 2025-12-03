@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../app_theme.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../../domain/entities/user_entity.dart';
@@ -139,14 +139,8 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   }
                 },
                 text: S.of(context).creatingAccount,
-                textColor: const Color.fromARGB(255, 11, 11, 11),
-                gradientColors: AppTheme.primaryGradientColors,
-                shadowColor: const Color.fromARGB(
-                  255,
-                  190,
-                  122,
-                  122,
-                ).withOpacity(0.2),
+                textColor: Colors.white,
+                backgroundColor: AppTheme.primaryColor,
               ),
               SizedBox(height: 20.h),
               GestureDetector(

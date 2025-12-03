@@ -38,7 +38,7 @@ class NotificationsRepoImpl implements NotificationsRepo {
         yield Right(notifications);
       }
     } catch (e) {
-      yield Left(ServerFailure('لا يمكن جلب الإشعارات'));
+      yield Left(ServerFailure('CANNOT_FETCH_NOTIFICATIONS'));
     }
   }
 
@@ -47,7 +47,7 @@ class NotificationsRepoImpl implements NotificationsRepo {
     String notificationId,
   ) async {
     if (notificationId.isEmpty) {
-      return Left(ServerFailure('معرف الإشعار غير صالح'));
+      return Left(ServerFailure('INVALID_NOTIFICATION_ID'));
     }
 
     try {
@@ -58,7 +58,7 @@ class NotificationsRepoImpl implements NotificationsRepo {
       );
       return const Right(null);
     } catch (_) {
-      return Left(ServerFailure('تعذر تحديث حالة الإشعار'));
+      return Left(ServerFailure('FAILED_TO_UPDATE_NOTIFICATION_STATUS'));
     }
   }
 
@@ -71,13 +71,13 @@ class NotificationsRepoImpl implements NotificationsRepo {
       );
 
       if (data == null) {
-        return Left(ServerFailure('البلاغ غير موجود'));
+        return Left(ServerFailure('REPORT_NOT_FOUND'));
       }
 
       final map = Map<String, dynamic>.from(data as Map<String, dynamic>);
       return Right(ReportEntity.fromJson(map));
     } catch (_) {
-      return Left(ServerFailure('تعذر تحميل بيانات البلاغ'));
+      return Left(ServerFailure('FAILED_TO_LOAD_REPORT_DATA'));
     }
   }
 }

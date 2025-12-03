@@ -9,9 +9,7 @@ class FirebaseAuthService {
       await FirebaseAuth.instance.currentUser!.delete();
     } catch (e) {
       log('Exception in FirebaseAuthService.deleteUser: ${e.toString()}');
-      throw CustomException(
-        message: 'حدث خطأ أثناء حذف الحساب. الرجاء المحاولة مرة أخرى.',
-      );
+      throw CustomException(message: 'DELETE_ACCOUNT_ERROR');
     }
   }
 
@@ -27,31 +25,19 @@ class FirebaseAuthService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        throw CustomException(
-          message: 'الرقم السري او البريد الإلكتروني غير صحيح.',
-        );
+        throw CustomException(message: 'INCORRECT_EMAIL_OR_PASSWORD');
       } else if (e.code == 'wrong-password') {
-        throw CustomException(
-          message: 'الرقم السري او البريد الإلكتروني غير صحيح.',
-        );
+        throw CustomException(message: 'INCORRECT_EMAIL_OR_PASSWORD');
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(
-          message: 'فشل الاتصال بالشبكة. الرجاء التحقق من اتصالك بالإنترنت.',
-        );
+        throw CustomException(message: 'NETWORK_CONNECTION_FAILED');
       } else {
-        throw CustomException(
-          message:
-              'فشل تسجيل الدخول. الرجاء التحقق من البيانات والمحاولة مرة أخرى.',
-        );
+        throw CustomException(message: 'SIGN_IN_FAILED');
       }
     } catch (e) {
       log(
         'Exeption in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()}',
       );
-      throw CustomException(
-        message:
-            'حدث خطأ غير معروف أثناء تسجيل الدخول. الرجاء المحاولة مرة أخرى.',
-      );
+      throw CustomException(message: 'UNKNOWN_SIGN_IN_ERROR');
     }
   }
 
@@ -68,29 +54,20 @@ class FirebaseAuthService {
         'Exeption in FirebaseAuthService.createUserWithEmailAndPassword: ${e.toString()}and code: ${e.code}',
       );
       if (e.code == 'weak-password') {
-        throw CustomException(message: 'الرقم السري ضعيف جداً.');
+        throw CustomException(message: 'WEAK_PASSWORD');
       } else if (e.code == 'email-already-in-use') {
-        throw CustomException(
-          message: 'لقد تم استخدام هذا البريد الإلكتروني بالفعل.',
-        );
+        throw CustomException(message: 'EMAIL_ALREADY_IN_USE');
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(
-          message: 'فشل الاتصال بالشبكة. الرجاء التحقق من اتصالك بالإنترنت.',
-        );
+        throw CustomException(message: 'NETWORK_CONNECTION_FAILED');
       } else {
-        throw CustomException(
-          message: 'لم يتم إنشاء الحساب بنجاح. الرجاء المحاولة مرة أخرى.',
-        );
+        throw CustomException(message: 'ACCOUNT_CREATION_FAILED');
       }
     } catch (e) {
       log(
         'Exeption in FirebaseAuthService.createUserWithEmailAndPassword: ${e.toString()}',
       );
 
-      throw CustomException(
-        message:
-            'حدث خطأ غير معروف أثناء إنشاء الحساب. الرجاء المحاولة مرة أخرى.',
-      );
+      throw CustomException(message: 'UNKNOWN_ACCOUNT_CREATION_ERROR');
     }
   }
 
@@ -103,9 +80,7 @@ class FirebaseAuthService {
       await FirebaseAuth.instance.signOut();
     } catch (e) {
       log('Exception in FirebaseAuthService.signOut: ${e.toString()}');
-      throw CustomException(
-        message: 'حدث خطأ أثناء تسجيل الخروج. الرجاء المحاولة مرة أخرى.',
-      );
+      throw CustomException(message: 'SIGN_OUT_ERROR');
     }
   }
 
@@ -115,25 +90,17 @@ class FirebaseAuthService {
     } on FirebaseAuthException catch (e) {
       log('FirebaseAuthException in sendPasswordResetEmail: ${e.code}');
       if (e.code == 'user-not-found') {
-        throw CustomException(
-          message: 'لا يوجد حساب مسجل بهذا البريد الإلكتروني.',
-        );
+        throw CustomException(message: 'USER_NOT_FOUND');
       } else if (e.code == 'invalid-email') {
-        throw CustomException(message: 'البريد الإلكتروني غير صالح.');
+        throw CustomException(message: 'INVALID_EMAIL');
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(
-          message: 'فشل الاتصال بالشبكة. الرجاء التحقق من اتصالك بالإنترنت.',
-        );
+        throw CustomException(message: 'NETWORK_CONNECTION_FAILED');
       } else {
-        throw CustomException(
-          message: 'فشل إرسال رابط إعادة تعيين كلمة المرور.',
-        );
+        throw CustomException(message: 'PASSWORD_RESET_FAILED');
       }
     } catch (e) {
       log('Exception in sendPasswordResetEmail: ${e.toString()}');
-      throw CustomException(
-        message: 'حدث خطأ غير معروف. الرجاء المحاولة مرة أخرى.',
-      );
+      throw CustomException(message: 'UNKNOWN_ERROR');
     }
   }
 }

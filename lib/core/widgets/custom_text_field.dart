@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../generated/l10n.dart';
+
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
@@ -64,7 +66,7 @@ class CustomTextField extends StatelessWidget {
                     validator ??
                     (value) {
                       if (value == null || value.isEmpty) {
-                        return 'هذا الحقل مطلوب';
+                        return S.of(context).fieldRequired;
                       }
                       return null;
                     },

@@ -3,6 +3,7 @@ import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/helpers/error_message_helper.dart';
 import '../../manager/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'reset_password_view_body.dart';
 
@@ -16,9 +17,7 @@ class ResetPasswordViewBodyBlocConsumer extends StatelessWidget {
         if (state is ResetPasswordSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                S.of(context).passwardResetSuccessfully,
-              ),
+              content: Text(S.of(context).passwardResetSuccessfully),
               backgroundColor: Colors.green,
               duration: Duration(seconds: 3),
             ),
@@ -29,7 +28,7 @@ class ResetPasswordViewBodyBlocConsumer extends StatelessWidget {
         if (state is ResetPasswordFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(state.message),
+              content: Text(getErrorMessage(context, state.message)),
               backgroundColor: AppTheme.primaryColor,
               duration: const Duration(seconds: 3),
             ),

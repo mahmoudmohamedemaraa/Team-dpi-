@@ -1,6 +1,7 @@
 import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/core/cubits/locale_cubit/locale_cubit.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
+import 'package:depi_project/core/helpers/error_message_helper.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
 import 'package:depi_project/core/services/get_it_service.dart';
 import 'package:depi_project/core/widgets/custom_button.dart';
@@ -78,7 +79,9 @@ class ProfileView extends StatelessWidget {
                     (failure) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text(failure.message),
+                          content: Text(
+                            getErrorMessage(context, failure.message),
+                          ),
                           backgroundColor: Colors.red,
                         ),
                       );
@@ -128,10 +131,7 @@ class ProfileView extends StatelessWidget {
           Expanded(
             child: Text(
               S.of(context).language,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-              ),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
             ),
           ),
           Row(
@@ -140,10 +140,13 @@ class ProfileView extends StatelessWidget {
               GestureDetector(
                 onTap: () => _changeLanguage(context, 'ar'),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
-                    color: isArabic 
-                        ? AppTheme.primaryColor 
+                    color: isArabic
+                        ? AppTheme.primaryColor
                         : Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -161,10 +164,13 @@ class ProfileView extends StatelessWidget {
               GestureDetector(
                 onTap: () => _changeLanguage(context, 'en'),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
-                    color: !isArabic 
-                        ? AppTheme.primaryColor 
+                    color: !isArabic
+                        ? AppTheme.primaryColor
                         : Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(8),
                   ),

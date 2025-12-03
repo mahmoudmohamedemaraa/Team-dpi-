@@ -1,4 +1,5 @@
 import 'package:depi_project/core/cubits/get_notifications_cubit/get_notifications_cubit.dart';
+import 'package:depi_project/core/helpers/error_message_helper.dart';
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +23,7 @@ class NotificationsViewBody extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                state.message,
+                getErrorMessage(context, state.message),
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.red, fontSize: 16),
               ),

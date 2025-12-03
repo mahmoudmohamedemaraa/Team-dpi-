@@ -28,7 +28,8 @@ class MediaRepoImpl implements MediaRepo {
       return Right(url);
     } catch (e) {
       log('Error uploading media: $e');
-      return Left(ServerFailure('Failed to upload media: $e'));
+      final errorMessage = e.toString().replaceAll('Exception: ', '');
+      return Left(ServerFailure(errorMessage));
     }
   }
 }
