@@ -69,6 +69,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cyberFraudWarningContinue4": MessageLookupByLibrary.simpleMessage(
       "to protect yourself",
     ),
+    "dataLookupError": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while looking up data",
+    ),
     "day": MessageLookupByLibrary.simpleMessage("day"),
     "days": MessageLookupByLibrary.simpleMessage("days"),
     "deleteAccountError": MessageLookupByLibrary.simpleMessage(
@@ -112,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "errorCheckingNationalId": MessageLookupByLibrary.simpleMessage(
       "An error occurred while verifying the national ID",
+    ),
+    "errorRetrievingNationalId": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while retrieving national ID",
     ),
     "errorWhileLouding": MessageLookupByLibrary.simpleMessage(
       "Error While Loading",
@@ -185,6 +191,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nationalIdExists": MessageLookupByLibrary.simpleMessage(
       "This national ID is already registered",
+    ),
+    "nationalIdNotFoundForEmail": MessageLookupByLibrary.simpleMessage(
+      "National ID not found for this email",
+    ),
+    "nationalIdNotRegistered": MessageLookupByLibrary.simpleMessage(
+      "National ID not registered. Please check your data",
     ),
     "nationalIdOnlyNums": MessageLookupByLibrary.simpleMessage(
       "National ID must contain only numbers",

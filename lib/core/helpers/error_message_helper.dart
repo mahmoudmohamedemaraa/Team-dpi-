@@ -80,6 +80,16 @@ String getErrorMessage(BuildContext context, String errorCode) {
     case 'FAILED_TO_LOAD_USER_REPORTS':
       return s.failedToLoadUserReports;
 
+    // National ID lookup errors
+    case 'NATIONAL_ID_NOT_REGISTERED':
+      return s.nationalIdNotRegistered;
+    case 'DATA_LOOKUP_ERROR':
+      return s.dataLookupError;
+    case 'NATIONAL_ID_NOT_FOUND_FOR_EMAIL':
+      return s.nationalIdNotFoundForEmail;
+    case 'ERROR_RETRIEVING_NATIONAL_ID':
+      return s.errorRetrievingNationalId;
+
     // Default fallback
     default:
       return errorCode; // Return the code itself if no translation found

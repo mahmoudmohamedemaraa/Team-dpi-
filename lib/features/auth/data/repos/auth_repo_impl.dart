@@ -136,14 +136,10 @@ class AuthRepoImplementation extends AuthRepo {
         }
       }
 
-      throw CustomException(
-        message: 'الرقم القومي غير مسجل. الرجاء التحقق من البيانات.',
-      );
+      throw CustomException(message: 'NATIONAL_ID_NOT_REGISTERED');
     } catch (e) {
       if (e is CustomException) rethrow;
-      throw CustomException(
-        message: 'حدث خطأ أثناء البحث عن البيانات. الرجاء المحاولة مرة أخرى.',
-      );
+      throw CustomException(message: 'DATA_LOOKUP_ERROR');
     }
   }
 
@@ -164,12 +160,10 @@ class AuthRepoImplementation extends AuthRepo {
         }
       }
 
-      throw CustomException(
-        message: 'لم يتم العثور على الرقم القومي لهذا الإيميل.',
-      );
+      throw CustomException(message: 'NATIONAL_ID_NOT_FOUND_FOR_EMAIL');
     } catch (e) {
       if (e is CustomException) rethrow;
-      throw CustomException(message: 'حدث خطأ أثناء استرجاع الرقم القومي.');
+      throw CustomException(message: 'ERROR_RETRIEVING_NATIONAL_ID');
     }
   }
 

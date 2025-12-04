@@ -20,107 +20,113 @@ class SigninViewBody extends StatelessWidget {
   late String password;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.w),
-        child: Form(
-          key: formKey,
-          autovalidateMode: autovalidateMode,
-          child: Column(
-            children: [
-              SizedBox(height: 200.h),
-              CustomTextField(
-                onSaved: (value) {
-                  emailOrNationalId = value!;
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return S.of(context).enterEmailOrId;
-                  } else if (!value.contains('@') &&
-                      !RegExp(r'^\d+$').hasMatch(value)) {
-                    return S.of(context).validEmailOrId;
-                  }
-                  return null;
-                },
-                labelText: S.of(context).emailOrId,
-                hintText: 'example@mail.com',
-                obscureText: false,
-                keyboardType: TextInputType.text,
-              ),
-              SizedBox(height: 16.h),
-              CustomPasswordField(
-                onSaved: (value) {
-                  password = value!;
-                },
-              ),
-              SizedBox(height: 30.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, ResetPasswordView.routeName);
-                    },
-                    child: Text(
-                      S.of(context).forgetPassword,
-                      style: TextStyle(
-                        color: AppTheme.primaryColor,
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.h),
-              CustomButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    context.read<SigninCubit>().signIn(
-                      emailOrNationalId,
-                      password,
-                    );
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                  }
-                },
-                text: S.of(context).signIn,
-                gradientColors: AppTheme.primaryGradientColors,
-                shadowColor: AppTheme.primaryShadowColor,
-              ),
-              SizedBox(height: 100.h),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, SignupView.routeName);
-                },
-                child: Column(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: Form(
+            key: formKey,
+            autovalidateMode: autovalidateMode,
+            child: Column(
+              children: [
+                SizedBox(height: 200.h),
+                CustomTextField(
+                  onSaved: (value) {
+                    emailOrNationalId = value!;
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return S.of(context).enterEmailOrId;
+                    } else if (!value.contains('@') &&
+                        !RegExp(r'^\d+$').hasMatch(value)) {
+                      return S.of(context).validEmailOrId;
+                    }
+                    return null;
+                  },
+                  labelText: S.of(context).emailOrId,
+                  hintText: 'example@mail.com',
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                ),
+                SizedBox(height: 16.h),
+                CustomPasswordField(
+                  onSaved: (value) {
+                    password = value!;
+                  },
+                ),
+                SizedBox(height: 30.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(S.of(context).do_notHaveAccount),
-                    SizedBox(height: 15.h),
-                    CustomButton(
-                      text: S.of(context).creatingAccount,
-                      gradientColors: [
-                        const Color.fromARGB(130, 228, 222, 222),
-                        const Color.fromARGB(130, 239, 191, 191),
-                        const Color.fromARGB(130, 228, 222, 222),
-                      ],
-                      shadowColor: const Color.fromARGB(
-                        255,
-                        231,
-                        124,
-                        124,
-                      ).withOpacity(0.5),
-
-                      borderWidth: 1.5.w,
-                      hasShadow: false,
-                      textColor: const Color.fromARGB(255, 0, 0, 0),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          ResetPasswordView.routeName,
+                        );
+                      },
+                      child: Text(
+                        S.of(context).forgetPassword,
+                        style: TextStyle(
+                          color: AppTheme.primaryColor,
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(height: 30.h),
-            ],
+                SizedBox(height: 20.h),
+                CustomButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      context.read<SigninCubit>().signIn(
+                        emailOrNationalId,
+                        password,
+                      );
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                    }
+                  },
+                  text: S.of(context).signIn,
+                  gradientColors: AppTheme.primaryGradientColors,
+                  shadowColor: AppTheme.primaryShadowColor,
+                ),
+                SizedBox(height: 100.h),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, SignupView.routeName);
+                  },
+                  child: Column(
+                    children: [
+                      Text(S.of(context).do_notHaveAccount),
+                      SizedBox(height: 15.h),
+                      CustomButton(
+                        text: S.of(context).creatingAccount,
+                        gradientColors: [
+                          const Color.fromARGB(130, 228, 222, 222),
+                          const Color.fromARGB(130, 239, 191, 191),
+                          const Color.fromARGB(130, 228, 222, 222),
+                        ],
+                        shadowColor: const Color.fromARGB(
+                          255,
+                          231,
+                          124,
+                          124,
+                        ).withOpacity(0.5),
+
+                        borderWidth: 1.5.w,
+                        hasShadow: false,
+                        textColor: const Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 30.h),
+              ],
+            ),
           ),
         ),
       ),

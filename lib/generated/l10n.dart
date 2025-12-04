@@ -1374,6 +1374,46 @@ class S {
       args: [],
     );
   }
+
+  /// `National ID not registered. Please check your data`
+  String get nationalIdNotRegistered {
+    return Intl.message(
+      'National ID not registered. Please check your data',
+      name: 'nationalIdNotRegistered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while looking up data`
+  String get dataLookupError {
+    return Intl.message(
+      'An error occurred while looking up data',
+      name: 'dataLookupError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National ID not found for this email`
+  String get nationalIdNotFoundForEmail {
+    return Intl.message(
+      'National ID not found for this email',
+      name: 'nationalIdNotFoundForEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while retrieving national ID`
+  String get errorRetrievingNationalId {
+    return Intl.message(
+      'An error occurred while retrieving national ID',
+      name: 'errorRetrievingNationalId',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

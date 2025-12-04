@@ -150,6 +150,10 @@
     "reportNotFound":"Report not found",
     "failedToLoadReportData":"Failed to load report data",
     "userIdMissing":"User ID is missing",
-    "failedToLoadUserReports":"An error occurred while loading user reports"
+    "failedToLoadUserReports":"An error occurred while loading user reports",
+    "nationalIdNotRegistered":"National ID not registered. Please check your data",
+    "dataLookupError":"An error occurred while looking up data",
+    "nationalIdNotFoundForEmail":"National ID not found for this email",
+    "errorRetrievingNationalId":"An error occurred while retrieving national ID"
     
 }

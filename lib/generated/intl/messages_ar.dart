@@ -67,6 +67,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cyberFraudWarningContinue4": MessageLookupByLibrary.simpleMessage(
       " الإلكتروني لحماية نفسك",
     ),
+    "dataLookupError": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ أثناء البحث عن البيانات",
+    ),
     "day": MessageLookupByLibrary.simpleMessage("يوم"),
     "days": MessageLookupByLibrary.simpleMessage("أيام"),
     "deleteAccountError": MessageLookupByLibrary.simpleMessage(
@@ -108,6 +111,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "errorCheckingNationalId": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ أثناء التحقق من الرقم القومي",
+    ),
+    "errorRetrievingNationalId": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ أثناء استرجاع الرقم القومي",
     ),
     "failedToAddReport": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ أثناء إضافة البلاغ",
@@ -168,6 +174,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nationalIdExists": MessageLookupByLibrary.simpleMessage(
       "الرقم القومي مسجل بالفعل",
+    ),
+    "nationalIdNotFoundForEmail": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على الرقم القومي لهذا الإيميل",
+    ),
+    "nationalIdNotRegistered": MessageLookupByLibrary.simpleMessage(
+      "الرقم القومي غير مسجل. الرجاء التحقق من البيانات",
     ),
     "nationalIdOnlyNums": MessageLookupByLibrary.simpleMessage(
       "يجب ان يكون الرقم القومي  الأرقام فقط ",

@@ -1,4 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:depi_project/app_theme.dart';
 import 'package:depi_project/features/home/presentation/views/main_screen.dart';
 import 'package:depi_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,9 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is SignupLoading ? true : false,
+          progressIndicator: CircularProgressIndicator(
+            color: AppTheme.primaryColor,
+          ),
           child: const SignupViewBody(),
         );
       },

@@ -32,119 +32,122 @@ class _AddReportViewBodyState extends State<AddReportViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Form(
-          key: formKey,
-          autovalidateMode: autovalidateMode,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 16),
-              // Title field
-              CustomTextField(
-                onSaved: (value) {
-                  title = value!;
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return S.of(context).enterReportTitle;
-                  } else if (value.length < 5) {
-                    return S.of(context).reportTitleAtLeast5;
-                  }
-                  return null;
-                },
-                labelText: S.of(context).reportTitle,
-                hintText: S.of(context).reportEx,
-                obscureText: false,
-                keyboardType: TextInputType.text,
-              ),
-              const SizedBox(height: 16),
-
-              // Description field
-              CustomTextField(
-                onSaved: (value) {
-                  description = value!;
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return S.of(context).enterReportDescription;
-                  } else if (value.length < 10) {
-                    return S.of(context).reportDescriptionAtLeast10;
-                  }
-                  return null;
-                },
-                labelText: S.of(context).reportDescription,
-                hintText: S.of(context).writeReportDescription,
-                obscureText: false,
-                keyboardType: TextInputType.multiline,
-                maxLines: 5,
-              ),
-              const SizedBox(height: 16),
-
-              // Location field (optional)
-              CustomTextField(
-                onSaved: (value) {
-                  address = value?.isEmpty == true ? null : value;
-                },
-                validator: (value) => null,
-                labelText: S.of(context).location,
-                hintText: S.of(context).locationEx,
-                obscureText: false,
-                keyboardType: TextInputType.text,
-              ),
-              const SizedBox(height: 24),
-
-              // Media Section
-              MediaPickerSection(
-                mediaManager: mediaManager,
-                onMediaChanged: () => setState(() {}),
-              ),
-              const SizedBox(height: 16),
-
-              CustomButton(
-                onPressed: () {
-                  if (mediaManager.isNotEmpty) {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      final user = getUser();
-                      ReportEntity reportEntity = ReportEntity(
-                        reportId: const Uuid().v4(),
-                        title: title,
-                        description: description,
-                        userId: user.uId,
-                        mediaUrls: [],
-                        createdAt: DateTime.now(),
-                        updatedAt: DateTime.now(),
-                        address: address,
-                        adminComment: null,
-                      );
-                      context.read<AddReportCubit>().addReport(
-                        reportEntity,
-                        mediaManager.selectedMedia,
-                      );
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Form(
+            key: formKey,
+            autovalidateMode: autovalidateMode,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 16),
+                // Title field
+                CustomTextField(
+                  onSaved: (value) {
+                    title = value!;
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return S.of(context).enterReportTitle;
+                    } else if (value.length < 5) {
+                      return S.of(context).reportTitleAtLeast5;
                     }
-                  } else {
-                    buildSnackBar(
-                      context: context,
-                      title: S.of(context).alert,
-                      message: S.of(context).mustAddMedia,
-                      contentType: ContentType.warning,
-                    );
-                  }
-                },
-                text: S.of(context).sendingReport,
-                // gradientColors: AppTheme.primaryGradientColors,
-                // shadowColor: AppTheme.primaryShadowColor,
-                backgroundColor: AppTheme.primaryColor,
-                hasShadow: false,
-              ),
-              const SizedBox(height: 40),
-            ],
+                    return null;
+                  },
+                  labelText: S.of(context).reportTitle,
+                  hintText: S.of(context).reportEx,
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(height: 16),
+
+                // Description field
+                CustomTextField(
+                  onSaved: (value) {
+                    description = value!;
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return S.of(context).enterReportDescription;
+                    } else if (value.length < 10) {
+                      return S.of(context).reportDescriptionAtLeast10;
+                    }
+                    return null;
+                  },
+                  labelText: S.of(context).reportDescription,
+                  hintText: S.of(context).writeReportDescription,
+                  obscureText: false,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: 5,
+                ),
+                const SizedBox(height: 16),
+
+                // Location field (optional)
+                CustomTextField(
+                  onSaved: (value) {
+                    address = value?.isEmpty == true ? null : value;
+                  },
+                  validator: (value) => null,
+                  labelText: S.of(context).location,
+                  hintText: S.of(context).locationEx,
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(height: 24),
+
+                // Media Section
+                MediaPickerSection(
+                  mediaManager: mediaManager,
+                  onMediaChanged: () => setState(() {}),
+                ),
+                const SizedBox(height: 16),
+
+                CustomButton(
+                  onPressed: () {
+                    if (mediaManager.isNotEmpty) {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        final user = getUser();
+                        ReportEntity reportEntity = ReportEntity(
+                          reportId: const Uuid().v4(),
+                          title: title,
+                          description: description,
+                          userId: user.uId,
+                          mediaUrls: [],
+                          createdAt: DateTime.now(),
+                          updatedAt: DateTime.now(),
+                          address: address,
+                          adminComment: null,
+                        );
+                        context.read<AddReportCubit>().addReport(
+                          reportEntity,
+                          mediaManager.selectedMedia,
+                        );
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    } else {
+                      buildSnackBar(
+                        context: context,
+                        title: S.of(context).alert,
+                        message: S.of(context).mustAddMedia,
+                        contentType: ContentType.warning,
+                      );
+                    }
+                  },
+                  text: S.of(context).sendingReport,
+                  // gradientColors: AppTheme.primaryGradientColors,
+                  // shadowColor: AppTheme.primaryShadowColor,
+                  backgroundColor: AppTheme.primaryColor,
+                  hasShadow: false,
+                ),
+                const SizedBox(height: 40),
+              ],
+            ),
           ),
         ),
       ),

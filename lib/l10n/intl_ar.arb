@@ -149,6 +149,10 @@
     "reportNotFound":"البلاغ غير موجود",
     "failedToLoadReportData":"تعذر تحميل بيانات البلاغ",
     "userIdMissing":"معرف المستخدم غير موجود",
-    "failedToLoadUserReports":"حدث خطأ أثناء تحميل بلاغات المستخدم"
+    "failedToLoadUserReports":"حدث خطأ أثناء تحميل بلاغات المستخدم",
+    "nationalIdNotRegistered":"الرقم القومي غير مسجل. الرجاء التحقق من البيانات",
+    "dataLookupError":"حدث خطأ أثناء البحث عن البيانات",
+    "nationalIdNotFoundForEmail":"لم يتم العثور على الرقم القومي لهذا الإيميل",
+    "errorRetrievingNationalId":"حدث خطأ أثناء استرجاع الرقم القومي"
 
 }
