@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_button.dart';
 import 'package:depi_project/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +20,12 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    // جلب نمط النص الرئيسي الديناميكي
+    final textTheme = Theme.of(context).textTheme;
+    // جلب اللون الأساسي (primaryColor) بشكل ديناميكي
+    final primaryColor = Theme.of(context).primaryColor;
+
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -30,12 +36,12 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 120),
-              const Text(
+              Text(
                 'إعادة تعيين كلمة المرور',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: AppTheme.black,
+                  color: textTheme.titleMedium!.color,
                 ),
               ),
               const SizedBox(height: 12),
@@ -43,7 +49,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                 'أدخل بريدك الإلكتروني أو الرقم القومي وسنرسل لك رابط لإعادة تعيين كلمة المرور',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey.shade600,
+                  color: textTheme.titleMedium!.color,
                   height: 1.4,
                 ),
               ),
@@ -72,14 +78,14 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     context.read<ResetPasswordCubit>().resetPassword(
-                      emailOrNationalId,
-                    );
+                          emailOrNationalId,
+                        );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                   }
                 },
                 text: 'إرسال رابط إعادة التعيين',
-                gradientColors: AppTheme.primaryGradientColors,
+                gradientColors: AppTheme.primaryGradientColors, 
                 shadowColor: AppTheme.primaryShadowColor,
               ),
               const SizedBox(height: 20),
@@ -88,10 +94,11 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
+                  child: Text(
                     'العودة لتسجيل الدخول',
                     style: TextStyle(
-                      color: AppTheme.primaryColor,
+                      // 🛠️ التعديل الثالث: استخدام اللون الأساسي الديناميكي
+                      color: primaryColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),

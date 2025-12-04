@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfoTile extends StatelessWidget {
@@ -19,7 +19,9 @@ class ProfileInfoTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+              color: Theme.of(context).brightness == Brightness.dark 
+    ? const Color.fromARGB(255, 38, 41, 43)
+    :  AppTheme.lightGrey ,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -32,16 +34,17 @@ class ProfileInfoTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     fontSize: 14,
-                    color: Color.fromARGB(223, 175, 170, 170),
-                  ),
+                  color: Theme.of(context).colorScheme.onSurface, 
+                ),
                 ),
                 Text(
                   value,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ],

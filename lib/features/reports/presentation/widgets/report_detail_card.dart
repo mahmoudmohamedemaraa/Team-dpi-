@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
 import 'package:depi_project/features/reports/presentation/views/report_details_screen.dart';
@@ -38,7 +38,9 @@ class ReportDetailCard extends StatelessWidget {
         margin: const EdgeInsets.all(8),
         elevation: 2,
         shadowColor: AppTheme.black,
-        color: AppTheme.lightGrey,
+      color: Theme.of(context).brightness == Brightness.dark 
+    ? const Color.fromARGB(255, 38, 41, 43)
+    : AppTheme.lightGrey,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -52,7 +54,7 @@ class ReportDetailCard extends StatelessWidget {
                     child: Text(
                       data.title,
                       style: TextStyle(
-                        color: AppTheme.black,
+                        color: Theme.of(context).colorScheme.onSurface,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -78,10 +80,10 @@ class ReportDetailCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 3),
               Text(
                 data.description,
-                style: TextStyle(color: AppTheme.black, fontSize: 12),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 12),
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -95,7 +97,7 @@ class ReportDetailCard extends StatelessWidget {
                       child: Text(
                         data.address!,
                         style: TextStyle(
-                          color: AppTheme.darkGrey,
+                         color: Theme.of(context).colorScheme.onSurface,
                           fontSize: 12,
                         ),
                         maxLines: 2,
@@ -107,7 +109,7 @@ class ReportDetailCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 'تاريخ البلاغ : ${data.createdAt.day}/${data.createdAt.month}/${data.createdAt.year} ',
-                style: TextStyle(color: AppTheme.darkGrey, fontSize: 10),
+                style: TextStyle( color: Theme.of(context).colorScheme.onSurface, fontSize: 10),
               ),
             ],
           ),

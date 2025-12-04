@@ -1,6 +1,7 @@
 part of 'get_notifications_cubit.dart';
 
 @immutable
+
 sealed class GetNotificationsState extends Equatable {
   const GetNotificationsState();
 

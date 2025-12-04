@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class NotificationBadgeIcon extends StatelessWidget {

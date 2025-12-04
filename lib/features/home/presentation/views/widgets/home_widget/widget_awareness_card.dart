@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class WidgetAwarenessCard extends StatelessWidget {
@@ -20,6 +20,12 @@ class WidgetAwarenessCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0.5,
+      shadowColor: AppTheme.black,
+      color: Theme.of(context).brightness == Brightness.dark 
+    ? const Color.fromARGB(255, 38, 41, 43)
+    : AppTheme.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.only(
           left: 16,
@@ -41,7 +47,7 @@ class WidgetAwarenessCard extends StatelessWidget {
                 Text(
                   text2,
                   style: TextStyle(
-                    color: AppTheme.black,
+                   color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -49,32 +55,28 @@ class WidgetAwarenessCard extends StatelessWidget {
                 SizedBox(height: 16),
                 Text(
                   text3,
-                  style: TextStyle(color: AppTheme.darkGrey, fontSize: 14),
+                  style: TextStyle( color: Theme.of(context).colorScheme.onSurface, fontSize: 14),
                 ),
                 Text(
                   text4,
-                  style: TextStyle(color: AppTheme.darkGrey, fontSize: 14),
+                  style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 14),
                 ),
               ],
             ),
             Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(imageUrl, fit: BoxFit.cover),
-              ),
               height: 100,
               width: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(imageUrl, fit: BoxFit.cover),
+              ),
             ),
           ],
         ),
       ),
-      elevation: 0.5,
-      shadowColor: AppTheme.black,
-      color: AppTheme.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     );
   }
 }

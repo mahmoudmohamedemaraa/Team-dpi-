@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:depi_project/features/emergency_numbers/presentation/views/widgets/widget_emergency_numbers.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +10,9 @@ class EmergencyNumbersBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.white,
-      appBar: buildAppBar(title: 'ارقام الطوارئ'),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: buildAppBar( context, title: 'ارقام الطوارئ',
+      ),
       body: Padding(
         padding: const EdgeInsets.only(right: 16, left: 16),
         child: ListView(
@@ -19,6 +20,7 @@ class EmergencyNumbersBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16),
               child: Container(
+                
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -27,9 +29,9 @@ class EmergencyNumbersBody extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "يرجى استخدام هذه الأرقام فقط في حالات الطوارئ الفعلية.",
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleSmall!.copyWith(color: AppTheme.black),
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                 fontWeight: FontWeight.w600,
+),
                       ),
                     ),
                     SizedBox(width: 8),

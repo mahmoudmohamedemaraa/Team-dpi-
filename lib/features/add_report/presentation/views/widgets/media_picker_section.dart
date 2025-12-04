@@ -79,8 +79,14 @@ class MediaPickerSection extends StatelessWidget {
           Container(
             height: 150,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey[300]!),
+              color: Theme.of(context).brightness == Brightness.dark
+              ? Colors.grey.shade800
+             : Colors.grey.shade100,
+              border: Border.all(color: Theme.of(context).brightness == Brightness.dark
+              ? const Color.fromARGB(255, 110, 110, 110)
+             : const Color.fromARGB(255, 215, 210, 210),),
               borderRadius: BorderRadius.circular(12),
+              
             ),
             child: Center(
               child: Column(

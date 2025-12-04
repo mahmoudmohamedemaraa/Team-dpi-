@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/helpers/media_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class MediaSectionHeader extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: Colors.black87,
+            color: Theme.of(context).textTheme.bodyLarge?.color,
           ),
           textAlign: TextAlign.start,
         ),

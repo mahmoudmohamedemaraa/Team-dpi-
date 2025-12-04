@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -137,7 +137,6 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   }
                 },
                 text: ' انشاء حساب',
-                textColor: const Color.fromARGB(255, 11, 11, 11),
                 gradientColors: AppTheme.primaryGradientColors,
                 shadowColor: const Color.fromARGB(
                   255,
@@ -171,7 +170,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
 
                       borderWidth: 1.5,
                       hasShadow: false,
-                      textColor: const Color.fromARGB(255, 11, 11, 11),
+                      textColor: const Color.fromARGB(255, 50, 50, 50),
                     ),
                   ],
                 ),

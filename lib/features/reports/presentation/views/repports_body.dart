@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/features/reports/presentation/manager/cubit/reports_cubit.dart';
 import 'package:depi_project/features/reports/presentation/manager/cubit/reports_state.dart';
@@ -22,8 +22,8 @@ class _RepportsBodyState extends State<RepportsBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.white,
-      appBar: buildAppBar(title: 'بلاغاتي'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: buildAppBar( context, title: 'بلاغاتي'),
       body: BlocProvider(
         create: (_) => GetUserReportsCubit()..listenToUserReports(),
         child: BlocBuilder<GetUserReportsCubit, GetUserReportsState>(

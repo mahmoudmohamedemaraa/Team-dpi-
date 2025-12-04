@@ -72,8 +72,8 @@ class _MainScreenState extends State<MainScreen> {
             boxShadow: [
               BoxShadow(
                 color: Color(0xFFFF6B5E), // توهج أحمر
-                blurRadius: 20,
-                spreadRadius: 5,
+                blurRadius: 10,
+                spreadRadius: 1,
               ),
             ],
           ),
@@ -106,11 +106,11 @@ class _MainScreenState extends State<MainScreen> {
                   : 0;
 
               return BottomNavigationBar(
-                elevation: 0,
                 type: BottomNavigationBarType.fixed,
+                elevation: 0,
                 currentIndex: currentIndex,
                 selectedItemColor: const Color(0xFFFF6B5E),
-                unselectedItemColor: const Color.fromARGB(153, 86, 83, 83),
+                unselectedItemColor: Theme.of(context).unselectedWidgetColor,
                 iconSize: 24,
                 onTap: (index) => setState(() => currentIndex = index),
                 items: [

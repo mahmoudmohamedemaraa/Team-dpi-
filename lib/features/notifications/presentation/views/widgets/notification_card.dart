@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +26,10 @@ class NotificationCard extends StatelessWidget {
         onTap: () => handleTap(context),
         child: Container(
           decoration: BoxDecoration(
-            color: notification.isRead ? AppTheme.lightGrey : AppTheme.lightRed,
+          color: Theme.of(context).brightness == Brightness.dark 
+         ? notification.isRead ? const Color.fromARGB(255, 38, 41, 43) : const Color.fromARGB(255, 230, 103, 96)
+         : notification.isRead ? AppTheme.lightGrey : AppTheme.lightRed,
+            // color: notification.isRead ? AppTheme.lightGrey : AppTheme.lightRed,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppTheme.primaryColor.withOpacity(0.1)),
           ),
@@ -39,10 +42,10 @@ class NotificationCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       notification.title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: AppTheme.black,
+                        color: Theme.of(context).colorScheme.onSurface
                       ),
                       textAlign: TextAlign.right,
                     ),
@@ -58,7 +61,7 @@ class NotificationCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 notification.message,
-                style: const TextStyle(fontSize: 14, color: AppTheme.black),
+                style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface),
                 textAlign: TextAlign.right,
               ),
               const SizedBox(height: 12),
@@ -77,7 +80,7 @@ class NotificationCard extends StatelessWidget {
                   const Spacer(),
                   Text(
                     formattedDate,
-                    style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+                    style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurface),
                     textAlign: TextAlign.right,
                   ),
                 ],

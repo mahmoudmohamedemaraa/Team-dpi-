@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
@@ -41,7 +41,9 @@ class _WidgetEmergencyNumbersState extends State<WidgetEmergencyNumbers> {
           borderRadius: BorderRadius.circular(10),       
           child: Container(
             decoration: BoxDecoration(
-              color: AppTheme.lightRed,
+            color: Theme.of(context).brightness == Brightness.dark
+            ? const Color.fromARGB(255, 230, 103, 96)
+            : AppTheme.lightRed,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Padding(
@@ -55,7 +57,7 @@ class _WidgetEmergencyNumbersState extends State<WidgetEmergencyNumbers> {
                       Text(
                         widget.text1,
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                              color: AppTheme.black,
+                             color: Theme.of(context).colorScheme.onSurface,
                               fontWeight: FontWeight.bold
                             ), 
                       ),
@@ -63,13 +65,20 @@ class _WidgetEmergencyNumbersState extends State<WidgetEmergencyNumbers> {
                       Text(
                         widget.number,
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                              color: AppTheme.primaryColor,
+                           color: Theme.of(context).brightness == Brightness.light
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.onSurface,
                               fontWeight: FontWeight.bold
                             ), 
                       ),
                     ],
                   ),
-                  Icon(widget.icon, color: AppTheme.primaryColor, size: 40),
+                  Icon(
+                  widget.icon,
+                 color: Theme.of(context).brightness == Brightness.light
+                 ? Theme.of(context).colorScheme.primary
+                 : Theme.of(context).colorScheme.onSurface,
+                   size: 40),
                 ],
               ),
             ),
@@ -92,7 +101,7 @@ class _WidgetEmergencyNumbersState extends State<WidgetEmergencyNumbers> {
                     child: Text(
                       'هل تريد الاتصال الآن بـ ${widget.number}؟',
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            color: AppTheme.black,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontWeight: FontWeight.bold,
                           ),
                       textAlign: TextAlign.right,

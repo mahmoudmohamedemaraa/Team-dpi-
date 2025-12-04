@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
 import 'package:depi_project/core/services/get_it_service.dart';
@@ -17,8 +17,9 @@ class NotificationsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final view = Scaffold(
-      backgroundColor: AppTheme.white,
-      appBar: buildAppBar(title: 'الاشعارات'),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: buildAppBar( context, title: 'الاشعارات',
+      ),
       body: const NotificationsViewBody(),
     );
 

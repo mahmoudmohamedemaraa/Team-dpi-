@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 import '../../../features/notifications/domain/entities/report_notification_entity.dart';
 import '../../../features/notifications/domain/repos/notifications_repo.dart';
@@ -157,12 +157,6 @@ class NotificationOpenResult {
 }
 
 class NotificationTapResult {
-  const NotificationTapResult._({
-    this.report,
-    this.errorMessage,
-    required this.action,
-  });
-
   final ReportEntity? report;
   final String? errorMessage;
   final NotificationTapAction action;

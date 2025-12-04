@@ -1,9 +1,10 @@
 import 'dart:developer';
 
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/helpers/get_user.dart';
 import 'package:depi_project/features/add_report/presentation/views/add_report_view.dart';
 import 'package:depi_project/features/from_home_to_page/security_tips_page/presentation/security_tips_page.dart';
+import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widgets_theme_toggle_button.dart';
 import 'package:depi_project/features/profile/presentation/views/profile_view.dart';
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_awareness_card.dart';
 import 'package:depi_project/features/home/presentation/views/widgets/home_widget/widget_quick_options.dart';
@@ -17,7 +18,7 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(right: 16, left: 16),
@@ -54,7 +55,7 @@ class HomeLayout extends StatelessWidget {
                             Text(
                               "مرحبا بك",
                               style: TextStyle(
-                                color: AppTheme.darkGrey,
+                                color: Theme.of(context).colorScheme.onSurface,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -62,7 +63,7 @@ class HomeLayout extends StatelessWidget {
                             Text(
                               "${getUser().firstName} ${getUser().lastName}",
                               style: TextStyle(
-                                color: AppTheme.black,
+                                color: Theme.of(context).colorScheme.onSurface,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -72,7 +73,7 @@ class HomeLayout extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(Icons.settings, size: 30, color: AppTheme.darkGrey),
+         ThemeToggleButton(),
                 ],
               ),
               SizedBox(height: 32),
@@ -153,7 +154,7 @@ class HomeLayout extends StatelessWidget {
               Text(
                 "خيارات سريعة",
                 style: TextStyle(
-                  color: AppTheme.black,
+                color: Theme.of(context).colorScheme.onSurface,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),

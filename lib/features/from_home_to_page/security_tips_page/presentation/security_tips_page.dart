@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -63,9 +63,13 @@ class SecurityTipsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final bool isDarkMode = theme.brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: AppTheme.white,
-      appBar: buildAppBar(title: 'نصائح أمنية'),
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: buildAppBar( context, title: 'نصائح أمنية',
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
         itemCount: tips.length,
@@ -76,12 +80,12 @@ class SecurityTipsPage extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.grey.shade100,
+                color: isDarkMode ? theme.colorScheme.surface : Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.grey.shade200),
+                border: Border.all(color: isDarkMode ? Colors.grey.shade700 : Colors.grey.shade200,),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: isDarkMode ? Colors.black.withOpacity(0.4) : Colors.black.withOpacity(0.05),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
@@ -94,8 +98,8 @@ class SecurityTipsPage extends StatelessWidget {
                 ),
                 title: Text(
                   tip["text"],
-                  style: const TextStyle(
-                    color: AppTheme.black,
+                  style: TextStyle(
+                   color: theme.colorScheme.onSurface,
                     fontSize: 15,
                     height: 1.4,
                     fontWeight: FontWeight.w500,

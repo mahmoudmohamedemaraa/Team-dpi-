@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/entities/report_entity.dart';
 import 'package:depi_project/core/enums/report_status_enums.dart';
 import 'package:depi_project/core/helpers/build_app_bar.dart';
@@ -29,7 +29,7 @@ class ReportDetailsScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: buildAppBar(title: 'تفاصيل البلاغ'),
+      appBar: buildAppBar( context, title: 'تفاصيل البلاغ' ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -37,10 +37,10 @@ class ReportDetailsScreen extends StatelessWidget {
           children: [
             Text(
               report.title,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.black,
+                 color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 16),
@@ -143,7 +143,9 @@ class ReportDetailsScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  color: Theme.of(context).brightness == Brightness.dark 
+                   ? const Color.fromARGB(255, 38, 41, 43)
+                    : AppTheme.lightGrey,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: AppTheme.darkGrey.withOpacity(0.5)),
                 ),
@@ -162,7 +164,7 @@ class ReportDetailsScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         report.adminComment!,
-                        style: const TextStyle(fontSize: 16),
+                        style:  TextStyle(color: Theme.of(context).colorScheme.onSurface,fontSize: 16),
                       ),
                     ),
                   ],

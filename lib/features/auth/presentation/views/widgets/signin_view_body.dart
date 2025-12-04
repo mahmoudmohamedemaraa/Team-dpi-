@@ -1,4 +1,4 @@
-import 'package:depi_project/app_theme.dart';
+import 'package:depi_project/core/theme/app_theme.dart';
 import 'package:depi_project/core/widgets/custom_button.dart';
 import 'package:depi_project/core/widgets/custom_password_field.dart';
 import 'package:depi_project/features/auth/presentation/views/signup_view.dart';
@@ -112,7 +112,7 @@ class SigninViewBody extends StatelessWidget {
 
                       borderWidth: 1.5,
                       hasShadow: false,
-                      textColor: const Color.fromARGB(255, 0, 0, 0),
+                     textColor: const Color.fromARGB(255, 50, 50, 50),
                     ),
                   ],
                 ),
